@@ -1,44 +1,10 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
-
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
-
-
 # Your Life in Numbers
 
 Python Essentials Project Portfolio - Code Institute_
 
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)
 
- 
+ *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex, height, weight and habits. Upon receiving the user's input, the application presents/calculates the specified information reagrding the chosen topic. Subsequently, the user has the option to either persist with the chosen feature, switch to another feature, or exit the application. 
 
 ![Responsive Mockup](documentation/)
 
@@ -56,7 +22,7 @@ View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)
 
 ### User stories
 
--  
+-  *Your Life in numbers* is for those who are interested in statistics about life expectancy, health topics and trivial facts around the age of a human. 
 
 ## Design
 
@@ -89,6 +55,7 @@ xxx
 <br>
 
 ![Screenshot](documentation/)
+</details>
 
 ### Features, which I would like to implement in the future
 
@@ -129,9 +96,6 @@ To ensure the pages are responsive, I used the Google Chrome developer tools.
 | **Test** | **Test Description** | **Expected Outcome** | **Result**|
 |:---|:---|:---|:---|
 
-
-I tried the game with my children. The younger (preschool/kindergarten) played it on the mobile phone and the older (4th grade) on the laptop. My younger child was helped type the name on the first try. After the window had refreshed again, she clicked the start button in another game. The fact that her name was no longer there, she found not bad. 
-My older child had no difficulty understanding the meaning of the game. He is especially encouraged to improve his own high score. Both children have only a basic understanding of English, but were able to grasp the game without difficulty. 
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
