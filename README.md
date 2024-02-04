@@ -48,7 +48,8 @@ View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)
 
 ### Existing Features
 
-xxx
+The ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)
+
 
 <details>
 <summary> Screenshot x </summary>
@@ -72,6 +73,7 @@ xxx
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to display the website on different devices.
 - [beautifier](https://beautifier.io/) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README. 
+- [Colorama](https://pypi.org/project/colorama/)was used to color the text in the terminal.  
 
 ## Testing
 
@@ -95,6 +97,7 @@ To ensure the pages are responsive, I used the Google Chrome developer tools.
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result**|
 |:---|:---|:---|:---|
+
 
 
 4. **Browser Compatibility**<br>
@@ -140,10 +143,9 @@ After refreshing the settings site for this repository above the **"Build and de
 ### Content
 
 - The background image is 
-- To write the various congratulation texts, I was inspired by the listing of [7ESL](https://7esl.com/well-done/)
+- xxx
 
 ### Code
-
 
 - To understand more about the concepts of JavaScript, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - The following websites were used as a source of knowledge: <br>
@@ -157,7 +159,7 @@ After refreshing the settings site for this repository above the **"Build and de
 
 ### Media
 
-- 
+- To understand more about Colorama I watched the tutorial by [Tech with Tim](https://www.youtube.com/watch?v=u51Zjlnui4Y)
 
 ### ReadMe
 
