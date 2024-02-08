@@ -60,13 +60,36 @@ def programm_start():
 """)
     print("Welcome to " + Fore.GREEN + "Your Life in numbers" + Fore.WHITE + "!")
     print("In this application you can learn some facts based on figures about your life.")
-    print("Since this is senisblere data, you must first create an account.")
+    print("Since this is sensiblere data, you must first create an account.")
     
-def login_menu():
+def account_question():
     '''
-    Show user login menu,
+    Ask user if account already exists or new one needs to be created.
+    After validation of users input, display the corresponding function
     '''
+    # print menu
+    print("1. Create new account")
+    print("2. Login to account")
+    print("3. Forget my password")
+    #ask user for input and validate the input 
+    while True:
+        try: 
+            account_selection = input(Fore.YELLOW + "Please enter your selection(1,2 or 3): \n")
+            if account_selection == "1":
+                print(Fore.WHITE + f"You choose {account_selection}")
+                break
+            if account_selection == "2":
+                print(Fore.WHITE + f"You choose {account_selection}")
+                break
+            if account_selection == "3":
+                print(Fore.WHITE + f"You choose {account_selection}")
+                break
+            else:
+                print(Fore.RED + "Sorry, invalid input.")
+        except ValueError as e:
+            print(f"Sorry {e}, please try again. \n")
 
 
 programm_start()
+account_question()
 
