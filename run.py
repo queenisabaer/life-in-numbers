@@ -6,8 +6,11 @@ colorama.init(autoreset=True) # Reset the color and the style automatically
 # Import the sys and time library (e.g. for text typing effects)
 import time,sys 
 
-# Import the os library (e.g for clearing the screen)
+# Import the os library (e.g. for clearing the screen)
 import os
+
+# Import datetime library (e.g. for validating the birthyear)
+import datetime
 
 '''
 For the import of the gspread library and setting up the APIs, I used the 
@@ -48,7 +51,7 @@ def typing_print(text):
     for character in text:
         sys.stdout.write(character) 
         sys.stdout.flush()
-        time.sleep(0.05) # pause execution with a 0.05 seconds delay
+        time.sleep(0.01) # pause execution with a 0.05 seconds delay
 
 # Start the programm
 def programm_start():
@@ -67,51 +70,79 @@ def programm_start():
 """)
     print("Welcome to " + Fore.GREEN + "Your Life in numbers" + Fore.WHITE + "!\n")
     print("In this application you learn some facts based on data around your life.")
-    print("Since this is sensiblere data, you need an account.")
-    print("Please choose from the following options: \n")
-    account_question()
+    print("But first you need to enter some details about yourself.\n")
+    get_name()
+    get_birthdate()
+
+
+
+  
+# def account_question():
+#     '''
+#     Ask user, if account already exists or new one needs to be created.
+#     After validation of users input, display the corresponding function/message
+#     '''
+#     # print menu
+#     print("1. Create new account")
+#     print("2. Login to existing account")
+#     print("3. I forgot my password")
+#     print("4. Exit\n")
+#     # Ask user for input and validate the input 
+#     while True:
+#         try: 
+#             account_selection = input(Fore.YELLOW + "Enter your selection(1, 2, 3 or 4): \n" + Fore.WHITE + "")
+#             if account_selection == "1":
+#                 clear_screen()
+#                 create_account()
+#                 break
+#             if account_selection == "2":
+#                 print(Fore.WHITE + f"You choose {account_selection}")
+#                 break
+#             if account_selection == "3":
+#                 print(Fore.WHITE + f"You choose {account_selection}")
+#                 break
+#             if account_selection == "4":
+#                 print(Fore.WHITE + "Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers" )
+#                 time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
+#                 clear_screen()
+#                 break
+#             else:
+#                 print(Fore.RED + "Sorry, invalid input. Please enter 1, 2, 3 or 4!")
+#         except ValueError as e:
+#             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
+
+def get_name():
+    """
+    Ask user for its name and validate the input
+    """
+    while True:
+        try:
+            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n")
+            if len(username) > 15:
+                raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
+            if not username:
+                raise ValueError(Fore.RED + "Sorry, you must add an username")
+            if username.isalpha() == False:
+                raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
+            break    
+        except ValueError as e:
+            print(e)
     
-def account_question():
-    '''
-    Ask user, if account already exists or new one needs to be created.
-    After validation of users input, display the corresponding function/message
-    '''
-    # print menu
-    print("1. Create new account")
-    print("2. Login to existing account")
-    print("3. I forgot my password")
-    print("4. Exit\n")
-    # Ask user for input and validate the input 
+    return username
+
+def get_birthdate():
+    print(f"Nice to meet you, {get_name()}!")
     while True:
         try: 
-            account_selection = input(Fore.YELLOW + "Enter your selection(1, 2, 3 or 4): \n" + Fore.WHITE + "")
-            if account_selection == "1":
-                clear_screen()
-                create_account()
-                break
-            if account_selection == "2":
-                print(Fore.WHITE + f"You choose {account_selection}")
-                break
-            if account_selection == "3":
-                print(Fore.WHITE + f"You choose {account_selection}")
-                break
-            if account_selection == "4":
-                print(Fore.WHITE + "Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers" )
-                time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
-                clear_screen()
-                break
-            else:
-                print(Fore.RED + "Sorry, invalid input. Please enter 1, 2, 3 or 4!")
+            birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
+            if not birthyear:
+                raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
+            if not birthyear.isdigit() or len(birthyear) != 4:
+                raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
+            break
         except ValueError as e:
-            print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
-
-def create_account():
-    """
-    Create a new account
-    """
-    typing_print("To create a new account you need to choose a username and a password. \n")
-    username=input(Fore.CYAN + "Please enter a username: ")
-    print(username)
+            print(e)
+    
 
 programm_start()
 
