@@ -72,7 +72,7 @@ def programm_start():
     print("In this application you learn some facts based on data around your life.")
     print("But first you need to enter some details about yourself.\n")
     get_name()
-    get_birthdate()
+    get_birthyear()
 
 
 
@@ -113,7 +113,9 @@ def programm_start():
 
 def get_name():
     """
-    Ask user for its name and validate the input
+    Ask user for its name and validate the input.
+        Parameters: None
+        Returns: username
     """
     while True:
         try:
@@ -121,7 +123,7 @@ def get_name():
             if len(username) > 15:
                 raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
             if not username:
-                raise ValueError(Fore.RED + "Sorry, you must add an username")
+                raise ValueError(Fore.RED + "Sorry, you must add an name")
             if username.isalpha() == False:
                 raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
             break    
@@ -130,19 +132,34 @@ def get_name():
     
     return username
 
-def get_birthdate():
-    print(f"Nice to meet you, {get_name()}!")
+def get_birthyear():
+    """
+    Get users birthyear and validate the input. 
+        Parameter: None
+        Returns: birthyear
+    """
+    name = get_name()
+    print(f"Nice to meet you, {name}")
     while True:
         try: 
             birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
+            # Check if the year is within a reasonable range
+            current_year = int(str(datetime.datetime.now().year)) 
+            birthyear_num = int(birthyear)
+            min_year = current_year - 100
+            max_year = current_year + 0
             if not birthyear:
                 raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
             if not birthyear.isdigit() or len(birthyear) != 4:
                 raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
+            if birthyear_num <= min_year:
+                raise ValueError(Fore.RED + "Seems like you already lived ages. Please enter a number less than 100 years into the past")
+            if birthyear_num >=  max_year:
+                raise ValueError(Fore.RED + "Pretty sure a (future) baby is not able to enter its birthyear")
             break
         except ValueError as e:
             print(e)
-    
+    return birthyear
 
 programm_start()
 
