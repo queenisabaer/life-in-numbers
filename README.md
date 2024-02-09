@@ -149,6 +149,7 @@ After refreshing the settings site for this repository above the **"Build and de
 
 - To import the gspread library and setting the APIs, I used the walkthrough project *love-sandwich* from Code Institute. 
 - How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/)
+- To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
 - To understand more about the concepts of JavaScript, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
