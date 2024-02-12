@@ -51,7 +51,7 @@ def typing_print(text):
     for character in text:
         sys.stdout.write(character) 
         sys.stdout.flush()
-        time.sleep(0.01) # pause execution with a 0.05 seconds delay
+        time.sleep(0.025) # pause execution with a 0.05 seconds delay
 
 # Start the programm
 def programm_start():
@@ -68,11 +68,14 @@ def programm_start():
 ||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__||     
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
 """)
-    print("Welcome to " + Fore.GREEN + "Your Life in numbers" + Fore.WHITE + "!\n")
-    print("In this application you learn some facts based on data around your life.")
-    print("But first you need to enter some details about yourself.\n")
-    get_name()
+    typing_print("In this application, you will learn some facts based on data related to your life by entering some details about yourself.\n")
+    time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
     get_birthyear()
+    typing_print("Some of the predictions are based on scientific calculations that include gender.")
+    print("\nDear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
+    typing_print("I know this is not perfect, but I would kindly ask you to:\n")
+    get_gender()
+
 
 
 
@@ -119,7 +122,7 @@ def get_name():
     """
     while True:
         try:
-            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n")
+            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize()
             if len(username) > 15:
                 raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
             if not username:
@@ -139,27 +142,41 @@ def get_birthyear():
         Returns: birthyear
     """
     name = get_name()
-    print(f"Nice to meet you, {name}")
+    print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {name}.")
     while True:
         try: 
             birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
             # Check if the year is within a reasonable range
             current_year = int(str(datetime.datetime.now().year)) 
-            birthyear_num = int(birthyear)
             min_year = current_year - 100
             max_year = current_year + 0
             if not birthyear:
                 raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
             if not birthyear.isdigit() or len(birthyear) != 4:
                 raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
+            birthyear_num = int(birthyear)
             if birthyear_num <= min_year:
                 raise ValueError(Fore.RED + "Seems like you already lived ages. Please enter a number less than 100 years into the past")
             if birthyear_num >=  max_year:
                 raise ValueError(Fore.RED + "Pretty sure a (future) baby is not able to enter its birthyear")
+            print(Fore.GREEN + "Great age!")
             break
         except ValueError as e:
             print(e)
     return birthyear
+
+def get_gender():
+    while True:
+        try:
+            gender = input(Fore.CYAN + "Please enter the gender assigned at birth or your current pyhiscal sex(m/w):" + Fore.WHITE + "\n")
+            if not gender:
+                raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or w")
+            if gender.isdigit() or len(gender) != 1 or not ['m', 'w']:
+                raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or w.")
+            break
+        except ValueError as e:
+            print(e)
+
 
 programm_start()
 
