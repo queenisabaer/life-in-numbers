@@ -72,8 +72,9 @@ def programm_start():
     time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
     get_birthyear()
     typing_print("Some of the predictions are based on scientific calculations that include gender.")
-    print("\nDear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
-    typing_print("I know this is not perfect, but I would kindly ask you to:\n")
+    print(Fore.LIGHTYELLOW_EX + "\nATTENTION!: " + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
+    typing_print("I know this is not perfect, but since some of the calculations require gender, an statement needs to be made.\n")
+    typing_print("Be sure, that the information will not be used for a discriminatory purpose.\n")
     get_gender()
 
 
@@ -166,16 +167,24 @@ def get_birthyear():
     return birthyear
 
 def get_gender():
+    """
+    Get users gender and validate input. 
+    Parameters: None
+    Returns: gender
+    """
     while True:
         try:
-            gender = input(Fore.CYAN + "Please enter the gender assigned at birth or your current pyhiscal sex(m/w):" + Fore.WHITE + "\n")
+            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/w):" + Fore.WHITE + "\n")
             if not gender:
                 raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or w")
-            if gender.isdigit() or len(gender) != 1 or not ['m', 'w']:
+            if gender.isdigit() or len(gender) != 1: 
                 raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or w.")
+            if gender not in ['m', 'w', 'M', 'W']: 
+                raise ValueError(Fore.RED + "Please enter only m or w")
             break
         except ValueError as e:
             print(e)
+    return gender
 
 
 programm_start()
