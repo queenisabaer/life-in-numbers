@@ -46,7 +46,7 @@ def typing_print(text):
     '''
     Print text character by character with a delay of 0.05 seconds
     Parameters: 
-        text(str): Text to be printed to the console
+        text(str): Text to be printed to the console with time delay
     '''
     for character in text:
         sys.stdout.write(character) 
@@ -59,9 +59,9 @@ def programm_start():
     Start the Programm, show welcome panel and login information
     '''
     programm_logo()
-    typing_print("In this application, you will learn some facts based on data related to your\n")
-    typing_print("life by entering some details about yourself. You have the option to select\n")
-    typing_print("from different topics. But first, let's start with your name and birthyear.\n")
+    typing_print(r"""In this application, you will learn some facts based on data related to your
+life by entering some details about yourself. You have the option to select
+from different topics. But first, let's start with your name and birthyear.\n""")
     time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
 
 def programm_logo():
@@ -81,18 +81,11 @@ def programm_logo():
 
 def get_user_input():
     get_birthyear()
-    typing_print("Some of the predictions are based on scientific calculations that include gender")
-    print(Fore.LIGHTYELLOW_EX + "\nATTENTION!: " + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
-    typing_print("I know this is not perfect, but since some of the calculations require gender,\n")
-    typing_print("an statement needs to be made for gender assigned at birth or current pyhsical\n")
-    typing_print("sex. Be sure, that the information will not be used for a discriminatory\n")
-    typing_print("purpose. Please use m for male and f for female.\n")
     get_gender()
     typing_print("Now the app needs your height in meters(e.g. 1.75)\n")
     height = get_weight_and_height('height', 'meters')
     typing_print("And finally your weight in kg(e.g. 69.4)\n")
     eight = get_weight_and_height('weight', 'kg')
-    time.sleep(2)
     clear_screen()
 
 def get_name():
@@ -155,6 +148,12 @@ def get_gender():
     Parameters: None
     Returns: gender
     """
+    typing_print("Some of the predictions are based on scientific calculations that include gender")
+    print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
+    typing_print(r"""it's true that this isn't perfect, but since some of the calculations require
+gender, an statement needs to be made for gender assigned at birth or current
+physical sex. Be sure, that the information will not be used for a
+discriminatory purpose. Please use m for male and f for female.\n""")
     while True:
         try:
             gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n")
