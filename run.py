@@ -58,7 +58,17 @@ def programm_start():
     '''
     Start the Programm, show welcome panel and login information
     '''
-    print(Fore.GREEN + r"""
+    programm_logo()
+    typing_print("In this application, you will learn some facts based on data related to your\n")
+    typing_print("life by entering some details about yourself. You have the option to select\n")
+    typing_print("from different topics. But first, let's start with your name and birthyear.\n")
+    time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
+
+def programm_logo():
+     """
+     Print an ASCII Art Logo for the application Your life in numbers
+     """
+     print(Fore.GREEN + r"""
  ____ ____ ____ ____ _________ ____ ____ ____ ____ _________ 
 ||Y |||o |||u |||r |||       |||L |||i |||f |||e |||       ||
 ||__|||__|||__|||__|||_______|||__|||__|||__|||__|||_______||
@@ -68,21 +78,15 @@ def programm_start():
 ||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__||     
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
 """)
-    typing_print("In this application, you will learn some facts based on data related to your\n")
-    typing_print("life by entering some details about yourself. You can then choose from different\n")
-    typing_print("topics. But first, let's start with your name and birthyear.\n")
-    time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
-    get_user_input()
-
-
 
 def get_user_input():
     get_birthyear()
     typing_print("Some of the predictions are based on scientific calculations that include gender")
     print(Fore.LIGHTYELLOW_EX + "\nATTENTION!: " + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
     typing_print("I know this is not perfect, but since some of the calculations require gender,\n")
-    typing_print("an statement needs to be made. Be sure, that the information will not be used\n")
-    typing_print("for a discriminatory purpose. (m = Male, f = Female) \n")
+    typing_print("an statement needs to be made for gender assigned at birth or current pyhsical\n")
+    typing_print("sex. Be sure, that the information will not be used for a discriminatory\n")
+    typing_print("purpose. Please use m for male and f for female.\n")
     get_gender()
     typing_print("Now the app needs your height in meters(e.g. 1.75)\n")
     height = get_weight_and_height('height', 'meters')
@@ -90,41 +94,6 @@ def get_user_input():
     eight = get_weight_and_height('weight', 'kg')
     time.sleep(2)
     clear_screen()
-
-  
-# def account_question():
-#     '''
-#     Ask user, if account already exists or new one needs to be created.
-#     After validation of users input, display the corresponding function/message
-#     '''
-#     # print menu
-#     print("1. Create new account")
-#     print("2. Login to existing account")
-#     print("3. I forgot my password")
-#     print("4. Exit\n")
-#     # Ask user for input and validate the input 
-#     while True:
-#         try: 
-#             account_selection = input(Fore.YELLOW + "Enter your selection(1, 2, 3 or 4): \n" + Fore.WHITE + "")
-#             if account_selection == "1":
-#                 clear_screen()
-#                 create_account()
-#                 break
-#             if account_selection == "2":
-#                 print(Fore.WHITE + f"You choose {account_selection}")
-#                 break
-#             if account_selection == "3":
-#                 print(Fore.WHITE + f"You choose {account_selection}")
-#                 break
-#             if account_selection == "4":
-#                 print(Fore.WHITE + "Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers" )
-#                 time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
-#                 clear_screen()
-#                 break
-#             else:
-#                 print(Fore.RED + "Sorry, invalid input. Please enter 1, 2, 3 or 4!")
-#         except ValueError as e:
-#             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
 def get_name():
     """
@@ -173,7 +142,7 @@ def get_birthyear():
                 raise ValueError(Fore.RED + "Seems like you've lived centuries, please enter a number in a reasonable range")
             elif birthyear_num >=  max_year:
                 raise ValueError(Fore.RED + "Seems like you are a (future) baby. Please enter at least last year.")
-            print(Fore.GREEN + "Great age! Input is valid") # For better UX show the user the input was valid
+            print(Fore.GREEN + f"Great age! {birthyear} is valid") # For better UX show the user the input was valid
             break
         # Print an error message if input is invalid
         except ValueError as e:
@@ -195,7 +164,7 @@ def get_gender():
                 raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or f.")
             elif gender not in ['m', 'f', 'M', 'F']: 
                 raise ValueError(Fore.RED + "Please enter only m or f")
-            print(Fore.GREEN + "Well done. Input is valid")
+            print(Fore.GREEN + "Your input can be used for the calculations.")
             break
         # Print an error message if input is invalid
         except ValueError as e:
@@ -215,12 +184,47 @@ def get_weight_and_height(var, units):
         try:
             # Convert the input to a float and print the success message only if it succeeds
             float_input = float(value)
-            print(Fore.GREEN + "Well done. Input is valid")
+            print(Fore.GREEN + f"Well done. {float_input} is valid")
             return float_input
         except ValueError:
-            # Print an error message if the conversion fails
-            print(Fore.RED + "Invalid entry! Please enter your height in meters and your weight in kg.")
+            # Print an error message if input is invalid
+            print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
-programm_start()
+def topic_question():
+    '''
+    Ask the user which topic should be played
+    After validation of users input, display the corresponding function/message
+    '''
+    programm_logo()
+    # print menu
+    typing_print("Please choose a topic you are interested in getting some calculations on:\n")
+    print("1. Health")
+    print("2. Trivia")
+    print("3. Exit\n")
+    # Ask user for input and validate the input 
+    while True:
+        try: 
+            account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "")
+            if account_selection == "1":
+                print("Well done, 1 ")
+                break
+            elif account_selection == "2":
+                print(Fore.WHITE + f"You choose {account_selection}")
+                break
+            elif account_selection == "3":
+                print(Fore.WHITE + "\nThank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
+                typing_print("This application will end in 5 seconds.")
+                time.sleep(5) # Wait for 3 seconds until the screen is cleared and the appliacation ends
+                clear_screen()
+                break
+            else:
+                print(Fore.RED + "Sorry, invalid input. Please enter 1, 2 or 3!")
+        except ValueError as e:
+            print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
+def main():
+    programm_start()
+    get_user_input()
+    topic_question()
 
+main()
