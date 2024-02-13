@@ -79,15 +79,17 @@ def programm_logo():
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
 """)
 
-# def get_user_input():
-#     get_birthyear()
-#     get_gender()
-#     height = get_weight_and_height('height', 'meters')
-#     eight = get_weight_and_height('weight', 'kg')
-#     clear_screen()
 
-class user:
+# Create a class of the user
+class User:
+    """
+    Class represents the user that uses the application
+    """
     def __init__(self, name, birthyear, gender, height, weight):
+        """
+        Initialize the properties of the instance
+        Parameters: self, name, birthyear, gender, height and weight
+        """
         self.name = self.get_name()
         self.birthyear = self.get_birthyear()
         self.gender = self.get_gender()
@@ -95,10 +97,10 @@ class user:
         self.weight = self.get_weight_and_height('weight', 'kg')
         
 
-    def get_name():
+    def get_name(self):
         """
         Ask user for its name and validate the input.
-            Parameters: None
+            Parameters: self
             Returns: username
         """
         while True:
@@ -115,17 +117,16 @@ class user:
             except ValueError as e:
                 print(e)
     
-        return username
+        return username.capitalize()
 
-    def get_birthyear():
+    def get_birthyear(self):
         """
         Get users birthyear and validate the input. 
             Parameter: None
             Returns: birthyear
         """
         # Show the user that the input was valid by using the name before the next question
-        name = get_name()
-        print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {name}.")
+        print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {self.name}.")
         while True:
             try: 
                 birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
@@ -149,7 +150,7 @@ class user:
                 print(e)
         return birthyear
 
-    def get_gender():
+    def get_gender(self):
         """
         Get users gender and validate input. 
         Parameters: None
@@ -177,7 +178,7 @@ discriminatory purpose. Please use m for male and f for female.""" + "\n")
                 print(e)
         return gender
 
-    def get_weight_and_height(var, units):
+    def get_weight_and_height(self, var, units):
         """
         Get user input for a float number and validate the input
         Parameters: 
@@ -196,6 +197,7 @@ discriminatory purpose. Please use m for male and f for female.""" + "\n")
             except ValueError:
                 # Print an error message if input is invalid
                 print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
+
 
 def topic_question():
     '''
