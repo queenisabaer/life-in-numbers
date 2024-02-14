@@ -79,124 +79,105 @@ def programm_logo():
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
 """)
 
-
-# Create a class of the user
-class User:
+def get_name():
     """
-    Class represents the user that uses the application
-    """
-    def __init__(self, name, birthyear, gender, height, weight):
-        """
-        Initialize the properties of the instance
-        Parameters: self, name, birthyear, gender, height and weight
-        """
-        self.name = self.get_name()
-        self.birthyear = self.get_birthyear()
-        self.gender = self.get_gender()
-        self.height = self.get_weight_and_height('height', 'meters')
-        self.weight = self.get_weight_and_height('weight', 'kg')
-        
-
-    def get_name(self):
-        """
-        Ask user for its name and validate the input.
-            Parameters: self
-            Returns: username
-        """
-        while True:
-            try:
-                username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize()
-                if len(username) > 15:
-                    raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
-                elif not username:
-                    raise ValueError(Fore.RED + "Sorry, you must add an name")
-                elif username.isalpha() == False:
-                    raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
-                break
-            # Print an error message if input is invalid    
-            except ValueError as e:
-                print(e)
-    
-        return username.capitalize()
-
-    def get_birthyear(self):
-        """
-        Get users birthyear and validate the input. 
-            Parameter: None
-            Returns: birthyear
-        """
-        # Show the user that the input was valid by using the name before the next question
-        print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {self.name}.")
-        while True:
-            try: 
-                birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
-                # Check if the year is within a reasonable range
-                current_year = int(str(datetime.datetime.now().year)) 
-                min_year = current_year - 116 # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
-                max_year = current_year + 0
-                if not birthyear:
-                    raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
-                elif not birthyear.isdigit() or len(birthyear) != 4:
-                    raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
-                birthyear_num = int(birthyear)
-                if birthyear_num <= min_year:
-                    raise ValueError(Fore.RED + "Seems like you've lived centuries, please enter a number in a reasonable range")
-                elif birthyear_num >=  max_year:
-                    raise ValueError(Fore.RED + "Seems like you are a (future) baby. Please enter at least last year.")
-                print(Fore.GREEN + f"Great age! {birthyear} is valid") # For better UX show the user the input was valid
-                break
-            # Print an error message if input is invalid
-            except ValueError as e:
-                print(e)
-        return birthyear
-
-    def get_gender(self):
-        """
-        Get users gender and validate input. 
+    Ask user for its name and validate the input.
         Parameters: None
-        Returns: gender
-        """
-        typing_print("Some of the predictions are based on scientific calculations that include gender")
-        print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
-        typing_print(r"""it's true that this isn't perfect, but since some of the calculations require
+        Returns: username
+    """
+    while True:
+        try:
+            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize()
+            if len(username) > 15:
+                raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
+            elif not username:
+                raise ValueError(Fore.RED + "Sorry, you must add an name")
+            elif username.isalpha() == False:
+                raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
+            print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {username}.")
+            break
+        # Print an error message if input is invalid    
+        except ValueError as e:
+            print(e)
+    
+    return username
+
+def get_birthyear():
+    """
+    Get users birthyear and validate the input. 
+        Parameter: None
+        Returns: birthyear
+    """
+    while True:
+        try: 
+            birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
+            # Check if the year is within a reasonable range
+            current_year = int(str(datetime.datetime.now().year)) 
+            min_year = current_year - 116 # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
+            max_year = current_year + 0
+            if not birthyear:
+                raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
+            elif not birthyear.isdigit() or len(birthyear) != 4:
+                raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
+            birthyear_num = int(birthyear)
+            if birthyear_num <= min_year:
+                raise ValueError(Fore.RED + "Seems like you've lived centuries, please enter a number in a reasonable range")
+            elif birthyear_num >=  max_year:
+                raise ValueError(Fore.RED + "Seems like you are a (future) baby. Please enter at least last year.")
+            print(Fore.GREEN + f"Great age! {birthyear} is valid") # For better UX show the user the input was valid
+            break
+        # Print an error message if input is invalid
+        except ValueError as e:
+            print(e)
+    return birthyear
+
+def get_gender():
+    """
+    Get users gender and validate input. 
+    Parameters: None
+    Returns: gender
+    """
+    typing_print("Some of the predictions are based on scientific calculations that include gender")
+    print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
+    typing_print(r"""it's true that this isn't perfect, but since some of the calculations require
 gender, an statement needs to be made for gender assigned at birth or current
 physical sex. Be sure, that the information will not be used for a
 discriminatory purpose. Please use m for male and f for female.""" + "\n")
-        while True:
-            try:
-                gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n")
-                if not gender:
-                    raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f")
-                elif gender.isdigit() or len(gender) != 1: 
-                    raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or f.")
-                elif gender not in ['m', 'f', 'M', 'F']: 
-                    raise ValueError(Fore.RED + "Please enter only m or f")
-                print(Fore.GREEN + "Your input can be used for the calculations.")
-                break
-            # Print an error message if input is invalid
-            except ValueError as e:
-                print(e)
-        return gender
+    while True:
+        try:
+            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n")
+            if not gender:
+                raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f")
+            elif gender.isdigit() or len(gender) != 1: 
+                raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or f.")
+            elif gender not in ['m', 'f', 'M', 'F']: 
+                raise ValueError(Fore.RED + "Please enter only m or f")
+            print(Fore.GREEN + "Your input can be used for the calculations.")
+            break
+        # Print an error message if input is invalid
+        except ValueError as e:
+            print(e)
+    return gender
 
-    def get_weight_and_height(self, var, units):
-        """
-        Get user input for a float number and validate the input
-        Parameters: 
-            var: variable or quantity for which the user is expected to input a value
-            units: units in which the variable or quantity is expected to be inputted
-        Returns: the number input as a float
-        """
-        typing_print(f"Now the app needs your {var} in {units} with a point for decimal.\n")
-        while True:
-            value = input(Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n")
-            try:
-                # Convert the input to a float and print the success message only if it succeeds
-                float_input = float(value)
-                print(Fore.GREEN + f"Well done. {float_input} is valid")
-                return float_input
-            except ValueError:
-                # Print an error message if input is invalid
-                print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
+def get_weight_and_height(var, units):
+    """
+    Get user input for a float number and validate the input
+    Parameters: 
+        var: variable or quantity for which the user is expected to input a value
+        units: units in which the variable or quantity is expected to be inputted
+    Returns: the number input as a float
+    """
+    typing_print(f"Now the app needs your {var} in {units} with a point for decimal.\n")
+    while True:
+        value = input(Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n")
+        try:
+            # Convert the input to a float and print the success message only if it succeeds
+            float_input = float(value)
+            print(Fore.GREEN + f"Well done. {float_input} is valid")
+            return float_input
+        except ValueError:
+            # Print an error message if input is invalid
+            print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
 
 def topic_question():
@@ -204,6 +185,8 @@ def topic_question():
     Ask the user which topic should be played
     After validation of users input, display the corresponding function/message
     '''
+    time.sleep(2) # Wait for 2 seconds before the screen is cleared.
+    clear_screen()
     programm_logo()
     # print menu
     typing_print("Please choose a topic you are interested in getting some calculations on:\n")
@@ -223,7 +206,7 @@ def topic_question():
             elif account_selection == "3":
                 print(Fore.WHITE + "\nThank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
                 typing_print("This application will end in 5 seconds.")
-                time.sleep(5) # Wait for 3 seconds until the screen is cleared and the appliacation ends
+                time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
                 clear_screen()
                 break
             else:
@@ -231,8 +214,36 @@ def topic_question():
         except ValueError as e:
             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
-def main():
+# Create a class of the user
+class User:
+    """
+    Represents the user who is utilizing the application
+    """
+    def __init__(self):
+        """
+        Initialize the properties of the instance
+        Parameters: self
+        """
+        self.name = get_name()
+        self.birthyear = get_birthyear()
+        self.gender = get_gender()
+        self.height = get_weight_and_height('height', 'meters')
+        self.weight = get_weight_and_height('weight', 'kg')
+
+# To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
+def update_user_worksheet(user): 
+    """
+    Update user worksheet, add new row with the list data from the class User provided.
+    """
+    data = [user.name, user.birthyear, user.gender, user.height, user.weight]
+    user_worksheet = SHEET.worksheet('User') # access User worksheet from Google Sheet
+    # use gspread method append_row() to pass inserted data
+    user_worksheet.append_row(data) # append a row to the end of data in selected worksheet
+
+if __name__ == "__main__":
     programm_start()
+    user = User()
+    update_user_worksheet(user)
     topic_question()
 
-main()
+
