@@ -184,6 +184,7 @@ def get_weight_and_height(var, units):
             # Convert the input to a float and print the success message only if it succeeds
             float_input = float(value)
             print(Fore.GREEN + f"Well done. {float_input} is valid")
+            typing_print("\nTopics are loaded...")
             return float_input
         except ValueError:
             # Print an error message if input is invalid
@@ -207,7 +208,7 @@ def topic_question():
         try: 
             account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "")
             if account_selection == "1":
-                print("Well done, 1 ")
+                calculate_bmi(user.weight, user.height)
                 break
             elif account_selection == "2":
                 print(Fore.WHITE + f"You choose {account_selection}")
@@ -235,6 +236,11 @@ class User:
         self.gender = get_gender()
         self.height = get_weight_and_height('height', 'meters')
         self.weight = get_weight_and_height('weight', 'kg')
+
+def calculate_bmi(weight, height):
+    bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
+    print(bmi)
+    return bmi
 
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
