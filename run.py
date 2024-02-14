@@ -62,7 +62,17 @@ def programm_start():
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
 from different topics. But first, let's start with your name and birthyear.""" + "\n")
-    time.sleep(2) #Pause the application for 2 seconds so the User can read the welcome text
+    time.sleep(1.5) #Pause the application for 1.5 seconds so the User can read the welcome text
+
+# End the programm
+def programm_end():
+    """
+    Function to display a goodbye message, clear the scren and end the programm
+    """
+    print(Fore.WHITE + f"\n{user.name}, thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
+    typing_print("This application will end in 5 seconds.")
+    time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
+    clear_screen()
 
 def programm_logo():
      """
@@ -83,7 +93,7 @@ def get_name():
     """
     Ask user for its name and validate the input.
         Parameters: None
-        Returns: username
+        Returns: username as capitalized string
     """
     while True:
         try:
@@ -91,7 +101,7 @@ def get_name():
             if len(username) > 15:
                 raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
             elif not username:
-                raise ValueError(Fore.RED + "Sorry, you must add an name")
+                raise ValueError(Fore.RED + "Sorry, you must add a name")
             elif username.isalpha() == False:
                 raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
             print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {username}.")
@@ -106,7 +116,7 @@ def get_birthyear():
     """
     Get users birthyear and validate the input. 
         Parameter: None
-        Returns: birthyear
+        Returns: birthyear as integer
     """
     while True:
         try: 
@@ -135,17 +145,17 @@ def get_gender():
     """
     Get users gender and validate input. 
     Parameters: None
-    Returns: gender
+    Returns: gender as lower string
     """
     typing_print("Some of the predictions are based on scientific calculations that include gender")
     print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
-    typing_print(r"""it's true that this isn't perfect, but since some of the calculations require
+    print(r"""it's true that this isn't perfect, but since some of the calculations require
 gender, an statement needs to be made for gender assigned at birth or current
 physical sex. Be sure, that the information will not be used for a
-discriminatory purpose. Please use m for male and f for female.""" + "\n")
+discriminatory purpose. Please use m for male and f for female.""")
     while True:
         try:
-            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n")
+            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n").lower()
             if not gender:
                 raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f")
             elif gender.isdigit() or len(gender) != 1: 
@@ -179,7 +189,6 @@ def get_weight_and_height(var, units):
             # Print an error message if input is invalid
             print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
-
 def topic_question():
     '''
     Ask the user which topic should be played
@@ -204,10 +213,7 @@ def topic_question():
                 print(Fore.WHITE + f"You choose {account_selection}")
                 break
             elif account_selection == "3":
-                print(Fore.WHITE + "\nThank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
-                typing_print("This application will end in 5 seconds.")
-                time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
-                clear_screen()
+                programm_end()
                 break
             else:
                 print(Fore.RED + "Sorry, invalid input. Please enter 1, 2 or 3!")
@@ -233,17 +239,18 @@ class User:
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
     """
-    Update user worksheet, add new row with the list data from the class User provided.
+    Update user worksheet, add new row with the list of data provided by the user from the class User.
     """
-    data = [user.name, user.birthyear, user.gender, user.height, user.weight]
-    user_worksheet = SHEET.worksheet('User') # access User worksheet from Google Sheet
-    # use gspread method append_row() to pass inserted data
-    user_worksheet.append_row(data) # append a row to the end of data in selected worksheet
+    list = [user.name, user.birthyear, user.gender, user.height, user.weight]
+    # access 'User' worksheet from Google Sheet
+    user_worksheet = SHEET.worksheet('User') 
+    #  Append a new row to the end of the selected worksheet
+    user_worksheet.append_row(list)
 
 if __name__ == "__main__":
     programm_start()
-    user = User()
-    update_user_worksheet(user)
-    topic_question()
+    user = User() # Collect user data and initialize the User object
+    update_user_worksheet(user) # Update the worksheet with the user's data
+    topic_question() 
 
 
