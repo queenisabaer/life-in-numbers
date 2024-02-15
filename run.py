@@ -173,7 +173,7 @@ discriminatory purpose. Please use m for male and f for female.""")
 
 def get_weight_and_height(var, units):
     """
-    Get user input for a float number and validate the input
+    Get user input for a float number
     Parameters: 
         var: variable or quantity for which the user is expected to input a value
         units: units in which the variable or quantity is expected to be inputted
@@ -190,34 +190,28 @@ def get_weight_and_height(var, units):
             # Print an error message if input is invalid
             print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
-def validate_weight():
+def validate_weight_and_height(var, units, average_min, max_input):
+    """
+    Validate the users input for weight and height
+    Parameters: 
+        var: variable or quantity for which the user is expected to input a value
+        units: units in which the variable or quantity is expected to be inputted
+        average_min: minimum variable the user can give
+        max_input: maximum input the user can give
+    Returns: the validated number as a float
+    """
     while True:
-        weight_num = get_weight_and_height('weight', 'kg')
+        values = get_weight_and_height(var, units)
         try:
-            if weight_num < 3.3:
-                raise ValueError(Fore.RED + f"{weight_num} seems a little to less. The average weight of a newborn is 3.3 kg.")
-            elif weight_num > 650.0:
-                raise ValueError(Fore.RED + f"{weight_num} seems to much. The heaviest person ever lived was 650.0 kg.")
+            if values < average_min:
+                raise ValueError(Fore.RED + f"{values} seems a little to less. The average {var} of a newborn is {average_min} {units}.")
+            elif values > max_input:
+                raise ValueError(Fore.RED + f"{values} seems to much. {max_input} {units} is the guiness world record.")
             else:
-                print(Fore.GREEN + f"Well done. {weight_num} is valid")
-                return weight_num
+                print(Fore.GREEN + f"Well done. {values} is valid")
+                return values
         except ValueError as e:
-            print(e)
-
-def validate_height():
-    while True:
-        height = get_weight_and_height('height', 'm')
-        try:
-            if height < 0.49:
-                raise ValueError(Fore.RED + f"{height} seems to small. The average height of a newborn is 0.49 m.")
-            elif height > 2.72:
-                raise ValueError(Fore.RED + f"{height} seems to high. The tallest person ever lived was 2.72 m.")
-            else:
-                print(Fore.GREEN + f"Well done. {height} is valid")
-                return height
-        except ValueError as e:
-            print(e)
-
+            print(e)    
         
 def topic_question():
     '''
@@ -269,16 +263,21 @@ class User:
         self.name = get_name()
         self.birthyear = get_birthyear()
         self.gender = get_gender()
-        self.height = validate_height()
-        self.weight = validate_weight()
+        self.height = validate_weight_and_height('height', 'm', 0.49, 2.72)
+        self.weight = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
         self.age = calculate_age(self.birthyear)
 
 
 def calculate_age(birthyear):
+    """
+    Calculates the age of the user based on the input given
+    parameters: 
+        Birthyear: 
+    Returns:
+    """
     current_year = int(str(datetime.datetime.now().year)) 
     age = current_year - birthyear
-    return age
-                       
+    return age                
 
 def calculate_bmi(weight, height):
     """
