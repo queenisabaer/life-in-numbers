@@ -29,10 +29,12 @@ SCOPE = [
     ]
 # Load the credentials from the service account json file
 CREDS = Credentials.from_service_account_file('creds.json')
+# Define the scope and authenticate
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-# Access the google sheet
+# Open the google spreadsheet and access the worksheets
 SHEET = GSPREAD_CLIENT.open('life-in-numbers')
+WORKSHEET_USER = SHEET.get_worksheet(0)
 
 # Create a function to clear the screen. Code was found at altcademy
 def clear_screen ():
@@ -139,7 +141,7 @@ def get_birthyear():
         # Print an error message if input is invalid
         except ValueError as e:
             print(e)
-    return birthyear
+    return int(birthyear)
 
 def get_gender():
     """
@@ -184,7 +186,6 @@ def get_weight_and_height(var, units):
             # Convert the input to a float and print the success message only if it succeeds
             float_input = float(value)
             print(Fore.GREEN + f"Well done. {float_input} is valid")
-            typing_print("\nTopics are loaded...")
             return float_input
         except ValueError:
             # Print an error message if input is invalid
@@ -195,6 +196,7 @@ def topic_question():
     Ask the user which topic should be played
     After validation of users input, display the corresponding function/message
     '''
+    typing_print("\nTopics are currently beeing loaded...")
     time.sleep(2) # Wait for 2 seconds before the screen is cleared.
     clear_screen()
     programm_logo()
@@ -208,7 +210,8 @@ def topic_question():
         try: 
             account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "")
             if account_selection == "1":
-                calculate_bmi(user.weight, user.height)
+                # calculate the bmi by using the class Users input for weight and height
+                calculate_bmi(user.weight, user.height) 
                 break
             elif account_selection == "2":
                 print(Fore.WHITE + f"You choose {account_selection}")
@@ -236,10 +239,23 @@ class User:
         self.gender = get_gender()
         self.height = get_weight_and_height('height', 'meters')
         self.weight = get_weight_and_height('weight', 'kg')
+        self.age = calculate_age(self.birthyear)
+
+
+def calculate_age(birthyear):
+    current_year = int(str(datetime.datetime.now().year)) 
+    age = current_year - birthyear
+    return age
+                       
 
 def calculate_bmi(weight, height):
+    """
+    Calculate the bmi.
+    Parameters: weight and height
+    Return: bmi rounded by 2 decimal points
+    """
     bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
-    print(bmi)
+    print(f"Your BMI is {bmi}. Remember this is just a number.")
     return bmi
 
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
@@ -247,11 +263,9 @@ def update_user_worksheet(user):
     """
     Update user worksheet, add new row with the list of data provided by the user from the class User.
     """
-    list = [user.name, user.birthyear, user.gender, user.height, user.weight]
-    # access 'User' worksheet from Google Sheet
-    user_worksheet = SHEET.worksheet('User') 
-    #  Append a new row to the end of the selected worksheet
-    user_worksheet.append_row(list)
+    list = [user.name, user.birthyear, user.gender, user.height, user.weight, user.age]
+    #  Append a new row to the end of the worksheet 'User'
+    WORKSHEET_USER.append_row(list)
 
 if __name__ == "__main__":
     programm_start()
