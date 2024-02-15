@@ -183,14 +183,42 @@ def get_weight_and_height(var, units):
     while True:
         value = input(Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n")
         try:
-            # Convert the input to a float and print the success message only if it succeeds
+            # Convert the input to a float
             float_input = float(value)
-            print(Fore.GREEN + f"Well done. {float_input} is valid")
             return float_input
         except ValueError:
             # Print an error message if input is invalid
             print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
+def validate_weight():
+    while True:
+        weight_num = get_weight_and_height('weight', 'kg')
+        try:
+            if weight_num < 3.3:
+                raise ValueError(Fore.RED + f"{weight_num} seems a little to less. The average weight of a newborn is 3.3 kg.")
+            elif weight_num > 650.0:
+                raise ValueError(Fore.RED + f"{weight_num} seems to much. The heaviest person ever lived was 650.0 kg.")
+            else:
+                print(Fore.GREEN + f"Well done. {weight_num} is valid")
+                return weight_num
+        except ValueError as e:
+            print(e)
+
+def validate_height():
+    while True:
+        height = get_weight_and_height('height', 'm')
+        try:
+            if height < 0.49:
+                raise ValueError(Fore.RED + f"{height} seems to small. The average height of a newborn is 0.49 m.")
+            elif height > 2.72:
+                raise ValueError(Fore.RED + f"{height} seems to high. The tallest person ever lived was 2.72 m.")
+            else:
+                print(Fore.GREEN + f"Well done. {height} is valid")
+                return height
+        except ValueError as e:
+            print(e)
+
+        
 def topic_question():
     '''
     Ask the user which topic should be played
@@ -212,9 +240,13 @@ def topic_question():
             if account_selection == "1":
                 # calculate the bmi by using the class Users input for weight and height
                 calculate_bmi(user.weight, user.height) 
+                time.sleep(5)
+                clear_screen()
                 break
             elif account_selection == "2":
-                print(Fore.WHITE + f"You choose {account_selection}")
+                typing_print(f"Wow, seems like you are (turning) {user.age} this year.\n")
+                time.sleep(5)
+                clear_screen()
                 break
             elif account_selection == "3":
                 programm_end()
@@ -237,8 +269,8 @@ class User:
         self.name = get_name()
         self.birthyear = get_birthyear()
         self.gender = get_gender()
-        self.height = get_weight_and_height('height', 'meters')
-        self.weight = get_weight_and_height('weight', 'kg')
+        self.height = validate_height()
+        self.weight = validate_weight()
         self.age = calculate_age(self.birthyear)
 
 
@@ -264,7 +296,7 @@ def update_user_worksheet(user):
     Update user worksheet, add new row with the list of data provided by the user from the class User.
     """
     list = [user.name, user.birthyear, user.gender, user.height, user.weight, user.age]
-    #  Append a new row to the end of the worksheet 'User'
+    #  Append a new row to the end of the worksheet 'User' with the list items
     WORKSHEET_USER.append_row(list)
 
 if __name__ == "__main__":

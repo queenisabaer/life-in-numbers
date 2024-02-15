@@ -143,7 +143,8 @@ After refreshing the settings site for this repository above the **"Build and de
 ### Content
 
 - The background image is 
-- xxx
+- The average weight of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancte](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
+- The heaviest person was found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
 
 ### Code
 
