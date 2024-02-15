@@ -212,7 +212,24 @@ def validate_weight_and_height(var, units, average_min, max_input):
                 return values
         except ValueError as e:
             print(e)    
-        
+
+# Create a class of the user
+class User:
+    """
+    Represents the user who is utilizing the application
+    """
+    def __init__(self):
+        """
+        Initialize the properties of the instance
+        Parameters: self
+        """
+        self.name = get_name()
+        self.birthyear = get_birthyear()
+        self.gender = get_gender()
+        self.height = validate_weight_and_height('height', 'm', 0.49, 2.72)
+        self.weight = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
+        self.age = calculate_age(self.birthyear)
+
 def topic_question():
     '''
     Ask the user which topic should be played
@@ -233,7 +250,7 @@ def topic_question():
             account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "")
             if account_selection == "1":
                 # calculate the bmi by using the class Users input for weight and height
-                calculate_bmi(user.weight, user.height) 
+                calculate_bmi(user.weight, user.height, user.gender, user.age) 
                 time.sleep(5)
                 clear_screen()
                 break
@@ -250,43 +267,48 @@ def topic_question():
         except ValueError as e:
             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
-# Create a class of the user
-class User:
-    """
-    Represents the user who is utilizing the application
-    """
-    def __init__(self):
-        """
-        Initialize the properties of the instance
-        Parameters: self
-        """
-        self.name = get_name()
-        self.birthyear = get_birthyear()
-        self.gender = get_gender()
-        self.height = validate_weight_and_height('height', 'm', 0.49, 2.72)
-        self.weight = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
-        self.age = calculate_age(self.birthyear)
-
-
 def calculate_age(birthyear):
     """
     Calculates the age of the user based on the input given
     parameters: 
-        Birthyear: 
-    Returns:
+        Birthyear: takes the birthyear as parameter
+    Returns: calculated age
     """
     current_year = int(str(datetime.datetime.now().year)) 
     age = current_year - birthyear
     return age                
 
-def calculate_bmi(weight, height):
+def calculate_bmi(weight, height, gender, age):
     """
-    Calculate the bmi.
+    Calculate the bmi of the user
     Parameters: weight and height
     Return: bmi rounded by 2 decimal points
     """
     bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
-    print(f"Your BMI is {bmi}. Remember this is just a number.")
+
+    if age < 20:
+        print("Sorry, but you must be older than 19 years to get a result for your BMI.")
+    else:
+        print(f"Your BMI is {bmi}. ")    
+        if gender == 'm':
+            if bmi < 18.50:
+                print("Your weight status is classified as underweight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi < 25.0:
+                print("Your weight status is classified as healthy weight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi < 30.0:
+                print("Your weight status is classified as overweight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi >= 30.0:
+                print("Your weight status is classified as obese. But keep in mind, that the BMI is a very limited calculation.")
+        else:
+            if bmi < 17.50:
+                print("Your weight status is classified as underweight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi < 24.0:
+                print("Your weight status is classified as healthy weight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi < 29.0:
+                print("Your weight status is classified as overweight. But keep in mind, that the BMI is a very limited calculation.")
+            elif bmi >= 29.0:
+                print("Your weight status is classified as obese. But keep in mind, that the BMI is a very limited calculation.")
+
     return bmi
 
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
