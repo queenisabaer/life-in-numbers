@@ -36,6 +36,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('life-in-numbers')
 WORKSHEET_USER = SHEET.get_worksheet(0)
 
+CURRENT_YEAR = int(str(datetime.datetime.now().year)) 
+
 # Create a function to clear the screen. Code was found at altcademy
 def clear_screen ():
     '''
@@ -90,7 +92,7 @@ def disclaimer():
     print(r"""The data entered is stored in a Google Worksheet for the duration of use.
 Once the application completes, this data will automatically be deleted.""")
     while True:
-        continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower()
+        continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower().strip()
         try:
             if continue_answer == "y":
                 typing_print("Great, let's start with your name and your birth year.\n")
@@ -142,7 +144,7 @@ def get_name():
     """
     while True:
         try:
-            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize()
+            username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize().strip()
             if len(username) > 15:
                 raise ValueError(Fore.RED + "Sorry, your name is too long. Please use only 15 letters.")
             elif not username:
@@ -165,11 +167,10 @@ def get_birth_year():
     """
     while True:
         try: 
-            birth_year = input(Fore.CYAN + "Please enter your birth year(format: xxxx): " + Fore.WHITE + "\n")
+            birth_year = input(Fore.CYAN + "Please enter your birth year(format: xxxx): " + Fore.WHITE + "\n").strip()
             # Check if the year is within a reasonable range
-            current_year = int(str(datetime.datetime.now().year)) 
-            min_year = current_year - 116 # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
-            max_year = current_year + 0
+            min_year = CURRENT_YEAR - 116 # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
+            max_year = CURRENT_YEAR + 0
             if not birth_year:
                 raise ValueError(Fore.RED + "Sorry, you must add a birth year")
             elif not birth_year.isdigit() or len(birth_year) != 4:
@@ -203,7 +204,7 @@ physical sex. Be sure, that the information will not be used for a
 discriminatory purpose. Please use m for male and f for female.""")
     while True:
         try:
-            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n").lower()
+            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n").lower().strip()
             if not gender:
                 raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f.")
             elif gender.isdigit() or len(gender) != 1: 
@@ -227,7 +228,7 @@ def get_weight_and_height(var, units):
     """
     typing_print(f"Your {var} in {units} should be with a point for decimal.\n")
     while True:
-        value = input(Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n")
+        value = input(Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n").strip()
         try:
             # Convert the input to a float
             float_input = float(value)
@@ -293,10 +294,10 @@ def topic_question():
     # Ask user for input and validate the input 
     while True:
         try: 
-            account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "")
+            account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "").strip()
             if account_selection == "1":
                 # calculate the bmi by using the class Users input for weight and height
-                calculate_bmi(user.weight, user.height, user.gender, user.age) 
+                health()
                 time.sleep(5)
                 clear_screen()
                 break
@@ -313,6 +314,12 @@ def topic_question():
         except ValueError as e:
             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
+def health():
+    """
+    Calculate the bmi, life expectancy and calories
+    """
+    calculate_bmi(user.weight, user.height, user.gender, user.age) 
+
 def calculate_age(birthyear):
     """
     Calculates the age of the user based on the input given
@@ -320,8 +327,7 @@ def calculate_age(birthyear):
         birthyear: takes the birth year as parameter
     Returns: calculated age
     """
-    current_year = int(str(datetime.datetime.now().year)) 
-    age = current_year - birthyear
+    age = CURRENT_YEAR - birthyear
     return age                
 
 def calculate_bmi(weight, height, gender, age):
@@ -372,10 +378,9 @@ def update_user_worksheet(user):
     #  Append a new row to the end of the worksheet 'User' with the list items
     WORKSHEET_USER.append_row(list)
 
+# MAIN
 if __name__ == "__main__":
     programm_start()
     user = User() # Collect user data and initialize the User object
     update_user_worksheet(user) # Update the worksheet with the user's data
     topic_question() 
-
-
