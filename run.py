@@ -45,7 +45,7 @@ def clear_screen ():
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# To create this function I used the thread at github by Anton Burnashev
+# To create this function I used a thread post at github by Anton Burnashev
 def clear_worksheet(worksheet, clear_range):
     """
     Clear a worksheet from its values
@@ -70,14 +70,14 @@ def typing_print(text):
         sys.stdout.flush()
         time.sleep(0.025) # pause execution with a 0.025 seconds delay
 
-# Start the programm
-def programm_start():
+# Start the program
+def program_start():
     '''
-    Start the Programm, show welcome panel and Disclaimer
+    Start the Program, show welcome panel and Disclaimer
     '''
     #clear the worksheet, if the application wasn't finished properly
     clear_worksheet(WORKSHEET_USER, 'A2:F10')
-    programm_logo()
+    program_logo()
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
 from different topics.""" + "\n")
@@ -90,7 +90,7 @@ def disclaimer():
     """
     print(Fore.MAGENTA + "DISCLAIMER: ")
     print(r"""The data entered is stored in a Google Worksheet for the duration of use.
-Once the application completes, this data will automatically be deleted.""")
+Once the application is complete, this data will automatically be deleted.""")
     while True:
         continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower().strip()
         try:
@@ -109,19 +109,20 @@ Once the application completes, this data will automatically be deleted.""")
         except ValueError as e:
             print(e)
 
-# End the programm
-def programm_end():
+# End the program
+def program_end():
     """
-    Function to display a goodbye message, clear screen and worksheet from its values and end the programm
+    Function to display a goodbye message, clear screen and worksheet from its values and end the program
     """
-    print(Fore.WHITE + f"\n{user.name}, thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
-    typing_print("This application will end in 5 seconds and delete your inputs from the worksheet.")
+    print(f"\n{user.name}, thank you for visiting this application.") 
+    print("See you soon at " + Fore.GREEN + "Your life in Numbers.")
+    typing_print("The program will end in 5 seconds and delete your inputs from the worksheet.")
     time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
     clear_worksheet(WORKSHEET_USER, 'A2:F10')
     clear_screen()
-    sys.exit() # terminate the programm 
+    sys.exit() # terminate the program 
 
-def programm_logo():
+def program_logo():
      """
      Print an ASCII Art Logo for the application Your life in numbers
      """
@@ -195,7 +196,7 @@ def get_gender():
     Parameters: None
     Returns: gender as lower string
     """
-    programm_logo()
+    program_logo()
     typing_print("Some of the predictions are based on scientific calculations that include gender")
     print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
     print(r"""it's true that this isn't perfect, but since some of the calculations require
@@ -204,7 +205,7 @@ physical sex. Be sure, that the information will not be used for a
 discriminatory purpose. Please use m for male and f for female.""")
     while True:
         try:
-            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n").lower().strip()
+            gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current physical sex(m/f):" + Fore.WHITE + "\n").lower().strip()
             if not gender:
                 raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f.")
             elif gender.isdigit() or len(gender) != 1: 
@@ -282,10 +283,10 @@ def topic_question():
     Ask the user which topic should be played
     After validation of users input, display the corresponding function/message
     '''
-    typing_print("\nTopics are currently beeing loaded...")
+    typing_print("Topics are currently beeing loaded...")
     time.sleep(2) # Wait for 2 seconds before the screen is cleared.
     clear_screen()
-    programm_logo()
+    program_logo()
     # print menu
     typing_print("Please choose a topic you are interested in getting some calculations on:\n")
     print("1. Health")
@@ -299,15 +300,13 @@ def topic_question():
                 # calculate the bmi by using the class Users input for weight and height
                 health()
                 time.sleep(5)
-                clear_screen()
-                break
+                sys.exit()
             elif account_selection == "2":
                 typing_print(f"Wow, seems like you are (turning) {user.age} this year.\n")
                 time.sleep(5)
-                clear_screen()
-                break
+                sys.exit()
             elif account_selection == "3":
-                programm_end()
+                program_end()
                 break
             else:
                 print(Fore.RED + "Sorry, invalid input. Please enter 1, 2 or 3!")
@@ -380,7 +379,7 @@ def update_user_worksheet(user):
 
 # MAIN
 if __name__ == "__main__":
-    programm_start()
+    program_start()
     user = User() # Collect user data and initialize the User object
     update_user_worksheet(user) # Update the worksheet with the user's data
     topic_question() 
