@@ -47,6 +47,9 @@ def clear_screen ():
 def clear_worksheet(worksheet, clear_range):
     """
     Clear a worksheet from its values
+    Parameters: 
+        worksheet: specifies the worksheet to clear
+        clear_range: specifies the range of the worksheet to be cleared
     """
     row_values = worksheet.range(clear_range)
     for row_value in row_values:
@@ -78,18 +81,20 @@ from different topics.""" + "\n")
 
 # Disclaimer
 def disclaimer():
-    """"""
+    """
+    Show the disclaimer that informs the user about the storeage of the input and give the user the possibility to end application.
+    """
     print(Fore.MAGENTA + "DISCLAIMER: ")
     print(r"""The data entered is stored in a Google Worksheet for the duration of use.
 Once the application completes, this data will automatically be deleted.""")
-    continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower()
     while True:
+        continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower()
         try:
             if continue_answer == "y":
                 typing_print("Great, let's start with your name and your brthyear.")
                 break
             elif continue_answer == "n":
-                print("Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
+                print("Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your Life in Numbers.")
                 time.sleep(3)
                 clear_screen()
                 sys.exit()
