@@ -43,6 +43,16 @@ def clear_screen ():
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
+# Create a function to clear the worksheet after the application is closed
+def clear_worksheet(worksheet, clear_range):
+    """
+    Clear a worksheet from its values
+    """
+    row_values = worksheet.range(clear_range)
+    for row_value in row_values:
+        row_value.value = ''
+    worksheet.update_cells(row_values)
+
 # Delay the display of text on screen. Tutorial was found at 101computing 
 def typing_print(text):
     '''
@@ -58,12 +68,12 @@ def typing_print(text):
 # Start the programm
 def programm_start():
     '''
-    Start the Programm, show welcome panel and login information
+    Start the Programm, show welcome panel and Disclaimer
     '''
     programm_logo()
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
-from different topics. But first, let's start with your name and birthyear.""" + "\n")
+from different topics.""" + "\n")
     time.sleep(1.5) #Pause the application for 1.5 seconds so the User can read the welcome text
 
 # End the programm
@@ -74,6 +84,7 @@ def programm_end():
     print(Fore.WHITE + f"\n{user.name}, thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
     typing_print("This application will end in 5 seconds.")
     time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
+    clear_worksheet(WORKSHEET_USER, 'A2:F10')
     clear_screen()
 
 def programm_logo():
@@ -287,7 +298,9 @@ def calculate_bmi(weight, height, gender, age):
     bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
 
     if age < 20:
-        print("Sorry, but you must be older than 19 years to get a result for your BMI.")
+        print(r"""To get a result for your BMI, you must be older than 19 years. For your age, 
+this value is given in percentiles. We are currently working on implementing 
+this calculation, so it is worth coming back.""")
     else:
         print(f"Your BMI is {bmi}. ")    
         if gender == 'm':
