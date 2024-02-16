@@ -9,7 +9,7 @@ import time,sys
 # Import the os library (e.g. for clearing the screen)
 import os
 
-# Import datetime library (e.g. for validating the birthyear)
+# Import datetime library (e.g. for validating the birth year)
 import datetime
 
 '''
@@ -73,6 +73,8 @@ def programm_start():
     '''
     Start the Programm, show welcome panel and Disclaimer
     '''
+    #clear the worksheet, if the application wasn't finished properly
+    clear_worksheet(WORKSHEET_USER, 'A2:F10')
     programm_logo()
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
@@ -91,11 +93,11 @@ Once the application completes, this data will automatically be deleted.""")
         continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower()
         try:
             if continue_answer == "y":
-                typing_print("Great, let's start with your name and your brthyear.")
+                typing_print("Great, let's start with your name and your birth year.\n")
                 break
             elif continue_answer == "n":
                 print("Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your Life in Numbers.")
-                time.sleep(3)
+                time.sleep(3) # Clear the screen after a 3 seconds delay
                 clear_screen()
                 sys.exit()
             elif not continue_answer:
@@ -108,7 +110,7 @@ Once the application completes, this data will automatically be deleted.""")
 # End the programm
 def programm_end():
     """
-    Function to display a goodbye message, clear the screen and the worksheet from its values and end the programm
+    Function to display a goodbye message, clear screen and worksheet from its values and end the programm
     """
     print(Fore.WHITE + f"\n{user.name}, thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
     typing_print("This application will end in 5 seconds and delete your inputs from the worksheet.")
@@ -142,7 +144,7 @@ def get_name():
         try:
             username = input(Fore.CYAN + "Please enter your name(max. 15 letters, no numbers or special characters): " + Fore.WHITE + "\n").capitalize()
             if len(username) > 15:
-                raise ValueError(Fore.RED + "Sorry, your name is to long. Please use only 15 letters.")
+                raise ValueError(Fore.RED + "Sorry, your name is too long. Please use only 15 letters.")
             elif not username:
                 raise ValueError(Fore.RED + "Sorry, you must add a name")
             elif username.isalpha() == False:
@@ -155,34 +157,36 @@ def get_name():
     
     return username
 
-def get_birthyear():
+def get_birth_year():
     """
-    Get users birthyear and validate the input. 
+    Get users birth year and validate the input. 
         Parameter: None
-        Returns: birthyear as integer
+        Returns: birth year as integer
     """
     while True:
         try: 
-            birthyear = input(Fore.CYAN + "Please enter your birthyear(format: xxxx): " + Fore.WHITE + "\n")
+            birth_year = input(Fore.CYAN + "Please enter your birth year(format: xxxx): " + Fore.WHITE + "\n")
             # Check if the year is within a reasonable range
             current_year = int(str(datetime.datetime.now().year)) 
             min_year = current_year - 116 # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
             max_year = current_year + 0
-            if not birthyear:
-                raise ValueError(Fore.RED + "Sorry, you must add a birthyear")
-            elif not birthyear.isdigit() or len(birthyear) != 4:
+            if not birth_year:
+                raise ValueError(Fore.RED + "Sorry, you must add a birth year")
+            elif not birth_year.isdigit() or len(birth_year) != 4:
                 raise ValueError(Fore.RED + "Sorry, wrong format. Your birthdate needs 4 numbers(e.g. 1999)" )
-            birthyear_num = int(birthyear)
-            if birthyear_num <= min_year:
-                raise ValueError(Fore.RED + "Seems like you've lived centuries, please enter a number in a reasonable range")
-            elif birthyear_num >=  max_year:
+            birth_year_num = int(birth_year)
+            if birth_year_num <= min_year:
+                raise ValueError(Fore.RED + "Seems like you've lived for centuries; please enter a number in a reasonable range")
+            elif birth_year_num >=  max_year:
                 raise ValueError(Fore.RED + "Seems like you are a (future) baby. Please enter at least last year.")
-            print(Fore.GREEN + f"Great age! {birthyear} is valid") # For better UX show the user the input was valid
+            print(Fore.GREEN + f"Great age! {birth_year} is valid") # For better UX show the user the input was valid
+            time.sleep(2) # pause for 2 seconds
+            clear_screen()
             break
         # Print an error message if input is invalid
         except ValueError as e:
             print(e)
-    return int(birthyear)
+    return int(birth_year)
 
 def get_gender():
     """
@@ -190,17 +194,18 @@ def get_gender():
     Parameters: None
     Returns: gender as lower string
     """
+    programm_logo()
     typing_print("Some of the predictions are based on scientific calculations that include gender")
     print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" + Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
     print(r"""it's true that this isn't perfect, but since some of the calculations require
-gender, an statement needs to be made for gender assigned at birth or current
+gender, a statement needs to be made for gender assigned at birth or current
 physical sex. Be sure, that the information will not be used for a
 discriminatory purpose. Please use m for male and f for female.""")
     while True:
         try:
             gender = input(Fore.CYAN + "Please enter your gender assigned at birth or your current pyhsical sex(m/f):" + Fore.WHITE + "\n").lower()
             if not gender:
-                raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f")
+                raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f.")
             elif gender.isdigit() or len(gender) != 1: 
                 raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or f.")
             elif gender not in ['m', 'f', 'M', 'F']: 
@@ -236,7 +241,7 @@ def validate_weight_and_height(var, units, average_min, max_input):
     Validate the users input for weight and height
     Parameters: 
         var: variable or quantity for which the user is expected to input a value
-        units: units in which the variable or quantity is expected to be inputted
+        units: units in which the variable or quantity is expected to be inputed
         average_min: minimum variable the user can give
         max_input: maximum input the user can give
     Returns: the validated number as a float
@@ -245,9 +250,9 @@ def validate_weight_and_height(var, units, average_min, max_input):
         values = get_weight_and_height(var, units)
         try:
             if values < average_min:
-                raise ValueError(Fore.RED + f"{values} seems a little to less. The average {var} of a newborn is {average_min} {units}.")
+                raise ValueError(Fore.RED + f"{values} seems to be incorrect. The average {var} of a newborn is {average_min} {units}.")
             elif values > max_input:
-                raise ValueError(Fore.RED + f"{values} seems to much. {max_input} {units} is the guiness world record.")
+                raise ValueError(Fore.RED + f"{values} seems to be incorrect. {max_input} {units} is the guiness world record.")
             else:
                 print(Fore.GREEN + f"Well done. {values} is valid")
                 return values
@@ -265,7 +270,7 @@ class User:
         Parameters: self
         """
         self.name = get_name()
-        self.birthyear = get_birthyear()
+        self.birthyear = get_birth_year()
         self.gender = get_gender()
         self.height = validate_weight_and_height('height', 'm', 0.49, 2.72)
         self.weight = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
@@ -312,7 +317,7 @@ def calculate_age(birthyear):
     """
     Calculates the age of the user based on the input given
     parameters: 
-        Birthyear: takes the birthyear as parameter
+        birthyear: takes the birth year as parameter
     Returns: calculated age
     """
     current_year = int(str(datetime.datetime.now().year)) 
@@ -322,7 +327,11 @@ def calculate_age(birthyear):
 def calculate_bmi(weight, height, gender, age):
     """
     Calculate the bmi of the user
-    Parameters: weight and height
+    Parameters: 
+        weight: weight of the user
+        height: height of the user
+        gender: gender of the user
+        age: age of the user
     Return: bmi rounded by 2 decimal points
     """
     bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
