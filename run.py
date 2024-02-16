@@ -43,7 +43,7 @@ def clear_screen ():
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# Create a function to clear the worksheet after the application is closed
+# To create this function I used the thread at github by Anton Burnashev
 def clear_worksheet(worksheet, clear_range):
     """
     Clear a worksheet from its values
@@ -74,18 +74,43 @@ def programm_start():
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
 from different topics.""" + "\n")
-    time.sleep(1.5) #Pause the application for 1.5 seconds so the User can read the welcome text
+    disclaimer()
+
+# Disclaimer
+def disclaimer():
+    """"""
+    print(Fore.MAGENTA + "DISCLAIMER: ")
+    print(r"""The data entered is stored in a Google Worksheet for the duration of use.
+Once the application completes, this data will automatically be deleted.""")
+    continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower()
+    while True:
+        try:
+            if continue_answer == "y":
+                typing_print("Great, let's start with your name and your brthyear.")
+                break
+            elif continue_answer == "n":
+                print("Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
+                time.sleep(3)
+                clear_screen()
+                sys.exit()
+            elif not continue_answer:
+                raise ValueError(Fore.RED + "You must give an answer if you would like to continue. y for yes or n for no")
+            elif continue_answer not in ['n','y'] or continue_answer.isdigit(): 
+                raise ValueError(Fore.RED + "Please enter only n or y")
+        except ValueError as e:
+            print(e)
 
 # End the programm
 def programm_end():
     """
-    Function to display a goodbye message, clear the scren and end the programm
+    Function to display a goodbye message, clear the screen and the worksheet from its values and end the programm
     """
     print(Fore.WHITE + f"\n{user.name}, thank you for visiting this application. See you soon at " + Fore.GREEN + "Your life in Numbers.")
-    typing_print("This application will end in 5 seconds.")
+    typing_print("This application will end in 5 seconds and delete your inputs from the worksheet.")
     time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
     clear_worksheet(WORKSHEET_USER, 'A2:F10')
     clear_screen()
+    sys.exit() # terminate the programm 
 
 def programm_logo():
      """
