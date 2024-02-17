@@ -143,8 +143,10 @@ After refreshing the settings site for this repository above the **"Build and de
 ### Content
 
 - The background image is 
-- The average weight of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancte](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
+- The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancte](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
 - The heaviest person was found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
+- The classificatioon for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
+- The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
 
 ### Code
 
@@ -153,8 +155,8 @@ After refreshing the settings site for this repository above the **"Build and de
 - To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
 - To create the function that clears the google worksheet, I found a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387)
 - To learn more about the if__name__ == "__main__" idiom, I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
-- To learn more about the usage of gspread I used [this articel](https://docs.gspread.org/en/latest/user-guide.html)
-- To understand more about the concepts of JavaScript, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
+- To learn more about the usage of gspread I read [this articel](https://docs.gspread.org/en/latest/user-guide.html)
+- To understand more about the concepts of Python, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
   - [mdn](https://developer.mozilla.org/en-US/)
@@ -170,7 +172,7 @@ After refreshing the settings site for this repository above the **"Build and de
 
 ### ReadMe
 
-- A big thank you to [Kera Cudmore](https://github.com/kera-cudmore) and all of her tips on what makes a good README.
+- Still a big thank you to [Kera Cudmore](https://github.com/kera-cudmore) and all of her tips on what makes a good README.
 
 ### Acknowledgments
 

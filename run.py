@@ -289,7 +289,7 @@ def topic_question():
     program_logo()
     # print menu
     typing_print("Please choose a topic you are interested in getting some calculations on:\n")
-    print("1. Health")
+    print("\n1. Health")
     print("2. Trivia")
     print("3. Exit\n")
     # Ask user for input and validate the input 
@@ -297,14 +297,13 @@ def topic_question():
         try: 
             account_selection = input(Fore.CYAN + "Enter your selection(1, 2 or 3): \n" + Fore.WHITE + "").strip()
             if account_selection == "1":
-                # calculate the bmi by using the class Users input for weight and height
                 health()
-                time.sleep(30)
-                program_end()
+                next_topic("trivia")
             elif account_selection == "2":
                 # get the calculated age of the user from the worksheet
                 user_age = WORKSHEET_USER.acell('F2').value 
                 typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
+                next_topic("health")
                 time.sleep(5)
                 program_end()
             elif account_selection == "3":
@@ -314,6 +313,27 @@ def topic_question():
                 print(Fore.RED + "Sorry, invalid input. Please enter 1, 2 or 3!")
         except ValueError as e:
             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
+
+def next_topic(topic):
+    while True:
+        try:
+            next_topic_input = input(Fore.CYAN + f"Do you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
+            if next_topic_input == "y" and topic == "trivia":
+                time.sleep(30)
+                program_end()
+            elif next_topic_input == "y" and topic == "health":
+                health()
+                program_end()
+                sys.exit()
+            elif next_topic_input == "n":
+                program_end()
+                sys.exit()
+            elif not next_topic_input:
+                raise ValueError(Fore.RED + "You must give an answer. Please enter y for yes or n for no")
+            elif next_topic_input not in ['n','y'] or next_topic.isdigit(): 
+                raise ValueError(Fore.RED + "Please enter only y or n")
+        except ValueError as e:
+            print(e)
 
 def health():
     """
@@ -343,7 +363,7 @@ def calculate_bmi(weight, height, gender, age):
     Return: bmi rounded by 2 decimal points
     """
     bmi = round(weight / (height * 2), 2) # Round the bmi on 2 decimal points
-
+    print(Fore.YELLOW + "\nBMI\n")
     if age < 20:
         print(r"""To get a result for your BMI, you must be older than 19 years. For your age, 
 this value is given in percentiles. We are currently working on implementing 
@@ -352,22 +372,22 @@ this calculation, so it is worth coming back.""")
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")    
         if gender == 'm':
             if bmi < 18.50:
-                print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
             elif bmi < 25.0:
-                print("Your weight status is classified as" + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
             elif bmi < 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " overweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " overweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
             elif bmi >= 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE + ". But keep in mind, \that the BMI is a very limited calculation.")
         else:
             if bmi < 17.50:
-                print("Your weight status is classified as " + Fore.BLUE + "underweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "underweight" + Fore.WHITE + ". But keep in mind, \that the BMI is a very limited calculation.")
             elif bmi < 24.0:
-                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
             elif bmi < 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "overweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "overweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
             elif bmi >= 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
 
     return bmi
 
@@ -378,22 +398,23 @@ def calculate_life_expectancy():
     # calculate how many weeks a male person in europe has to live on average
     weeks_male = round(76.8697 * 52)  # 76.8697 was found at https://database.earth/
     weeks_female = round(83.0172 * 52) 
+    print(Fore.YELLOW + "\nYears and Weeks\n")
     if user_gender == "m":
-        print(r"""The average life expectancy of a person with a gender assigned at birth of male
-in Europe is currently 76.8697 years.""")
-        print("So you only have about " + Fore.BLUE + f"{weeks_male}" + Fore.WHITE + " weeks to live your best life.")
+        print("The average life expectancy of a person with a gender assigned at birth of")
+        print(Fore.BLUE + "male" + Fore.WHITE + "in Europe is currently 76.8697 years.")
+        print("So you only have about " + Fore.BLUE + f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
-            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks of it. Keep in mind \nthat you only have approx." + Fore.BLUE + f" {weeks_left_male}" + Fore.WHITE + " weeks left to make your inner child happy.")
+            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you only have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy.")
         else:
-            print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day.")
+            print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
     else:
-        print(r"""The average life expectancy of a person with a gender assigned at birth of female
-in Europe is currently 83.0172 years.""")
-        print(f"So you only have about " + Fore.BLUE + f"{weeks_female}" + Fore.WHITE + " weeks to live your best life.")
+        print("The average life expectancy of a person with a gender assigned at birth of")
+        print(Fore.BLUE + "female" + Fore.WHITE + " in Europe is currently" + Fore.BLUE + " 83.0172 years.")
+        print(f"So you only have about " + Fore.BLUE + f"{weeks_female} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
-            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks of it. Keep in mind that you only \nhave approx. " + Fore.BLUE + " {weeks_left_female}" + Fore.WHITE + " weeks left to make your inner child happy.")
+            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you only \nhave approx." + Fore.BLUE + f" {weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy.")
         else:
             print(f"You have lived longer than the average person and you've been on this planet \nfor " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
 
