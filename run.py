@@ -92,12 +92,12 @@ def disclaimer():
     print(r"""The data entered is stored in a Google Worksheet for the duration of use.
 Once the application is complete, this data will automatically be deleted.""")
     while True:
-        continue_answer = input(Fore.CYAN + "Do you want to continue?(y/n)" + Fore.WHITE + "\n").lower().strip()
+        continue_answer = input(Fore.CYAN + "Do you want to continue?(y for yes / n for no)" + Fore.WHITE + "\n").lower().strip()
         try:
-            if continue_answer == "y":
+            if continue_answer == "y" or continue_answer == "yes":
                 typing_print("Great, let's start with your name and your birth year.\n")
                 break
-            elif continue_answer == "n":
+            elif continue_answer == "n" or continue_answer == "no":
                 print("Thank you for visiting this application. See you soon at " + Fore.GREEN + "Your Life in Numbers.")
                 time.sleep(3) # Clear the screen after a 3 seconds delay
                 clear_screen()
@@ -299,7 +299,7 @@ def topic_question():
             if account_selection == "1":
                 # calculate the bmi by using the class Users input for weight and height
                 health()
-                time.sleep(5)
+                time.sleep(30)
                 program_end()
             elif account_selection == "2":
                 # get the calculated age of the user from the worksheet
@@ -349,7 +349,7 @@ def calculate_bmi(weight, height, gender, age):
 this value is given in percentiles. We are currently working on implementing 
 this calculation, so it is worth coming back.""")
     else:
-        print(f"Your BMI is" + Fore.BLUE + "{bmi}. ")    
+        print("Your BMI is" + Fore.BLUE + f" {bmi}. ")    
         if gender == 'm':
             if bmi < 18.50:
                 print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
@@ -381,22 +381,21 @@ def calculate_life_expectancy():
     if user_gender == "m":
         print(r"""The average life expectancy of a person with a gender assigned at birth of male
 in Europe is currently 76.8697 years.""")
-        print(f"So you only have about {weeks_male} weeks to live your best life.")
+        print("So you only have about " + Fore.BLUE + f"{weeks_male}" + Fore.WHITE + " weeks to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
-            print(f"You have already experienced about {user_age_weeks} weeks of it. Keep in mind \n that you only have approx. {weeks_left_male} weeks left to make your inner child happy.")
+            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks of it. Keep in mind \nthat you only have approx." + Fore.BLUE + f" {weeks_left_male}" + Fore.WHITE + " weeks left to make your inner child happy.")
         else:
-            print(f"You have lived longer than the average person and you've been on this planet \nfor {user_age_weeks} weeks. Congratulations. Continue to enjoy every day")
+            print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day.")
     else:
         print(r"""The average life expectancy of a person with a gender assigned at birth of female
 in Europe is currently 83.0172 years.""")
-        print(f"So you only have about {weeks_female} weeks to live your best life.")
+        print(f"So you only have about " + Fore.BLUE + f"{weeks_female}" + Fore.WHITE + " weeks to live your best life.")
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
-            print(f"You have already experienced about {user_age_weeks} weeks of it. Keep in mind \n that you only have approx. {weeks_left_female} weeks left to make your inner child happy.")
+            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks of it. Keep in mind that you only \nhave approx. " + Fore.BLUE + " {weeks_left_female}" + Fore.WHITE + " weeks left to make your inner child happy.")
         else:
-            print(f"You have lived longer than the average person and you've been on this planet \nfor {user_age_weeks} weeks. Congratulations. Continue to enjoy every day")
-
+            print(f"You have lived longer than the average person and you've been on this planet \nfor " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
 
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
