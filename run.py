@@ -315,6 +315,9 @@ def topic_question():
             print(f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
 
 def next_topic(topic):
+    """
+    Ask user for other topic depending 
+    """
     while True:
         try:
             next_topic_input = input(Fore.CYAN + f"Do you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
@@ -323,6 +326,7 @@ def next_topic(topic):
                 program_end()
             elif next_topic_input == "y" and topic == "health":
                 health()
+                time.sleep(20)
                 program_end()
                 sys.exit()
             elif next_topic_input == "n":
@@ -330,7 +334,7 @@ def next_topic(topic):
                 sys.exit()
             elif not next_topic_input:
                 raise ValueError(Fore.RED + "You must give an answer. Please enter y for yes or n for no")
-            elif next_topic_input not in ['n','y'] or next_topic.isdigit(): 
+            elif next_topic_input not in ['n','y'] or next_topic_input.isdigit(): 
                 raise ValueError(Fore.RED + "Please enter only y or n")
         except ValueError as e:
             print(e)
@@ -401,7 +405,7 @@ def calculate_life_expectancy():
     print(Fore.YELLOW + "\nYears and Weeks\n")
     if user_gender == "m":
         print("The average life expectancy of a person with a gender assigned at birth of")
-        print(Fore.BLUE + "male" + Fore.WHITE + "in Europe is currently 76.8697 years.")
+        print(Fore.BLUE + "male " + Fore.WHITE + "in Europe is currently 76.8697 years.")
         print("So you only have about " + Fore.BLUE + f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
