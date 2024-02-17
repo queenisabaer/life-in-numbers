@@ -75,7 +75,7 @@ def program_start():
     '''
     Start the Program, show welcome panel and Disclaimer
     '''
-    #clear the worksheet, if the application wasn't finished properly
+    # clear the worksheet, if the application wasn't finished properly
     clear_worksheet(WORKSHEET_USER, 'A2:F10')
     program_logo()
     typing_print(r"""In this application, you will learn some facts based on data related to your
@@ -149,9 +149,9 @@ def get_name():
             if len(username) > 15:
                 raise ValueError(Fore.RED + "Sorry, your name is too long. Please use only 15 letters.")
             elif not username:
-                raise ValueError(Fore.RED + "Sorry, you must add a name")
+                raise ValueError(Fore.RED + "Sorry, you must add a name.")
             elif username.isalpha() == False:
-                raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters")
+                raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters.")
             print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {username}.")
             break
         # Print an error message if input is invalid    
@@ -210,7 +210,7 @@ discriminatory purpose. Please use m for male and f for female.""")
                 raise ValueError(Fore.RED + "Since some of the calculations require gender, please enter m or f.")
             elif gender.isdigit() or len(gender) != 1: 
                 raise ValueError(Fore.RED + "Sorry wrong format. Please enter only m or f.")
-            elif gender not in ['m', 'f', 'M', 'F']: 
+            elif gender not in ['m', 'f']: 
                 raise ValueError(Fore.RED + "Please enter only m or f")
             print(Fore.GREEN + "Your input can be used for the calculations.")
             break
@@ -280,7 +280,7 @@ class User:
 
 def topic_question():
     '''
-    Ask the user which topic should be played
+    Ask the user which topic should be calculated
     After validation of users input, display the corresponding function/message
     '''
     typing_print("Topics are currently beeing loaded...")
@@ -300,11 +300,13 @@ def topic_question():
                 # calculate the bmi by using the class Users input for weight and height
                 health()
                 time.sleep(5)
-                sys.exit()
+                program_end()
             elif account_selection == "2":
-                typing_print(f"Wow, seems like you are (turning) {user.age} this year.\n")
+                # get the calculated age of the user from the worksheet
+                user_age = WORKSHEET_USER.acell('F2').value 
+                typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
                 time.sleep(5)
-                sys.exit()
+                program_end()
             elif account_selection == "3":
                 program_end()
                 break
@@ -318,6 +320,7 @@ def health():
     Calculate the bmi, life expectancy and calories
     """
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
+    calculate_life_expectancy()
 
 def calculate_age(birthyear):
     """
@@ -346,27 +349,54 @@ def calculate_bmi(weight, height, gender, age):
 this value is given in percentiles. We are currently working on implementing 
 this calculation, so it is worth coming back.""")
     else:
-        print(f"Your BMI is {bmi}. ")    
+        print(f"Your BMI is" + Fore.BLUE + "{bmi}. ")    
         if gender == 'm':
             if bmi < 18.50:
-                print("Your weight status is classified as underweight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi < 25.0:
-                print("Your weight status is classified as healthy weight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi < 30.0:
-                print("Your weight status is classified as overweight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " overweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi >= 30.0:
-                print("Your weight status is classified as obese. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
         else:
             if bmi < 17.50:
-                print("Your weight status is classified as underweight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "underweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi < 24.0:
-                print("Your weight status is classified as healthy weight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi < 29.0:
-                print("Your weight status is classified as overweight. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "overweight" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
             elif bmi >= 29.0:
-                print("Your weight status is classified as obese. But keep in mind, that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE + ". But keep in mind, that the BMI is a very limited calculation.")
 
     return bmi
+
+def calculate_life_expectancy():
+    user_gender = WORKSHEET_USER.acell('C2').value 
+    user_age = int(WORKSHEET_USER.acell('F2').value)
+    user_age_weeks = user_age * 52
+    # calculate how many weeks a male person in europe has to live on average
+    weeks_male = round(76.8697 * 52)  # 76.8697 was found at https://database.earth/
+    weeks_female = round(83.0172 * 52) 
+    if user_gender == "m":
+        print(r"""The average life expectancy of a person with a gender assigned at birth of male
+in Europe is currently 76.8697 years.""")
+        print(f"So you only have about {weeks_male} weeks to live your best life.")
+        weeks_left_male = weeks_male - (user_age_weeks)
+        if weeks_left_male > 0: 
+            print(f"You have already experienced about {user_age_weeks} weeks of it. Keep in mind \n that you only have approx. {weeks_left_male} weeks left to make your inner child happy.")
+        else:
+            print(f"You have lived longer than the average person and you've been on this planet \nfor {user_age_weeks} weeks. Congratulations. Continue to enjoy every day")
+    else:
+        print(r"""The average life expectancy of a person with a gender assigned at birth of female
+in Europe is currently 83.0172 years.""")
+        print(f"So you only have about {weeks_female} weeks to live your best life.")
+        weeks_left_female = weeks_female - (user_age_weeks)
+        if weeks_left_female > 0:
+            print(f"You have already experienced about {user_age_weeks} weeks of it. Keep in mind \n that you only have approx. {weeks_left_female} weeks left to make your inner child happy.")
+        else:
+            print(f"You have lived longer than the average person and you've been on this planet \nfor {user_age_weeks} weeks. Congratulations. Continue to enjoy every day")
+
 
 # To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
