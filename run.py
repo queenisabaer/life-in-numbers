@@ -114,7 +114,7 @@ def program_end():
     """
     Function to display a goodbye message, clear screen and worksheet from its values and end the program
     """
-    print(f"\n{user.name}, thank you for visiting this application.") 
+    print(Fore.BLUE + f"\n{user.name}" + Fore.WHITE + ", thank you for visiting this application.") 
     print("See you soon at " + Fore.GREEN + "Your life in Numbers.")
     typing_print("The program will end in 5 seconds and delete your inputs from the worksheet.")
     time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
@@ -152,7 +152,7 @@ def get_name():
                 raise ValueError(Fore.RED + "Sorry, you must add a name.")
             elif username.isalpha() == False:
                 raise ValueError(Fore.RED + "Sorry, no spaces, numbers or special characters.")
-            print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + f"! Nice to meet you, {username}.")
+            print("Welcome to " + Fore.GREEN + "Your Life in Numbers" + Fore.WHITE + "! Nice to meet you," + Fore.BLUE + f" {username}.")
             break
         # Print an error message if input is invalid    
         except ValueError as e:
@@ -318,11 +318,12 @@ def next_topic(topic):
         try:
             next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
-                time.sleep(30)
+                trivia()
+                time.sleep(45)
                 program_end()
             elif next_topic_input == "y" and topic == "health":
                 health()
-                time.sleep(20)
+                time.sleep(45)
                 program_end()
                 sys.exit()
             elif next_topic_input == "n":
@@ -343,6 +344,7 @@ def health():
     program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nHEALTH")
+    time.sleep(1.5)
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
     calculate_life_expectancy()
     mifflin_st_jeor_equation(user.weight, user.height, user.gender, user.age)
@@ -352,6 +354,7 @@ def trivia():
     program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nTRIVIA")
+    time.sleep(1.5)
     # get the calculated age of the user from the worksheet
     user_age = WORKSHEET_USER.acell('F2').value 
     typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
