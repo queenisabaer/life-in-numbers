@@ -376,28 +376,28 @@ this calculation, so it is worth coming back.""")
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")    
         if gender == 'm':
             if bmi < 18.50:
-                print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " underweight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi < 25.0:
-                print("Your weight status is classified as" + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi < 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " overweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " overweight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi >= 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE + ". But keep in mind, \that the BMI is a very limited calculation.")
+                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
         else:
             if bmi < 17.50:
-                print("Your weight status is classified as " + Fore.BLUE + "underweight" + Fore.WHITE + ". But keep in mind, \that the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "underweight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi < 24.0:
-                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi < 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "overweight" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "overweight" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
             elif bmi >= 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE + ". But keep in mind, \nthat the BMI is a very limited calculation.")
+                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE + ". But keep in mind,\nthat the BMI is a very limited calculation.")
 
     return bmi
 
 def calculate_life_expectancy():
-    user_gender = WORKSHEET_USER.acell('C2').value 
-    user_age = int(WORKSHEET_USER.acell('F2').value)
+    user_gender = user.gender
+    user_age = user.age
     user_age_weeks = user_age * 52
     # calculate how many weeks a male person in europe has to live on average
     weeks_male = round(76.8697 * 52)  # 76.8697 was found at https://database.earth/
@@ -409,7 +409,7 @@ def calculate_life_expectancy():
         print("So you only have about " + Fore.BLUE + f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
-            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you only have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy.")
+            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy.")
         else:
             print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
     else:
@@ -418,11 +418,11 @@ def calculate_life_expectancy():
         print(f"So you only have about " + Fore.BLUE + f"{weeks_female} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
-            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you only \nhave approx." + Fore.BLUE + f" {weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy.")
+            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you have \napprox." + Fore.BLUE + f" {weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy.")
         else:
             print(f"You have lived longer than the average person and you've been on this planet \nfor " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
 
-# To update the google worksheet, I used the instructions of the Code Institute love sandwiches walkthrough
+# To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
     """
     Update user worksheet, add new row with the list of data provided by the user from the class User.
@@ -430,10 +430,26 @@ def update_user_worksheet(user):
     list = [user.name, user.birthyear, user.gender, user.height, user.weight, user.age]
     #  Append a new row to the end of the worksheet 'User' with the list items
     WORKSHEET_USER.append_row(list)
+    print("Google Worksheet is currently being updated...")
+
+def get_last_entries():
+    """
+    Collects collums of data from User worksheet, collecting the last 6 entries in a list
+    and print this list for the user
+    Return: columns as list
+    """
+    columns = []
+    for ind in range(1,6): #for loop iterates 5 times, ind is for loop index
+        column = WORKSHEET_USER.col_values(ind) #col index begins with 1 not 0! col is used for columns
+        columns.append(column[-1:])
+    print("You made the following entries: " + Fore.CYAN + f"{columns}")
+    time.sleep(5)
+    return columns
 
 # MAIN
 if __name__ == "__main__":
     program_start()
     user = User() # Collect user data and initialize the User object
     update_user_worksheet(user) # Update the worksheet with the user's data
+    get_last_entries()
     topic_question() 
