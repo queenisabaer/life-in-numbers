@@ -300,12 +300,8 @@ def topic_question():
                 health()
                 next_topic("trivia")
             elif account_selection == "2":
-                # get the calculated age of the user from the worksheet
-                user_age = WORKSHEET_USER.acell('F2').value 
-                typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
+                trivia()
                 next_topic("health")
-                time.sleep(5)
-                program_end()
             elif account_selection == "3":
                 program_end()
                 break
@@ -345,10 +341,20 @@ def health():
     """
     clear_screen()
     program_logo()
-    print("\nGet ready to learn something about the topic: " + Fore.MAGENTA + "HEALTH")
+    typing_print("\nGet ready to learn something about the topic:\n")
+    print(Fore.MAGENTA + "\nHEALTH")
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
     calculate_life_expectancy()
     mifflin_st_jeor_equation(user.weight, user.height, user.gender, user.age)
+
+def trivia():
+    clear_screen()
+    program_logo()
+    typing_print("\nGet ready to learn something about the topic:\n")
+    print(Fore.MAGENTA + "\nTRIVIA")
+    # get the calculated age of the user from the worksheet
+    user_age = WORKSHEET_USER.acell('F2').value 
+    typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
 
 def calculate_age(birthyear):
     """
@@ -409,7 +415,7 @@ def calculate_life_expectancy():
     print(Fore.YELLOW + "\nYears and Weeks\n")
     if user_gender == "m":
         print("The average life expectancy of a person with a gender assigned at birth of")
-        print(Fore.BLUE + "male " + Fore.WHITE + "in Europe is currently 76.8697 years.")
+        print(Fore.BLUE + "male " + Fore.WHITE + "in Europe is currently 76,8697 years.")
         print("So you only have about " + Fore.BLUE + f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
@@ -418,7 +424,7 @@ def calculate_life_expectancy():
             print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
     else:
         print("The average life expectancy of a person with a gender assigned at birth of")
-        print(Fore.BLUE + "female" + Fore.WHITE + " in Europe is currently" + Fore.BLUE + " 83.0172 years.")
+        print(Fore.BLUE + "female" + Fore.WHITE + " in Europe is currently" + Fore.BLUE + " 83,0172 years.")
         print(f"So you only have about " + Fore.BLUE + f"{weeks_female} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
