@@ -343,6 +343,7 @@ def health():
     """
     Calculate the bmi, life expectancy and calories
     """
+    print("")
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
     calculate_life_expectancy()
 
@@ -434,17 +435,21 @@ def update_user_worksheet(user):
 
 def get_last_entries():
     """
-    Collects collums of data from User worksheet, collecting the last 6 entries in a list
+    Collects colums of data from User worksheet, adding the last 6 entries in a list
     and print this list for the user
-    Return: columns as list
     """
+    headings = []
     columns = []
     for ind in range(1,6): #for loop iterates 5 times, ind is for loop index
         column = WORKSHEET_USER.col_values(ind) #col index begins with 1 not 0! col is used for columns
         columns.append(column[-1:])
-    print("You made the following entries: " + Fore.CYAN + f"{columns}")
-    time.sleep(5)
-    return columns
+        headings.append(column[0])
+    print("You made the following entries:")
+    # The Zip method to iterate through both lists was found on stack overflow
+    for heading, col in zip(headings, columns):
+        print(f"{heading}:" + Fore. CYAN + f" {col}")
+        time.sleep(1) # print each entry with a delay of 1 second
+    time.sleep(3)
 
 # MAIN
 if __name__ == "__main__":

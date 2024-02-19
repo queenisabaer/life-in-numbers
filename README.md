@@ -150,12 +150,13 @@ After refreshing the settings site for this repository above the **"Build and de
 
 ### Code
 
-- To import the gspread library and setting the APIs, I used the walkthrough project *love-sandwich* from Code Institute. 
+- To import the gspread library, setting the APIs update the worksheet and getting the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
 - How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/)
 - To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
 - To create the function that clears the google worksheet, I found a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387)
 - To learn more about the if__name__ == "__main__" idiom, I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
 - To learn more about the usage of gspread I read [this articel](https://docs.gspread.org/en/latest/user-guide.html)
+- How to use the zip method to combine two lists was found on [Stack Overflow](https://stackoverflow.com/questions/71086453/how-to-combine-the-elements-of-two-lists-using-zip-function-in-python)
 - To understand more about the concepts of Python, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
