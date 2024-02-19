@@ -320,7 +320,7 @@ def next_topic(topic):
     """
     while True:
         try:
-            next_topic_input = input(Fore.CYAN + f"Do you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
+            next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
                 time.sleep(30)
                 program_end()
@@ -341,11 +341,14 @@ def next_topic(topic):
 
 def health():
     """
-    Calculate the bmi, life expectancy and calories
+    Stores all the calculations for the topic health, like calulating the bmi, life expectancy and calories
     """
-    print("")
+    clear_screen()
+    program_logo()
+    print("\nGet ready to learn something about the topic: " + Fore.MAGENTA + "HEALTH")
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
     calculate_life_expectancy()
+    mifflin_st_jeor_equation(user.weight, user.height, user.gender, user.age)
 
 def calculate_age(birthyear):
     """
@@ -423,15 +426,32 @@ def calculate_life_expectancy():
         else:
             print(f"You have lived longer than the average person and you've been on this planet \nfor " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
 
+def mifflin_st_jeor_equation(weight, height, gender, age):
+    """
+    Calculate the resting metabolic rate
+    """
+    print(Fore.YELLOW + "\nResting Metabolic Rate\n")
+    rmr_plain = (10*weight) + (6.25*(height*100)) - (5*age)
+    if gender == "m":
+        rmr = rmr_plain + 5
+    else:
+        rmr = rmr_plain - 161
+    print(r"""The Resting Metabolic Rate (RMR) represents the total caloric expenditure when
+the body is in a state of complete rest. RMR facilitates essential physio-
+logical functions such as respiration, circulation, organ maintenance, and 
+fundamental neurological processes. We calculated the RMR with the 
+Mifflin-St Jeor equation.""")
+    print("Regarding your weight, height, gender(GAAB/Current sex) and age your RMR is:\n"+ Fore.BLUE + f"{rmr}" + Fore.WHITE + " kcal/day. This is the energy your body needed daily to maintain normal \nphysiological function.")
+
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
     """
     Update user worksheet, add new row with the list of data provided by the user from the class User.
     """
+    print("Google Worksheet is currently being updated...")
     list = [user.name, user.birthyear, user.gender, user.height, user.weight, user.age]
     #  Append a new row to the end of the worksheet 'User' with the list items
     WORKSHEET_USER.append_row(list)
-    print("Google Worksheet is currently being updated...")
 
 def get_last_entries():
     """
@@ -449,7 +469,7 @@ def get_last_entries():
     for heading, col in zip(headings, columns):
         print(f"{heading}:" + Fore. CYAN + f" {col}")
         time.sleep(1) # print each entry with a delay of 1 second
-    time.sleep(3)
+    time.sleep(2)
 
 # MAIN
 if __name__ == "__main__":
