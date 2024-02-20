@@ -369,13 +369,13 @@ def trivia():
     print("Wow, it seems like you are (turning) " + Fore.BLUE + f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
     human_to_dog_years(user_age)
     print(Fore.YELLOW + "\nCelestial Age\n")
-    calculate_planet_age('Mercury', 87.9691, user_age)
-    calculate_planet_age('Venus', 224.7, user_age)
-    calculate_planet_age('Mars', 687, user_age)
-    calculate_planet_age('Jupiter', 4331, user_age)
-    calculate_planet_age('Saturn', 10747, user_age)
-    calculate_planet_age('Uranus', 30589, user_age)
-    calculate_planet_age('Neptune', 59800, user_age)
+    calculate_planet_age('Mercury', 87.9691, 'mercurian', user_age)
+    calculate_planet_age('Venus', 224.7, 'venusian', user_age)
+    calculate_planet_age('Mars', 687, 'martian', user_age)
+    calculate_planet_age('Jupiter', 4331, 'jovian', user_age)
+    calculate_planet_age('Saturn', 10747, 'saturnian', user_age)
+    calculate_planet_age('Uranus', 30589, 'uranian', user_age)
+    calculate_planet_age('Neptune', 59800, 'neptunian', user_age)
 
 def calculate_age(birthyear):
     """
@@ -488,12 +488,12 @@ def human_to_dog_years(age):
         dog_years = 24 + (5 * int(age)) 
     print("As a dog, you would already be " + Fore.BLUE + f"{dog_years}" + Fore.WHITE + " years old. 'Woof' to that!")
 
-def calculate_planet_age(planet, planet_orbital_period, age):
+def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, age):
     age_in_days = int(age) * 365
     planet_age = round(age_in_days / planet_orbital_period , 2)
     planet_age_days = round(planet_age * 365)
     print("If you lived on "+ Fore.BLUE + f"{planet}" +Fore.WHITE + ", you would have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + " years,")
-    print("which is about " + Fore.BLUE + f"{planet_age_days}" + Fore.WHITE + " days.")
+    print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + f"{planet_characteristic} days.")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
@@ -519,7 +519,7 @@ def get_last_entries():
     print("You made the following entries:")
     # The Zip method to iterate through both lists was found on stack overflow
     for heading, col in zip(headings, columns):
-        print(f"{heading}:" + Fore. CYAN + f" {col}")
+        print(f"{heading}:" + Fore. BLUE + f" {col}")
         time.sleep(1) # print each entry with a delay of 1 second
     time.sleep(2)
 
