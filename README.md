@@ -147,6 +147,7 @@ After refreshing the settings site for this repository above the **"Build and de
 - The heaviest person was found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
 - The classificatioon for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
 - The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
+- How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
 
 ### Code
 

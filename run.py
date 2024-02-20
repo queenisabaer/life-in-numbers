@@ -73,7 +73,7 @@ def typing_print(text):
 # Start the program
 def program_start():
     '''
-    Start the Program, show welcome panel and Disclaimer
+    Start the Program, clear the worksheet, show logo and disclaimer
     '''
     # clear the worksheet, if the application wasn't finished properly
     clear_worksheet(WORKSHEET_USER, 'A2:F10')
@@ -124,7 +124,7 @@ def program_end():
 
 def program_logo():
      """
-     Print an ASCII Art Logo for the application Your life in numbers
+     Print an ASCII Art Logo for the application Your Life in Numbers
      """
      print(Fore.GREEN + r"""
  ____ ____ ____ ____ _________ ____ ____ ____ ____ _________ 
@@ -140,6 +140,7 @@ def program_logo():
 def get_name():
     """
     Ask user for its name and validate the input.
+
         Parameters: None
         Returns: username as capitalized string
     """
@@ -163,6 +164,7 @@ def get_name():
 def get_birth_year():
     """
     Get users birth year and validate the input. 
+
         Parameter: None
         Returns: birth year as integer
     """
@@ -193,6 +195,7 @@ def get_birth_year():
 def get_gender():
     """
     Get users gender and validate input. 
+
     Parameters: None
     Returns: gender as lower string
     """
@@ -222,10 +225,12 @@ discriminatory purpose. Please use m for male and f for female.""")
 def get_weight_and_height(var, units):
     """
     Get user input for a float number
+
     Parameters: 
         var: variable or quantity for which the user is expected to input a value
         units: units in which the variable or quantity is expected to be inputted
-    Returns: the number input as a float
+    Returns: 
+        the number input as a float
     """
     typing_print(f"Your {var} in {units} should be with a point for decimal.\n")
     while True:
@@ -280,7 +285,7 @@ class User:
 
 def topic_question():
     '''
-    Ask the user which topic should be calculated
+    Ask the user which topic should be calculated.
     After validation of users input, display the corresponding function/message
     '''
     typing_print("Topics are currently beeing loaded...")
@@ -312,7 +317,10 @@ def topic_question():
 
 def next_topic(topic):
     """
-    Ask user for other topic depending 
+    Allows the user to choose whether to proceed to the next topic or end the program.
+
+    Parameters:  
+        topic: str, the current topic 
     """
     while True:
         try:
@@ -353,11 +361,12 @@ def trivia():
     clear_screen()
     program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
-    print(Fore.MAGENTA + "\nTRIVIA")
+    print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5)
     # get the calculated age of the user from the worksheet
     user_age = WORKSHEET_USER.acell('F2').value 
     typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
+    human_to_dog_years(user_age)
 
 def calculate_age(birthyear):
     """
@@ -408,12 +417,13 @@ this calculation, so it is worth coming back.""")
 
     return bmi
 
+# The current average life expectancy for europe was found at https://database.earth/
 def calculate_life_expectancy():
     user_gender = user.gender
     user_age = user.age
     user_age_weeks = user_age * 52
     # calculate how many weeks a male person in europe has to live on average
-    weeks_male = round(76.8697 * 52)  # 76.8697 was found at https://database.earth/
+    weeks_male = round(76.8697 * 52)  # 76.8697 for male and 83.0172 for female was found at https://database.earth/
     weeks_female = round(83.0172 * 52) 
     print(Fore.YELLOW + "\nYears and Weeks\n")
     if user_gender == "m":
@@ -435,6 +445,7 @@ def calculate_life_expectancy():
         else:
             print(f"You have lived longer than the average person and you've been on this planet \nfor " + Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
 
+# How to calculate the resting metabolic rate was found at the nasm blog
 def mifflin_st_jeor_equation(weight, height, gender, age):
     """
     Calculate the resting metabolic rate
@@ -448,9 +459,18 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
     print(r"""The Resting Metabolic Rate (RMR) represents the total caloric expenditure when
 the body is in a state of complete rest. RMR facilitates essential physio-
 logical functions such as respiration, circulation, organ maintenance, and 
-fundamental neurological processes. We calculated the RMR with the 
-Mifflin-St Jeor equation.""")
-    print("Regarding your weight, height, gender(GAAB/Current sex) and age your RMR is:\n"+ Fore.BLUE + f"{rmr}" + Fore.WHITE + " kcal/day. This is the energy your body needed daily to maintain normal \nphysiological function.")
+fundamental neurological processes. 
+The RMR was calculated with the Mifflin-St Jeor equation.""")
+    print("\nRegarding your weight, height, gender(GAAB/Current sex) and age your RMR is:\n"+ Fore.BLUE + f"{rmr}" + Fore.WHITE + " kcal/day. This is the energy your body needs daily to maintain normal \nphysiological function.")
+
+def human_to_dog_years(age):
+    if age == 1:
+        dog_years = 15
+    elif age == 2:
+        dog_years = 15 + 9
+    else:
+        dog_years = 24 + (5 * int(age)) 
+    print("As a dog you would be already " + Fore.BLUE + f"{dog_years}" + Fore.WHITE + " years old.")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
