@@ -288,7 +288,7 @@ def topic_question():
     Ask the user which topic should be calculated.
     After validation of users input, display the corresponding function/message
     '''
-    typing_print("Topics are currently beeing loaded...")
+    typing_print("The topics are in the process of loading...")
     time.sleep(2) # Wait for 2 seconds before the screen is cleared.
     clear_screen()
     program_logo()
@@ -364,9 +364,19 @@ def trivia():
     print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5)
     # get the calculated age of the user from the worksheet
-    user_age = WORKSHEET_USER.acell('F2').value 
+    user_age = WORKSHEET_USER.acell('F2').value
+    print(Fore.YELLOW + "Happy Birthday\n")
     typing_print(f"Wow, seems like you are (turning) {user_age} this year.\n")
     human_to_dog_years(user_age)
+    print(Fore.YELLOW + "\nCelestial Age\n")
+    calculate_planet_age('Mercury', 87.9691, user_age)
+    calculate_planet_age('Venus', 224.7, user_age)
+    calculate_planet_age('Mars', 687, user_age)
+    calculate_planet_age('Jupiter', 4331, user_age)
+    calculate_planet_age('Saturn', 10747, user_age)
+    calculate_planet_age('Uranus', 30589, user_age)
+    calculate_planet_age('Neptune', 59800, user_age)
+
 
 def calculate_age(birthyear):
     """
@@ -463,7 +473,14 @@ fundamental neurological processes.
 The RMR was calculated with the Mifflin-St Jeor equation.""")
     print("\nRegarding your weight, height, gender(GAAB/Current sex) and age your RMR is:\n"+ Fore.BLUE + f"{rmr}" + Fore.WHITE + " kcal/day. This is the energy your body needs daily to maintain normal \nphysiological function.")
 
+# The calculation to calculate human years into dog years was found at American Kennel Club
 def human_to_dog_years(age):
+    """
+    Calculate the age of the user into dog years
+
+    Parameters: age 
+    """
+    print(Fore.YELLOW + "\nDog Years\n")
     if age == 1:
         dog_years = 15
     elif age == 2:
@@ -471,6 +488,11 @@ def human_to_dog_years(age):
     else:
         dog_years = 24 + (5 * int(age)) 
     print("As a dog you would be already " + Fore.BLUE + f"{dog_years}" + Fore.WHITE + " years old.")
+
+def calculate_planet_age(planet, planet_orbital_period, age):
+    age_in_days = int(age) * 365
+    planet_age = round(age_in_days / planet_orbital_period , 2)
+    print("If you lived on "+ Fore.BLUE + f"{planet}" +Fore.WHITE + ", you would reach the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + ".")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
