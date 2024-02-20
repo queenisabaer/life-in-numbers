@@ -105,7 +105,7 @@ Once the application is complete, this data will automatically be deleted.""")
             elif not continue_answer:
                 raise ValueError(Fore.RED + "You must give an answer if you would like to continue. y for yes or n for no")
             elif continue_answer not in ['n','y'] or continue_answer.isdigit(): 
-                raise ValueError(Fore.RED + "Please enter only n or y")
+                raise ValueError(Fore.RED + "Please enter only y or n")
         except ValueError as e:
             print(e)
 
