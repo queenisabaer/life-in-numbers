@@ -327,11 +327,11 @@ def next_topic(topic):
             next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}?(y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
                 trivia()
-                time.sleep(45)
+                input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
             elif next_topic_input == "y" and topic == "health":
                 health()
-                time.sleep(45)
+                input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
                 sys.exit()
             elif next_topic_input == "n":
