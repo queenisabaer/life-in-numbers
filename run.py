@@ -359,7 +359,6 @@ def health():
 
 def trivia():
     clear_screen()
-    program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5)
@@ -441,7 +440,7 @@ def calculate_life_expectancy():
         print("So you only have about " + Fore.BLUE + f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0: 
-            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy. Let magic happen!")
+            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy. \nLet magic happen!")
         else:
             print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE + f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
     else:
