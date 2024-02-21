@@ -41,7 +41,7 @@ CURRENT_YEAR = int(str(datetime.datetime.now().year))
 # Create a function to clear the screen. Code was found at altcademy
 def clear_screen ():
     '''
-    Clear the screen
+    Clears the screen from text
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -354,7 +354,9 @@ def health():
     print(Fore.MAGENTA + "\nHEALTH")
     time.sleep(1.5)
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
+    time.sleep(1)
     calculate_life_expectancy()
+    time.sleep(1)
     mifflin_st_jeor_equation(user.weight, user.height, user.gender, user.age)
 
 def trivia():
@@ -367,7 +369,9 @@ def trivia():
     user_age = WORKSHEET_USER.acell('F2').value
     print(Fore.YELLOW + "Happy Birthday\n")
     print("Wow, it seems like you are (turning) " + Fore.BLUE + f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
+    time.sleep(1)
     human_to_dog_years(user_age)
+    time.sleep(1)
     print(Fore.YELLOW + "\nCelestial Age\n")
     calculate_planet_age('Mercury', 87.9691, 'Mercurian', user_age)
     calculate_planet_age('Venus', 224.7, 'Venusian', user_age)
