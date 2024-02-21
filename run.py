@@ -86,11 +86,8 @@ def typing_print(text):
 # Start the program
 def program_start():
     '''
-    Start the Program, clear the worksheet, show logo and disclaimer
+    Start the Program, displays logo and disclaimer
     '''
-    # clear the worksheet, if the application wasn't finished properly
-    
-    #clear_worksheet(WORKSHEET_USER, 'A2:F10')
     program_logo()
     typing_print(r"""In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
@@ -132,7 +129,7 @@ def program_end():
     print("See you soon at " + Fore.GREEN + "Your life in Numbers.")
     typing_print("The program will end in 5 seconds and delete your inputs from the worksheet.")
     time.sleep(5) # Wait for 5 seconds until the screen is cleared and the appliacation ends
-    #clear_worksheet(WORKSHEET_USER, 'A2:F10')
+    clear_worksheet(worksheets[new_sheet_name])
     clear_screen()
     sys.exit() # terminate the program 
 
@@ -380,7 +377,7 @@ def trivia():
     print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5) # time delay of 1.5 seconds
     # get the calculated age of the user from the worksheet
-    user_age = WORKSHEET_USER.acell('F2').value
+    user_age = worksheets[new_sheet_name].acell('F2').value
     print(Fore.YELLOW + "Happy Birthday\n")
     print("Wow, it seems like you are (turning) " + Fore.BLUE + f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
     time.sleep(1) # time delay of 1 second
@@ -517,7 +514,7 @@ def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, a
     print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + "days on Earth.")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
-def update_user_worksheet(user, sheet_name): 
+def update_user_worksheet(user, new_sheet_name): 
     """
     Update user worksheet, add new row with the list of data provided by the user from the class User.
     """
@@ -525,7 +522,7 @@ def update_user_worksheet(user, sheet_name):
     list_to_update = [user.name, user.birthyear, user.gender, user.height, user.weight, user.age]
     #  Append a new row to the end of the worksheet 'User' with the list items
     #WORKSHEET_USER.append_row(list)
-    sheet_name.append_row(list_to_update)
+    worksheets[new_sheet_name].append_row(list_to_update)
 
 def get_last_entries():
     """
@@ -535,7 +532,7 @@ def get_last_entries():
     headings = []
     columns = []
     for ind in range(1,6): #for loop iterates 5 times, ind is for loop index
-        column = WORKSHEET_USER.col_values(ind) #col index begins with 1 not 0! col is used for columns
+        column = worksheets[new_sheet_name].col_values(ind) #col index begins with 1 not 0! col is used for columns
         columns.append(column[-1:])
         headings.append(column[0])
     print("You made the following entries:")
@@ -557,7 +554,7 @@ if __name__ == "__main__":
     weight_input = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
     age_input = calculate_age(birthyear_input)
     user = User(name_input, birthyear_input, gender_input, height_input, weight_input, age_input) # Collect user data and initialize the User object
-    update_user_worksheet(user, eval(new_sheet_name)) # Update the worksheet with the user's data
+    update_user_worksheet(user, new_sheet_name) # Update the worksheet with the user's data
     get_last_entries()
     topic_question() 
     clear_worksheet(new_sheet_name)

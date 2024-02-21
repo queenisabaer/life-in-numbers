@@ -525,7 +525,7 @@ def update_user_worksheet(user, new_sheet_name):
     #WORKSHEET_USER.append_row(list)
     worksheets[new_sheet_name].append_row(list_to_update)
 
-def get_last_entries(new_sheet_name):
+def get_last_entries():
     """
     Collects colums of data from User worksheet, adding the last 6 entries in a list
     and print this list for the user
