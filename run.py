@@ -271,17 +271,17 @@ class User:
     """
     Represents the user who is utilizing the application
     """
-    def __init__(self):
+    def __init__(self, name, birthyear, gender, height, weight, age):
         """
         Initialize the properties of the instance
         Parameters: self
         """
-        self.name = get_name()
-        self.birthyear = get_birth_year()
-        self.gender = get_gender()
-        self.height = validate_weight_and_height('height', 'm', 0.49, 2.72)
-        self.weight = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
-        self.age = calculate_age(self.birthyear)
+        self.name = name
+        self.birthyear = birthyear
+        self.gender = gender
+        self.height = height
+        self.weight = weight
+        self.age = age
 
 def topic_question():
     '''
@@ -352,9 +352,9 @@ def health():
     program_logo()
     typing_print("Get ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nHEALTH")
-    time.sleep(1.5)
+    time.sleep(1.5) # time delay of 1.5 seconds
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
-    time.sleep(1)
+    time.sleep(1) # time delay of 1 second
     calculate_life_expectancy()
     time.sleep(1)
     mifflin_st_jeor_equation(user.weight, user.height, user.gender, user.age)
@@ -364,12 +364,12 @@ def trivia():
     program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nTRIVIA\n")
-    time.sleep(1.5)
+    time.sleep(1.5) # time delay of 1.5 seconds
     # get the calculated age of the user from the worksheet
     user_age = WORKSHEET_USER.acell('F2').value
     print(Fore.YELLOW + "Happy Birthday\n")
     print("Wow, it seems like you are (turning) " + Fore.BLUE + f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
-    time.sleep(1)
+    time.sleep(1) # time delay of 1 second
     human_to_dog_years(user_age)
     time.sleep(1)
     print(Fore.YELLOW + "\nCelestial Age\n")
@@ -432,6 +432,9 @@ this calculation, so it is worth coming back.""")
 
 # The current average life expectancy for europe was found at https://database.earth/
 def calculate_life_expectancy():
+    """
+    Calculate the average life expectancy in weeks of a european male or female
+    """
     user_gender = user.gender
     user_age = user.age
     user_age_weeks = user_age * 52
@@ -530,7 +533,13 @@ def get_last_entries():
 # MAIN
 if __name__ == "__main__":
     program_start()
-    user = User() # Collect user data and initialize the User object
+    name_input = get_name()
+    birthyear_input = get_birth_year()
+    gender_input = get_gender()
+    height_input = validate_weight_and_height('height', 'm', 0.49, 2.72)
+    weight_input = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
+    age_input = calculate_age(birthyear_input)
+    user = User(name_input, birthyear_input, gender_input, height_input, weight_input, age_input) # Collect user data and initialize the User object
     update_user_worksheet(user) # Update the worksheet with the user's data
     get_last_entries()
     topic_question() 
