@@ -261,7 +261,7 @@ def validate_weight_and_height(var, units, average_min, max_input):
             elif values > max_input:
                 raise ValueError(Fore.RED + f"{values} seems to be incorrect. {max_input} {units} is the guiness world record.")
             else:
-                print(Fore.GREEN + f"Well done. {values} is valid")
+                print(Fore.GREEN + f"Well done. {values} {units} is valid")
                 return values
         except ValueError as e:
             print(e)    
@@ -326,12 +326,10 @@ def next_topic(topic):
         try:
             next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}? (y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
-                clear_screen()
                 trivia()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
             elif next_topic_input == "y" and topic == "health":
-                clear_screen()
                 health()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
@@ -352,7 +350,7 @@ def health():
     """
     clear_screen()
     program_logo()
-    typing_print("\nGet ready to learn something about the topic:\n")
+    typing_print("Get ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nHEALTH")
     time.sleep(1.5)
     calculate_bmi(user.weight, user.height, user.gender, user.age) 
@@ -371,13 +369,13 @@ def trivia():
     print("Wow, it seems like you are (turning) " + Fore.BLUE + f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
     human_to_dog_years(user_age)
     print(Fore.YELLOW + "\nCelestial Age\n")
-    calculate_planet_age('Mercury', 87.9691, 'mercurian', user_age)
-    calculate_planet_age('Venus', 224.7, 'venusian', user_age)
-    calculate_planet_age('Mars', 687, 'martian', user_age)
-    calculate_planet_age('Jupiter', 4331, 'jovian', user_age)
-    calculate_planet_age('Saturn', 10747, 'saturnian', user_age)
-    calculate_planet_age('Uranus', 30589, 'uranian', user_age)
-    calculate_planet_age('Neptune', 59800, 'neptunian', user_age)
+    calculate_planet_age('Mercury', 87.9691, 'Mercurian', user_age)
+    calculate_planet_age('Venus', 224.7, 'Venusian', user_age)
+    calculate_planet_age('Mars', 687, 'Martian', user_age)
+    calculate_planet_age('Jupiter', 4331, 'Jovian', user_age)
+    calculate_planet_age('Saturn', 10747, 'Saturnian', user_age)
+    calculate_planet_age('Uranus', 30589, 'Uranian', user_age)
+    calculate_planet_age('Neptune', 59800, 'Neptunian', user_age)
 
 def calculate_age(birthyear):
     """
@@ -495,7 +493,7 @@ def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, a
     planet_age = round(age_in_days / planet_orbital_period , 2)
     planet_age_days = round(planet_age * 365)
     print("If you lived on "+ Fore.BLUE + f"{planet}" +Fore.WHITE + ", you'd have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + f" {planet_characteristic} years,")
-    print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + "days on earth.")
+    print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + "days on Earth.")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
