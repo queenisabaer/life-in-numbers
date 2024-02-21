@@ -44,6 +44,7 @@ def clear_screen ():
     Clears the screen from text
     '''
     os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033c", end="") # as backup because os.systems clears only viewport not the whole terminal in mac
 
 # To create this function I used a thread post at github by Anton Burnashev
 def clear_worksheet(worksheet, clear_range):
