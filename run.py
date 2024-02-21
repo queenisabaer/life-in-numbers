@@ -326,10 +326,12 @@ def next_topic(topic):
         try:
             next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}? (y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
+                clear_screen()
                 trivia()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
             elif next_topic_input == "y" and topic == "health":
+                clear_screen()
                 health()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
                 program_end()
@@ -359,6 +361,7 @@ def health():
 
 def trivia():
     clear_screen()
+    program_logo()
     typing_print("\nGet ready to learn something about the topic:\n")
     print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5)
@@ -491,8 +494,8 @@ def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, a
     age_in_days = int(age) * 365
     planet_age = round(age_in_days / planet_orbital_period , 2)
     planet_age_days = round(planet_age * 365)
-    print("If you lived on "+ Fore.BLUE + f"{planet}" +Fore.WHITE + ", you would have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + " years,")
-    print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + f"{planet_characteristic} days.")
+    print("If you lived on "+ Fore.BLUE + f"{planet}" +Fore.WHITE + ", you'd have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + f" {planet_characteristic} years,")
+    print("which is about " + Fore.BLUE + f"{planet_age_days} " + Fore.WHITE + "days on earth.")
 
 # To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
 def update_user_worksheet(user): 
