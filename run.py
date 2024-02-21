@@ -62,9 +62,14 @@ def clear_screen ():
 def clear_worksheet(worksheet):
     SHEET.del_worksheet(worksheet)
 
+worksheets = {}
 def duplicate_worksheet(sheet_name, new_sheet_name):
+    """
+    Duplicate an existing worksheet
+    """
     new_worksheet = sheet_name.duplicate()
     new_worksheet.update_title(new_sheet_name)
+    worksheets[new_sheet_name] = new_worksheet
 
 # Delay the display of text on screen. Tutorial was found at 101computing 
 def typing_print(text):
