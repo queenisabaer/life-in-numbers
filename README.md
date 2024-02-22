@@ -73,7 +73,9 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 - [Am I Responsive](https://ui.dev/amiresponsive) was used to display the website on different devices.
 - [beautifier](https://beautifier.io/) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README. 
-- [Colorama](https://pypi.org/project/colorama/)was used to color the text in the terminal.  
+- [Colorama](https://pypi.org/project/colorama/)was used to color the text in the terminal.
+- [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
+- [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
 
 ## Testing
 
@@ -142,9 +144,9 @@ After refreshing the settings site for this repository above the **"Build and de
 
 ### Content
 
-- The background image is 
+- The background image is from [pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/)
 - The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancte](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
-- The heaviest person was found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
+- The heaviest and tallest person were found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
 - The classificatioon for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
 - The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
 - How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
@@ -155,9 +157,9 @@ After refreshing the settings site for this repository above the **"Build and de
 - To import the gspread library, setting the APIs update the worksheet and getting the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
 - How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/)
 - To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
-- To create the function that clears the google worksheet, I found a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387)
+- Although I didn't use this function in the end(but can still be seen on the easrly versions on github), I want to mention that I used a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387) to create a function that clears parts of the google worksheet. 
 - To learn more about the if__name__ == "__main__" idiom, I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
-- To learn more about the usage of gspread I read [this articel](https://docs.gspread.org/en/latest/user-guide.html)
+- To learn more about the usage of gspread I read [some articels by Anton Burnashev](https://docs.gspread.org/en/latest/user-guide.html)
 - How to use the zip method to combine two lists was found on [Stack Overflow](https://stackoverflow.com/questions/71086453/how-to-combine-the-elements-of-two-lists-using-zip-function-in-python)
 - How do I wait for a pressed key was found at [Stack Overflow](https://stackoverflow.com/questions/983354/how-do-i-wait-for-a-pressed-key)
 - To understand more about the concepts of Python, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)

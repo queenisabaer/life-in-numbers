@@ -544,9 +544,9 @@ def get_last_entries():
 
 # MAIN
 if __name__ == "__main__":
+    program_start()
     new_sheet_name = "Worksheet_" + datetime.now().strftime("%Y%m%d_%H%M%S")
     duplicate_worksheet(WORKSHEET_USER, new_sheet_name)
-    program_start()
     name_input = get_name()
     birthyear_input = get_birth_year()
     gender_input = get_gender()
