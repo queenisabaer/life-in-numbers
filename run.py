@@ -270,8 +270,7 @@ def get_weight_and_height(var, units):
             return float_input
         except ValueError:
             # Print an error message if input is invalid
-            print(Fore.RED + f"Invalid entry! Please enter your {
-                  var} in {units} with a point for decimal.")
+            print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
 
 
 def validate_weight_and_height(var, units, average_min, max_input):
@@ -288,11 +287,9 @@ def validate_weight_and_height(var, units, average_min, max_input):
         values = get_weight_and_height(var, units)
         try:
             if values < average_min:
-                raise ValueError(Fore.RED + f"{values} seems to be incorrect. The average {
-                                 var} of a newborn is {average_min} {units}.")
+                raise ValueError(Fore.RED + f"{values} seems to be incorrect. The average {var} of a newborn is {average_min} {units}.")
             elif values > max_input:
-                raise ValueError(Fore.RED + f"{values} seems to be incorrect. {
-                                 max_input} {units} is the guiness world record.")
+                raise ValueError(Fore.RED + f"{values} seems to be incorrect. {max_input} {units} is the guiness world record.")
             else:
                 print(Fore.GREEN + f"Well done. {values} {units} is valid")
                 return values
@@ -365,8 +362,7 @@ def next_topic(topic):
     """
     while True:
         try:
-            next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {
-                                     topic}? (y/n)" + Fore.WHITE + "\n").lower().strip()
+            next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}? (y/n)" + Fore.WHITE + "\n").lower().strip()
             if next_topic_input == "y" and topic == "trivia":
                 trivia()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
@@ -509,8 +505,7 @@ def calculate_life_expectancy():
               f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0:
-            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {
-                  weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy. \nLet magic happen!")
+            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy. \nLet magic happen!")
         else:
             print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE +
                   f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
@@ -522,8 +517,7 @@ def calculate_life_expectancy():
               f"{weeks_female} weeks" + Fore.WHITE + " to live your best life.")
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
-            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you have \napprox." + Fore.BLUE + f" {
-                  weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy. Let magic happen!")
+            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you have \napprox." + Fore.BLUE + f" {weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy. Let magic happen!")
         else:
             print(f"You have lived longer than the average person and you've been on this planet \nfor " +
                   Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
@@ -573,8 +567,7 @@ def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, a
     age_in_days = int(age) * 365
     planet_age = round(age_in_days / planet_orbital_period, 2)
     planet_age_days = round(planet_age * 365)
-    print("If you lived on " + Fore.BLUE + f"{planet}" + Fore.WHITE + ", you'd have reached the age of " + Fore.BLUE + f"{
-          planet_age}" + Fore.WHITE + f" {planet_characteristic} years,")
+    print("If you lived on " + Fore.BLUE + f"{planet}" + Fore.WHITE + ", you'd have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + f" {planet_characteristic} years,")
     print("which is about " + Fore.BLUE +
           f"{planet_age_days} " + Fore.WHITE + "days on Earth.")
 
