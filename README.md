@@ -145,7 +145,7 @@ After refreshing the settings site for this repository above the **"Build and de
 ### Content
 
 - The background image is from [pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/)
-- The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancte](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
+- The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancet](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
 - The heaviest and tallest person were found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
 - The classificatioon for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
 - The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
@@ -154,7 +154,7 @@ After refreshing the settings site for this repository above the **"Build and de
 
 ### Code
 
-- To import the gspread library, setting the APIs update the worksheet and getting the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
+- To import the gspread library, setting the APIs, update the worksheet and getting the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
 - How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/)
 - To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
 - Although I didn't use this function in the end(but can still be seen on the easrly versions on github), I want to mention that I used a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387) to create a function that clears parts of the google worksheet. 

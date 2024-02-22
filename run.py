@@ -7,37 +7,40 @@ from datetime import datetime
 import os
 import colorama
 from colorama import Fore, Back
+
 colorama.init(autoreset=True)  # Reset the color and the style automatically
 
-'''
+"""
 For the import of the gspread library and setting up the APIs, I used the 
 instructions of the Code Institute love sandwiches walkthrough
-'''
+"""
 
 # Const to list the APIs that the  program should access in order to run.
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
+    "https://www.googleapis.com/auth/drive",
 ]
 # Load the credentials from the service account json file
-CREDS = Credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file("creds.json")
 # Define the scope and authenticate
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # Open the google spreadsheet and access the worksheets
-SHEET = GSPREAD_CLIENT.open('life-in-numbers')
+SHEET = GSPREAD_CLIENT.open("life-in-numbers")
 WORKSHEET_USER = SHEET.get_worksheet(0)
 
 CURRENT_YEAR = int(str(datetime.now().year))
 
+
 def clear_screen():
-    '''
+    """
     Clears the screen from text, Code was found at altacademy
-    '''
-    os.system('cls' if os.name == 'nt' else 'clear')
-    # as backup because on mac os.systems clears only viewport not the whole terminal
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    # backup because on mac os.systems clears only viewport not whole terminal
     print("\033c", end="")
+
 
 def delete_worksheet(worksheet):
     """
@@ -47,7 +50,10 @@ def delete_worksheet(worksheet):
     """
     SHEET.del_worksheet(worksheet)
 
+
 worksheets = {}
+
+
 def duplicate_worksheet(sheet_name, new_sheet_name):
     """
     Duplicate an existing worksheet
@@ -58,12 +64,12 @@ def duplicate_worksheet(sheet_name, new_sheet_name):
 
 
 def typing_print(text):
-    '''
-    Print text character by character with a delay of 0.05 seconds. 
+    """
+    Print text character by character with a delay of 0.05 seconds.
     Tutorial was found at 101computing
-    Parameters: 
+    Parameters:
         text(str): Text to be printed to the console with time delay
-    '''
+    """
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
@@ -71,44 +77,68 @@ def typing_print(text):
 
 
 def program_start():
-    '''
+    """
     Start the Program, displays logo and disclaimer
-    '''
+    """
     program_logo()
-    typing_print(r"""In this application, you will learn some facts based on data related to your
+    typing_print(
+        r"""
+In this application, you will learn some facts based on data related to your
 life by entering some details about yourself. You have the option to select
-from two different topics.""" + "\n")
+from two different topics.
+        """
+        + "\n"
+    )
     disclaimer()
 
 
 def disclaimer():
     """
-    Show the disclaimer that informs the user about the storeage of the input 
+    Print a disclaimer that informs the user about the storeage of the input
     and give the user the possibility to end application.
     """
-    print(Fore.MAGENTA + "DISCLAIMER: ")
-    print(r"""
-The data entered is stored in a Google Worksheet for the duration of use.
-Once the application is complete, this data will automatically be deleted.
-          """)
+    print(Fore.MAGENTA + "\nDISCLAIMER: ")
+    print(
+        r"""
+The data entered is stored in a Google Worksheet for the duration of use. Once
+all the data has been completed and a topic has been selected, you can exit the
+program. The data entered will then be deleted automatically. Please ensure 
+that when you start the program, you go to the end of it and see the farewell
+message to delete your data correctly.
+        """
+    )
     while True:
-        continue_answer = input(
-            Fore.CYAN + "Do you want to continue? (y for yes / n for no)" + Fore.WHITE + "\n").lower().strip()
+        continue_answer = (
+            input(
+                Fore.CYAN
+                + "Do you want to continue? (y for yes / n for no)"
+                + Fore.WHITE
+                + "\n"
+            )
+            .lower()
+            .strip()
+        )
         try:
             if continue_answer == "y" or continue_answer == "yes":
                 typing_print(
                     "Great, let's start with your name and your birth year.\n")
                 break
             elif continue_answer == "n" or continue_answer == "no":
-                print("Thank you for visiting this application. See you soon at " +
-                      Fore.GREEN + "Your Life in Numbers.")
+                print(
+                    "Thank you for visiting this application. See you soon at "
+                    + Fore.GREEN
+                    + "Your Life in Numbers."
+                )
                 time.sleep(3)  # Clear the screen after a 3 seconds delay
                 clear_screen()
                 sys.exit()
             elif not continue_answer:
                 raise ValueError(
-                    Fore.RED + "You must give an answer if you would like to continue. y for yes or n for no")
-            elif continue_answer not in ['n', 'y'] or continue_answer.isdigit():
+                    Fore.RED
+                    + "You must give an answer if you would like to continue." 
+                    " y for yes or n for no"
+                )
+            elif continue_answer not in ["n", "y"] or continue_answer.isdigit():
                 raise ValueError(Fore.RED + "Please enter only y or n")
         except ValueError as e:
             print(e)
@@ -116,13 +146,20 @@ Once the application is complete, this data will automatically be deleted.
 
 def program_end():
     """
-    Function to display a goodbye message, clear screen and worksheet from its values and end the program
+    Function to display a goodbye message, clear screen and worksheet
+    from its values and end the program
     """
-    print(Fore.BLUE + f"\n{user.name}" + Fore.WHITE +
-          ", thank you for visiting this application.")
+    print(
+        Fore.BLUE
+        + f"\n{user.name}"
+        + Fore.WHITE
+        + ", thank you for visiting this application."
+    )
     print("See you soon at " + Fore.GREEN + "Your life in Numbers.")
     typing_print(
-        "The program will end in 5 seconds and delete your inputs from the worksheet.")
+        "The program will end in 5 seconds and delete your inputs from"
+        " the worksheet."
+    )
     # Wait for 5 seconds until the screen is cleared and the appliacation ends
     time.sleep(5)
     delete_worksheet(worksheets[new_sheet_name])
@@ -134,7 +171,9 @@ def program_logo():
     """
     Print an ASCII Art Logo for the application Your Life in Numbers
     """
-    print(Fore.GREEN + r"""
+    print(
+        Fore.GREEN
+        + r"""
  ____ ____ ____ ____ _________ ____ ____ ____ ____ _________ 
 ||Y |||o |||u |||r |||       |||L |||i |||f |||e |||       ||
 ||__|||__|||__|||__|||_______|||__|||__|||__|||__|||_______||
@@ -143,7 +182,8 @@ def program_logo():
 ||i |||n |||       |||N |||u |||m |||b |||e |||r |||s ||     
 ||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__||     
 |/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
-""")
+"""
+    )
 
 
 def get_name():
@@ -155,18 +195,38 @@ def get_name():
     """
     while True:
         try:
-            username = input(Fore.CYAN + "Please enter your name (max. 15 letters, no numbers or special characters): " +
-                             Fore.WHITE + "\n").capitalize().strip()
+            username = (
+                input(
+                    Fore.CYAN
+                    + "Please enter your name (max. 15 letters, no numbers"
+                    " or special characters): "
+                    + Fore.WHITE
+                    + "\n"
+                )
+                .capitalize()
+                .strip()
+            )
             if len(username) > 15:
                 raise ValueError(
-                    Fore.RED + "Sorry, your name is too long. Please use only 15 letters.")
+                    Fore.RED
+                    + "Sorry, your name is too long. Please use only 15 letters."
+                )
             elif not username:
                 raise ValueError(Fore.RED + "Sorry, you must add a name.")
             elif username.isalpha() == False:
                 raise ValueError(
-                    Fore.RED + "Sorry, no spaces, numbers or special characters.")
-            print("Welcome to " + Fore.GREEN + "Your Life in Numbers" +
-                  Fore.WHITE + "! Nice to meet you," + Fore.BLUE + f" {username}.")
+                    Fore.RED 
+                    + "Sorry, no spaces, numbers or special characters."
+                )
+            print(
+                "Welcome to "
+                + Fore.GREEN
+                + "Your Life in Numbers"
+                + Fore.WHITE
+                + "! Nice to meet you,"
+                + Fore.BLUE
+                + f" {username}."
+            )
             break
         # Print an error message if input is invalid
         except ValueError as e:
@@ -177,7 +237,7 @@ def get_name():
 
 def get_birth_year():
     """
-    Get users birth year and validate the input. 
+    Get users birth year and validate the input.
 
         Parameter: None
         Returns: birth year as integer
@@ -185,24 +245,37 @@ def get_birth_year():
     while True:
         try:
             birth_year = input(
-                Fore.CYAN + "Please enter your birth year (format: yyyy): " + Fore.WHITE + "\n").strip()
-            # Check if the year is within a reasonable range
-            # The oldest person in the world as officially recognised by Guinness World Records was 116 years old.
+                Fore.CYAN
+                + "Please enter your birth year (format: yyyy): "
+                + Fore.WHITE
+                + "\n"
+            ).strip()
+            # The oldest person in the world as officially recognised 
+            # by Guinness World Records was 116 years old.
             min_year = CURRENT_YEAR - 116
             max_year = CURRENT_YEAR + 0
+            # Check if the birth year is within a reasonable range
             if not birth_year:
-                raise ValueError(
-                    Fore.RED + "Sorry, you must add a birth year.")
+                raise ValueError(Fore.RED + "Sorry, you must add a birth year.")
             elif not birth_year.isdigit() or len(birth_year) != 4:
                 raise ValueError(
-                    Fore.RED + "Sorry, wrong format. Your birthdate needs four numbers (e.g., 1999).")
+                    Fore.RED
+                    + "Sorry, wrong format. Your birthdate needs four numbers"
+                    " (e.g., 1999)."
+                )
             birth_year_num = int(birth_year)
             if birth_year_num <= min_year:
                 raise ValueError(
-                    Fore.RED + "It seems like you've lived for centuries; please enter a number in a reasonable\nrange.")
+                    Fore.RED
+                    + "It seems like you've lived for centuries; please enter"
+                    " a number in a reasonable\nrange."
+                )
             elif birth_year_num >= max_year:
                 raise ValueError(
-                    Fore.RED + "It seems like you are a (future) baby. Please enter at least the last year.")
+                    Fore.RED
+                    + "It seems like you are a (future) baby. Please enter at"
+                    " least the last year."
+                )
             # For better UX show the user the input was valid
             print(Fore.GREEN + f"Great age! {birth_year} is valid")
             time.sleep(2)  # pause for 2 seconds
@@ -216,31 +289,68 @@ def get_birth_year():
 
 def get_gender():
     """
-    Get users gender and validate input. 
+    Get users gender and validate input.
 
     Parameters: None
     Returns: gender as lower string
     """
     program_logo()
     typing_print(
-        "Some of the predictions are based on scientific calculations that include gender")
-    print(Fore.LIGHTYELLOW_EX + "\nATTENTION!\n" + Fore.WHITE + "Dear " + Fore.RED + "L" + Fore.MAGENTA + "G" +
-          Fore.YELLOW + "B" + Fore.GREEN + "T" + Fore.BLUE + "Q" + Fore.CYAN + "+ " + Fore.WHITE + "Community,")
-    print(r"""It's true that this isn't perfect, but since some of the calculations require
+        "Some of the predictions are based on scientific calculations that"
+        " include gender"
+    )
+    print(
+        Fore.LIGHTYELLOW_EX
+        + "\nATTENTION!\n"
+        + Fore.WHITE
+        + "Dear "
+        + Fore.RED
+        + "L"
+        + Fore.MAGENTA
+        + "G"
+        + Fore.YELLOW
+        + "B"
+        + Fore.GREEN
+        + "T"
+        + Fore.BLUE
+        + "Q"
+        + Fore.CYAN
+        + "+ "
+        + Fore.WHITE
+        + "Community,"
+    )
+    print(
+        r"""
+It's true that this isn't perfect, but since some of the calculations require
 gender, a statement needs to be made for gender assigned at birth or current
 physical sex. Be sure, that the information will not be used for a
-discriminatory purpose. Please use m for male and f for female.""")
+discriminatory purpose. Please use m for male and f for female.
+        """
+    )
     while True:
         try:
-            gender = input(
-                Fore.CYAN + "Please enter your gender assigned at birth or your current physical sex (m/f):" + Fore.WHITE + "\n").lower().strip()
+            gender = (
+                input(
+                    Fore.CYAN
+                    + "Please enter your gender assigned at birth or your"
+                    " current physical sex (m/f):"
+                    + Fore.WHITE
+                    + "\n"
+                )
+                .lower()
+                .strip()
+            )
             if not gender:
                 raise ValueError(
-                    Fore.RED + "Since some of the calculations require gender, please enter m or f.")
+                    Fore.RED
+                    + "Since some of the calculations require gender, please"
+                    " enter m or f."
+                )
             elif gender.isdigit() or len(gender) != 1:
                 raise ValueError(
-                    Fore.RED + "Sorry wrong format. Please enter only m or f.")
-            elif gender not in ['m', 'f']:
+                    Fore.RED + "Sorry wrong format. Please enter only m or f."
+                )
+            elif gender not in ["m", "f"]:
                 raise ValueError(Fore.RED + "Please enter only m or f")
             print(Fore.GREEN + "Your input can be used for the calculations.")
             break
@@ -254,29 +364,38 @@ def get_weight_and_height(var, units):
     """
     Get user input for a float number
 
-    Parameters: 
+    Parameters:
         var: variable or quantity for which the user is expected to input a value
         units: units in which the variable or quantity is expected to be inputted
-    Returns: 
+    Returns:
         the number input as a float
     """
-    typing_print(f"Your {var} should be given in {units} and contain a point for the decimal place.\n")
+    typing_print(
+        f"Your {var} should be given in {units} and contain a point for the "
+        "decimal place.\n"
+    )
     while True:
         value = input(
-            Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n").strip()
+            Fore.CYAN + f"Please enter your {var} in {units}:" + 
+            Fore.WHITE + "\n"
+        ).strip()
         try:
             # Convert the input to a float
             float_input = float(value)
             return float_input
         except ValueError:
             # Print an error message if input is invalid
-            print(Fore.RED + f"Invalid entry! Please enter your {var} in {units} with a point for decimal.")
+            print(
+                Fore.RED
+                + f"Invalid entry! Please enter your {var} in {units} with a"
+                " point for decimal."
+            )
 
 
 def validate_weight_and_height(var, units, average_min, max_input):
     """
     Validate the users input for weight and height
-    Parameters: 
+    Parameters:
         var: variable or quantity for which the user is expected to input a value
         units: units in which the variable or quantity is expected to be inputed
         average_min: minimum variable the user can give
@@ -287,14 +406,23 @@ def validate_weight_and_height(var, units, average_min, max_input):
         values = get_weight_and_height(var, units)
         try:
             if values < average_min:
-                raise ValueError(Fore.RED + f"{values} seems to be incorrect. The average {var} of a newborn is {average_min} {units}.")
+                raise ValueError(
+                    Fore.RED
+                    + f"{values} seems to be incorrect. The average {var} of a"
+                    f" newborn is {average_min} {units}."
+                )
             elif values > max_input:
-                raise ValueError(Fore.RED + f"{values} seems to be incorrect. {max_input} {units} is the guiness world record.")
+                raise ValueError(
+                    Fore.RED
+                    + f"{values} seems to be incorrect. {max_input} {units} is"
+                    " the guiness world record."
+                )
             else:
                 print(Fore.GREEN + f"Well done. {values} {units} is valid")
                 return values
         except ValueError as e:
             print(e)
+
 
 # Create a class of the user
 
@@ -318,17 +446,19 @@ class User:
 
 
 def topic_question():
-    '''
+    """
     Ask the user which topic should be calculated.
     After validation of users input, display the corresponding function/message
-    '''
+    """
     typing_print("The topics are in the process of loading...")
     time.sleep(2)  # Wait for 2 seconds before the screen is cleared.
     clear_screen()
     program_logo()
     # print menu
     typing_print(
-        "Please choose a topic you are interested in getting some calculations on:\n")
+        "Please choose a topic you are interested in getting some calculations"
+        " on:\n"
+    )
     print("\n1. Health")
     print("2. Trivia")
     print("3. Exit\n")
@@ -336,7 +466,9 @@ def topic_question():
     while True:
         try:
             account_selection = input(
-                Fore.CYAN + "Enter your selection (1, 2 or 3): \n" + Fore.WHITE + "").strip()
+                Fore.CYAN + "Enter your selection (1, 2 or 3): \n" + 
+                Fore.WHITE + ""
+            ).strip()
             if account_selection == "1":
                 health()
                 next_topic("trivia")
@@ -347,22 +479,34 @@ def topic_question():
                 program_end()
                 break
             else:
-                print(Fore.RED + "Sorry, invalid input. Please enter 1, 2 or 3!")
+                print(Fore.RED 
+                      + "Sorry, invalid input. Please enter 1, 2 or 3!")
         except ValueError as e:
-            print(
-                f"Sorry {e}, please try again and click the \"Run Prgramm\" Button. \n")
+            print(f"Sorry {e}, please try again and click the 'Run Prgramm'"
+                  " Button. \n")
 
 
 def next_topic(topic):
     """
-    Allows the user to choose whether to proceed to the next topic or end the program.
+    Allows the user to choose whether to proceed to the next topic or end the 
+    program.
 
-    Parameters:  
-        topic: str, the current topic 
+    Parameters:
+        topic: str, the current topic
     """
     while True:
         try:
-            next_topic_input = input(Fore.CYAN + f"\nDo you want to know something about the other topic {topic}? (y/n)" + Fore.WHITE + "\n").lower().strip()
+            next_topic_input = (
+                input(
+                    Fore.CYAN
+                    + "\nDo you want to know something about the other topic"
+                    f" {topic}? (y/n)"
+                    + Fore.WHITE
+                    + "\n"
+                )
+                .lower()
+                .strip()
+            )
             if next_topic_input == "y" and topic == "trivia":
                 trivia()
                 input(Fore.CYAN + "\nPress Enter to end the application...")
@@ -377,8 +521,12 @@ def next_topic(topic):
                 sys.exit()
             elif not next_topic_input:
                 raise ValueError(
-                    Fore.RED + "You must give an answer. Please enter y for yes or n for no")
-            elif next_topic_input not in ['n', 'y'] or next_topic_input.isdigit():
+                    Fore.RED
+                    + "You must give an answer. Please enter y for yes or n"
+                    " for no"
+                )
+            elif ((next_topic_input not in ["n", "y"]) or
+                  (next_topic_input.isdigit())):
                 raise ValueError(Fore.RED + "Please enter only y or n")
         except ValueError as e:
             print(e)
@@ -386,7 +534,8 @@ def next_topic(topic):
 
 def health():
     """
-    Stores all the calculations for the topic health, like calulating the bmi, life expectancy and calories
+    Stores all the calculations for the topic health, like calulating the bmi,
+    life expectancy and calories
     """
     clear_screen()
     program_logo()
@@ -407,27 +556,32 @@ def trivia():
     print(Fore.MAGENTA + "\nTRIVIA\n")
     time.sleep(1.5)  # time delay of 1.5 seconds
     # get the calculated age of the user from the worksheet
-    user_age = worksheets[new_sheet_name].acell('F2').value
+    user_age = worksheets[new_sheet_name].acell("F2").value
     print(Fore.YELLOW + "Happy Birthday\n")
-    print("Wow, it seems like you are (turning) " + Fore.BLUE +
-          f"{user_age}" + Fore.WHITE + " this year. What a marvelous age!")
+    print(
+        "Wow, it seems like you are (turning) "
+        + Fore.BLUE
+        + f"{user_age}"
+        + Fore.WHITE
+        + " this year. What a marvelous age!"
+    )
     time.sleep(1)  # time delay of 1 second
     human_to_dog_years(user_age)
     time.sleep(1)
     print(Fore.YELLOW + "\nCelestial Age\n")
-    calculate_planet_age('Mercury', 87.9691, 'Mercurian', user_age)
-    calculate_planet_age('Venus', 224.7, 'Venusian', user_age)
-    calculate_planet_age('Mars', 687, 'Martian', user_age)
-    calculate_planet_age('Jupiter', 4331, 'Jovian', user_age)
-    calculate_planet_age('Saturn', 10747, 'Saturnian', user_age)
-    calculate_planet_age('Uranus', 30589, 'Uranian', user_age)
-    calculate_planet_age('Neptune', 59800, 'Neptunian', user_age)
+    calculate_planet_age("Mercury", 87.9691, "Mercurian", user_age)
+    calculate_planet_age("Venus", 224.7, "Venusian", user_age)
+    calculate_planet_age("Mars", 687, "Martian", user_age)
+    calculate_planet_age("Jupiter", 4331, "Jovian", user_age)
+    calculate_planet_age("Saturn", 10747, "Saturnian", user_age)
+    calculate_planet_age("Uranus", 30589, "Uranian", user_age)
+    calculate_planet_age("Neptune", 59800, "Neptunian", user_age)
 
 
 def calculate_age(birthyear):
     """
     Calculates the age of the user based on the input given
-    parameters: 
+    parameters:
         birthyear: takes the birth year as parameter
     Returns: calculated age
     """
@@ -438,7 +592,7 @@ def calculate_age(birthyear):
 def calculate_bmi(weight, height, gender, age):
     """
     Calculate the bmi of the user
-    Parameters: 
+    Parameters:
         weight: weight of the user
         height: height of the user
         gender: gender of the user
@@ -448,79 +602,190 @@ def calculate_bmi(weight, height, gender, age):
     bmi = round(weight / (height * 2), 2)  # Round the bmi on 2 decimal points
     print(Fore.YELLOW + "\nBMI\n")
     if age < 20:
-        print(r"""To get a result for your BMI, you must be older than 19 years. For your age, 
+        print(
+            r"""
+To get a result for your BMI, you must be older than 19 years. For your age, 
 this value is given in percentiles. We are currently working on implementing 
-this calculation, so it is worth coming back.""")
+this calculation, so it is worth coming back.
+            """
+        )
     else:
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")
-        if gender == 'm':
+        if gender == "m":
             if bmi < 18.50:
-                print("Your weight status is classified as" + Fore.BLUE + " underweight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as"
+                    + Fore.BLUE
+                    + " underweight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi < 25.0:
-                print("Your weight status is classified as" + Fore.BLUE + " healthy weight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as"
+                    + Fore.BLUE
+                    + " healthy weight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi < 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " overweight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as"
+                    + Fore.BLUE
+                    + " overweight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi >= 30.0:
-                print("Your weight status is classified as" + Fore.BLUE + " obese" + Fore.WHITE +
-                      ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as"
+                    + Fore.BLUE
+                    + " obese"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
         else:
             if bmi < 17.50:
-                print("Your weight status is classified as " + Fore.BLUE + "underweight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as "
+                    + Fore.BLUE
+                    + "underweight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi < 24.0:
-                print("Your weight status is classified as " + Fore.BLUE + "healthy weight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as "
+                    + Fore.BLUE
+                    + "healthy weight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi < 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "overweight" +
-                      Fore.WHITE + ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as "
+                    + Fore.BLUE
+                    + "overweight"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
             elif bmi >= 29.0:
-                print("Your weight status is classified as " + Fore.BLUE + "obese" + Fore.WHITE +
-                      ". But please remember,\nthat the BMI is a very limited calculation.")
+                print(
+                    "Your weight status is classified as "
+                    + Fore.BLUE
+                    + "obese"
+                    + Fore.WHITE
+                    + ". But please remember,\nthat the BMI is a very limited"
+                    " calculation."
+                )
 
     return bmi
-
-# The current average life expectancy for europe was found at https://database.earth/
 
 
 def calculate_life_expectancy():
     """
     Calculate the average life expectancy in weeks of a european male or female
+    The current average life expectancy for europe was found at 
+    https://database.earth/
     """
     user_gender = user.gender
     user_age = user.age
     user_age_weeks = user_age * 52
-    # calculate how many weeks a male person in europe has to live on average
-    # 76.8697 for male and 83.0172 for female was found at https://database.earth/
-    weeks_male = round(76.8697 * 52)
-    weeks_female = round(83.0172 * 52)
+    # 76.8697(male) and 83.0172(female) was found at https://database.earth/
+    average_age_male = 76.8697
+    average_age_female = 83.0172
+    weeks_male = round(average_age_male * 52)
+    weeks_female = round(average_age_female * 52)
     print(Fore.YELLOW + "\nYears and Weeks\n")
+    # calculate how many weeks a male person in europe has to live on average
     if user_gender == "m":
-        print("The average life expectancy of a person with a gender assigned at birth of")
-        print(Fore.BLUE + "male " + Fore.WHITE +
-              "in Europe is currently 76,8697 years.")
-        print("So you only have about " + Fore.BLUE +
-              f"{weeks_male} weeks" + Fore.WHITE + " to live your best life.")
+        print(
+            "The average life expectancy of a person with a gender assigned at"
+            " birth of" 
+            + Fore.BLUE 
+            + "male " 
+            + Fore.WHITE 
+            + "in Europe is currently 76,8697 years."
+        )
+        print(
+            "So you only have about "
+            + Fore.BLUE
+            + f"{weeks_male} weeks"
+            + Fore.WHITE
+            + " to live your best life."
+        )
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0:
-            print("You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind \nthat you have approx." + Fore.BLUE + f" {weeks_left_male} weeks" + Fore.WHITE + " left to make your inner child happy. \nLet magic happen!")
+            print(
+                "You have already experienced about "
+                + Fore.BLUE
+                + f"{user_age_weeks} weeks"
+                + Fore.WHITE
+                + " of it. Keep in mind \nthat you have approx."
+                + Fore.BLUE
+                + f" {weeks_left_male} weeks"
+                + Fore.WHITE
+                + " left to make your inner child happy. \nLet magic happen!"
+            )
         else:
-            print("You have lived longer than the average person and you've been on this planet \nfor" + Fore.BLUE +
-                  f" {user_age_weeks} weeks" + Fore.WHITE + ". Congratulations. Continue to enjoy every day.")
+            print(
+                "You have lived longer than the average person and you've been"
+                " on this planet \nfor"
+                + Fore.BLUE
+                + f" {user_age_weeks} weeks"
+                + Fore.WHITE
+                + ". Congratulations. Continue to enjoy every day."
+            )
     else:
-        print("The average life expectancy of a person with a gender assigned at birth of")
-        print(Fore.BLUE + "female" + Fore.WHITE +
-              " in Europe is currently" + Fore.BLUE + " 83,0172 years.")
-        print(f"So you only have about " + Fore.BLUE +
-              f"{weeks_female} weeks" + Fore.WHITE + " to live your best life.")
+        print(
+            "The average life expectancy of a person with a gender assigned at"
+            " birth of"
+        )
+        print(
+            Fore.BLUE
+            + "female"
+            + Fore.WHITE
+            + " in Europe is currently"
+            + Fore.BLUE
+            + " 83,0172 years."
+        )
+        print(
+            f"So you only have about "
+            + Fore.BLUE
+            + f"{weeks_female} weeks"
+            + Fore.WHITE
+            + " to live your best life."
+        )
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
-            print(f"You have already experienced about " + Fore.BLUE + f"{user_age_weeks} weeks" + Fore.WHITE + " of it. Keep in mind that you have \napprox." + Fore.BLUE + f" {weeks_left_female} weeks" + Fore.WHITE + " left to make your inner child happy. Let magic happen!")
+            print(
+                f"You have already experienced about "
+                + Fore.BLUE
+                + f"{user_age_weeks} weeks"
+                + Fore.WHITE
+                + " of it. Keep in mind that you have \napprox."
+                + Fore.BLUE
+                + f" {weeks_left_female} weeks"
+                + Fore.WHITE
+                + " left to make your inner child happy. Let magic happen!"
+            )
         else:
-            print(f"You have lived longer than the average person and you've been on this planet \nfor " +
-                  Fore.BLUE + f"{user_age_weeks}" + Fore.WHITE + " weeks. Congratulations. Continue to enjoy every day")
+            print(
+                f"You have lived longer than the average person and you've"
+                " been on this planet \nfor "
+                + Fore.BLUE
+                + f"{user_age_weeks}"
+                + Fore.WHITE
+                + " weeks. Congratulations. Continue to enjoy every day"
+            )
+
 
 # How to calculate the resting metabolic rate(RMR) was found at the nasm blog
 
@@ -530,27 +795,35 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
     Calculate the resting metabolic rate(RMR)
     """
     print(Fore.YELLOW + "\nResting Metabolic Rate\n")
-    rmr_plain = (10*weight) + (6.25*(height*100)) - (5*age)
+    rmr_plain = (10 * weight) + (6.25 * (height * 100)) - (5 * age)
     if gender == "m":
         rmr = rmr_plain + 5
     else:
         rmr = rmr_plain - 161
-    print(r"""The Resting Metabolic Rate (RMR) represents the total caloric expenditure when
+    print(
+        r"""
+The Resting Metabolic Rate (RMR) represents the total caloric expenditure when
 the body is in a state of complete rest. RMR facilitates essential physio-
 logical functions such as respiration, circulation, organ maintenance, and 
 fundamental neurological processes. 
-The RMR was calculated with the Mifflin-St Jeor equation.""")
-    print("\nRegarding your weight, height, gender(GAAB/Current sex), and age, your RMR is:\n" + Fore.BLUE +
-          f"{rmr}" + Fore.WHITE + " kcal/day. This is the energy your body needs daily to maintain normal \nphysiological function.")
-
-# The calculation to calculate human years into dog years was found at American Kennel Club
+The RMR was calculated with the Mifflin-St Jeor equation."""
+    )
+    print(
+        "\nRegarding your weight, height, gender(GAAB/Current sex), and age,"
+        " your RMR is:\n"
+        + Fore.BLUE
+        + f"{rmr}"
+        + Fore.WHITE
+        + " kcal/day. This is the energy your body needs daily to maintain"
+        " normal \nphysiological function."
+    )
 
 
 def human_to_dog_years(age):
     """
     Calculate the age of the user into dog years
-
-    Parameters: age 
+    The calculation was found at American Kennel Club
+    Parameters: age
     """
     print(Fore.YELLOW + "\nDog Years\n")
     if age == 1:
@@ -559,28 +832,57 @@ def human_to_dog_years(age):
         dog_years = 15 + 9
     else:
         dog_years = 24 + (5 * int(age))
-    print("As a dog, you would already be " + Fore.BLUE +
-          f"{dog_years}" + Fore.WHITE + " years old. 'Woof' to that!")
+    print(
+        "As a dog, you would already be "
+        + Fore.BLUE
+        + f"{dog_years}"
+        + Fore.WHITE
+        + " years old. 'Woof' to that!"
+    )
 
 
-def calculate_planet_age(planet, planet_orbital_period, planet_characteristic, age):
+def calculate_planet_age(planet, 
+                         planet_orbital_period,
+                         planet_characteristic, 
+                         age):
     age_in_days = int(age) * 365
     planet_age = round(age_in_days / planet_orbital_period, 2)
     planet_age_days = round(planet_age * 365)
-    print("If you lived on " + Fore.BLUE + f"{planet}" + Fore.WHITE + ", you'd have reached the age of " + Fore.BLUE + f"{planet_age}" + Fore.WHITE + f" {planet_characteristic} years,")
-    print("which is about " + Fore.BLUE +
-          f"{planet_age_days} " + Fore.WHITE + "days on Earth.")
-
-# To update the google worksheet and get the data, I used the instructions of the Code Institute love sandwiches walkthrough
+    print(
+        "If you lived on "
+        + Fore.BLUE
+        + f"{planet}"
+        + Fore.WHITE
+        + ", you'd have reached the age of "
+        + Fore.BLUE
+        + f"{planet_age}"
+        + Fore.WHITE
+        + f" {planet_characteristic} years,"
+    )
+    print(
+        "which is about "
+        + Fore.BLUE
+        + f"{planet_age_days} "
+        + Fore.WHITE
+        + "days on Earth."
+    )
 
 
 def update_user_worksheet(user, new_sheet_name):
     """
-    Update user worksheet, add new row with the list of data provided by the user from the class User.
+    Update user worksheet, add new row with the list of data provided by the 
+    user from the class User. I used the instructions of the Code Institute 
+    love sandwiches walkthrough
     """
     print("Google Worksheet is currently being updated...")
-    list_to_update = [user.name, user.birthyear,
-                      user.gender, user.height, user.weight, user.age]
+    list_to_update = [
+        user.name,
+        user.birthyear,
+        user.gender,
+        user.height,
+        user.weight,
+        user.age,
+    ]
     #  Append a new row to the end of the worksheet 'User' with the list items
     # WORKSHEET_USER.append_row(list)
     worksheets[new_sheet_name].append_row(list_to_update)
@@ -588,8 +890,8 @@ def update_user_worksheet(user, new_sheet_name):
 
 def get_last_entries():
     """
-    Collects colums of data from User worksheet, adding the last 6 entries in a list
-    and print this list for the user
+    Collects colums of data from User worksheet, adding the last 6 entries in
+    a list and print this list for the user
     """
     headings = []
     columns = []
@@ -601,7 +903,7 @@ def get_last_entries():
     print("You made the following entries:")
     # The Zip method to iterate through both lists was found on stack overflow
     for heading, col in zip(headings, columns):
-        print(f"{heading}:" + Fore. BLUE + f" {col}")
+        print(f"{heading}:" + Fore.BLUE + f" {col}")
         time.sleep(1)  # print each entry with a delay of 1 second
     time.sleep(2)
 
@@ -614,11 +916,17 @@ if __name__ == "__main__":
     name_input = get_name()
     birthyear_input = get_birth_year()
     gender_input = get_gender()
-    height_input = validate_weight_and_height('height', 'm', 0.49, 2.72)
-    weight_input = validate_weight_and_height('weight', 'kg', 3.3, 650.0)
+    height_input = validate_weight_and_height("height", "m", 0.49, 2.72)
+    weight_input = validate_weight_and_height("weight", "kg", 3.3, 650.0)
     age_input = calculate_age(birthyear_input)
-    user = User(name_input, birthyear_input, gender_input, height_input,
-                weight_input, age_input)  # Collect user data and initialize the User object
+    user = User(
+        name_input, 
+        birthyear_input, 
+        gender_input, 
+        height_input, 
+        weight_input, 
+        age_input
+    )  # Collect user data and initialize the User object
     # Update the new created worksheet with the user's data
     update_user_worksheet(user, new_sheet_name)
     get_last_entries()
