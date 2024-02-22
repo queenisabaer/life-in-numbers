@@ -260,8 +260,7 @@ def get_weight_and_height(var, units):
     Returns: 
         the number input as a float
     """
-    typing_print(f"Your {var} should be given in {
-                 units} and contain a point for the decimal place.\n")
+    typing_print(f"Your {var} should be given in {units} and contain a point for the decimal place.\n")
     while True:
         value = input(
             Fore.CYAN + f"Please enter your {var} in {units}:" + Fore.WHITE + "\n").strip()
