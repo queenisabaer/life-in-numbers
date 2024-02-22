@@ -14,7 +14,6 @@ For the import of the gspread library and setting up the APIs, I used the
 instructions of the Code Institute love sandwiches walkthrough
 '''
 
-
 # Const to list the APIs that the  program should access in order to run.
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -40,7 +39,12 @@ def clear_screen():
     # as backup because on mac os.systems clears only viewport not the whole terminal
     print("\033c", end="")
 
-def clear_worksheet(worksheet):
+def delete_worksheet(worksheet):
+    """
+    Deletes a worksheet from google sheet 'life in numbers'
+    Args:
+
+    """
     SHEET.del_worksheet(worksheet)
 
 worksheets = {}
@@ -121,7 +125,7 @@ def program_end():
         "The program will end in 5 seconds and delete your inputs from the worksheet.")
     # Wait for 5 seconds until the screen is cleared and the appliacation ends
     time.sleep(5)
-    clear_worksheet(worksheets[new_sheet_name])
+    delete_worksheet(worksheets[new_sheet_name])
     clear_screen()
     sys.exit()  # terminate the program
 
@@ -628,4 +632,4 @@ if __name__ == "__main__":
     get_last_entries()
     topic_question()
     # Deletes the new created worksheet
-    clear_worksheet(new_sheet_name)
+    delete_worksheet(new_sheet_name)
