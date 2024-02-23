@@ -429,6 +429,7 @@ def validate_weight_and_height(var, units, average_min, max_input):
         except ValueError as e:
             print(e)
 
+
 class User:
     """
     Represents the user who is utilizing the application
@@ -956,7 +957,7 @@ if __name__ == "__main__":
     birth_year_input = get_birth_year()
     gender_input = get_gender()
     # The average baby is born with a height of 0.49m and a weight of 3.3kg
-    # Those numbers were found in an article at sueddeutsche.de
+    # Those numbers were in an article at sueddeutsche.de
     baby_height = 0.49
     baby_weight = 3.3
     # The numbers for the highest/heaviest person was found at wikipedia

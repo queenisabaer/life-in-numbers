@@ -151,6 +151,8 @@ After refreshing the settings site for this repository above the **"Build and de
 - The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
 - How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
 - How to calculate human years into dog years was found at [American Kennel CLub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/)
+- Examples of sidereal periods for the planets were found at [wikipedia](https://en.wikipedia.org/wiki/Orbital_period)
+- How to calculate the personal age on another planet was from a pdf chart at [girlsstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf)
 
 ### Code
 
