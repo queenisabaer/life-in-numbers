@@ -11,7 +11,7 @@ from colorama import Fore, Back
 colorama.init(autoreset=True)  # Reset the color and the style automatically
 
 """
-For the import of the gspread library and setting up the APIs, I used the 
+For the import of the gspread library and setting up the APIs, I used the
 instructions of the Code Institute love sandwiches walkthrough
 """
 
@@ -35,7 +35,7 @@ CURRENT_YEAR = int(str(datetime.now().year))
 
 def clear_screen():
     """
-    Clears the screen from text, 
+    Clears the screen from text,
     Code was found at altacademy
     """
     os.system("cls" if os.name == "nt" else "clear")
@@ -87,12 +87,11 @@ def program_start():
     Displays the program logo and disclaimer
     """
     program_logo()
-    typing_print(
-        r"""In this application, you will learn some facts based on data related to your
-life by entering some details about yourself. You have the option to select
-from two different topics."""
-        + "\n"
-    )
+    typing_print("In this application, you will learn some facts based on data"
+                 " related to your\nlife by entering some details about"
+                 " yourself. You have the option to select\nfrom two different"
+                 " topics.\n"
+                 )
     disclaimer()
 
 
@@ -102,13 +101,13 @@ def disclaimer():
     and provides the possibility to end application.
     """
     print(Fore.MAGENTA + "DISCLAIMER: ")
-    print(
-r"""The data entered is stored in a Google Worksheet for the duration of use. Once
-all the data has been completed and a topic has been selected, you can exit the
-program. The data entered will then be deleted automatically. Please ensure 
-that when you start the program, you go to the end of it and see the farewell
-message to delete your data correctly."""
-    )
+    print("The data entered is stored in a Google Worksheet for the duration"
+          " of use. Once\nall the data has been completed and a topic has been"
+          " selected, you can exit the\nprogram. The data entered will then be"
+          " deleted automatically. Please ensure\nthat when you start the"
+          " program, you go to the end of it and see the farewell\nmessage to"
+          " delete your data correctly."
+          )
     while True:
         continue_answer = (
             input(
@@ -137,10 +136,11 @@ message to delete your data correctly."""
             elif not continue_answer:
                 raise ValueError(
                     Fore.RED
-                    + "You must give an answer if you would like to continue." 
+                    + "You must give an answer if you would like to continue."
                     " y for yes or n for no"
                 )
-            elif continue_answer not in ["n", "y"] or continue_answer.isdigit():
+            elif ((continue_answer not in ["n", "y"]) or
+                  (continue_answer.isdigit())):
                 raise ValueError(Fore.RED + "Please enter only y or n")
         except ValueError as e:
             print(e)
@@ -176,14 +176,14 @@ def program_logo():
     print(
         Fore.GREEN
         + r"""
- ____ ____ ____ ____ _________ ____ ____ ____ ____ _________ 
+ ____ ____ ____ ____ _________ ____ ____ ____ ____ _________
 ||Y |||o |||u |||r |||       |||L |||i |||f |||e |||       ||
 ||__|||__|||__|||__|||_______|||__|||__|||__|||__|||_______||
 |/__\|/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/_______\|
- ____ ____ _________ ____ ____ ____ ____ ____ ____ ____      
-||i |||n |||       |||N |||u |||m |||b |||e |||r |||s ||     
-||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__||     
-|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\| 
+ ____ ____ _________ ____ ____ ____ ____ ____ ____ ____
+||i |||n |||       |||N |||u |||m |||b |||e |||r |||s ||
+||__|||__|||_______|||__|||__|||__|||__|||__|||__|||__||
+|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|
 """
     )
 
@@ -192,7 +192,7 @@ def get_name():
     """
     Asks user for their name and validates the input.
 
-        Returns: 
+        Returns:
             username (str): The username as capitalized string
     """
     while True:
@@ -211,13 +211,14 @@ def get_name():
             if len(username) > 15:
                 raise ValueError(
                     Fore.RED
-                    + "Sorry, your name is too long. Please use only 15 letters."
+                    + "Sorry, your name is too long."
+                    " Please use only 15 letters."
                 )
             elif not username:
                 raise ValueError(Fore.RED + "Sorry, you must add a name.")
-            elif username.isalpha() == False:
+            elif username.isalpha() is False:
                 raise ValueError(
-                    Fore.RED 
+                    Fore.RED
                     + "Sorry, no spaces, numbers or special characters."
                 )
             print(
@@ -241,7 +242,7 @@ def get_birth_year():
     """
     Gets users birth year and validate the input.
 
-        Returns: 
+        Returns:
             birth_year (int): The birth year as an integer
     """
     while True:
@@ -252,13 +253,16 @@ def get_birth_year():
                 + Fore.WHITE
                 + "\n"
             ).strip()
-            # The oldest person in the world as officially recognised 
+            # The oldest person in the world as officially recognised
             # by Guinness World Records was 116 years old.
             min_year = CURRENT_YEAR - 116
             max_year = CURRENT_YEAR + 0
             # Check if the birth year is within a reasonable range
             if not birth_year:
-                raise ValueError(Fore.RED + "Sorry, you must add a birth year.")
+                raise ValueError(
+                    Fore.RED
+                    + "Sorry, you must add a birth year."
+                    )
             elif not birth_year.isdigit() or len(birth_year) != 4:
                 raise ValueError(
                     Fore.RED
@@ -293,7 +297,7 @@ def get_gender():
     """
     Get the users gender and validate input.
 
-    Returns: 
+    Returns:
         gender (str): The gender as lowercase string
     """
     program_logo()
@@ -321,12 +325,12 @@ def get_gender():
         + Fore.WHITE
         + "Community,"
     )
-    print(
-r"""It's true that this isn't perfect, but since some of the calculations require
-gender, a statement needs to be made for gender assigned at birth or current
-physical sex. Be sure, that the information will not be used for a
-discriminatory purpose. Please use m for male and f for female."""
-    )
+    print("It's true that this isn't perfect, but since some of the"
+          " calculations require\ngender, a statement needs to be made for"
+          " gender assigned at birth or current\nphysical sex. Be sure, that"
+          " the information will not be used for a\ndiscriminatory purpose."
+          " Please use m for male and f for female."
+          )
     while True:
         try:
             gender = (
@@ -365,7 +369,7 @@ def get_weight_and_height(var, units):
     Get user input for a float number
 
     Args:
-        var (str): The variable or quantity for which the user is expected to 
+        var (str): The variable or quantity for which the user is expected to
         input a value
         units (str): units in which the variable or quantity is expected to be
         inputted
@@ -378,8 +382,10 @@ def get_weight_and_height(var, units):
     )
     while True:
         value = input(
-            Fore.CYAN + f"Please enter your {var} in {units}:" + 
-            Fore.WHITE + "\n"
+            Fore.CYAN
+            + f"Please enter your {var} in {units}:"
+            + Fore.WHITE
+            + "\n"
         ).strip()
         try:
             # Convert the input to a float
@@ -397,15 +403,15 @@ def get_weight_and_height(var, units):
 def validate_weight_and_height(var, units, average_min, max_input):
     """
     Validate the users input for weight and height
-    
+
     Args:
-        var (str): The variable or quantity for which the user is expected to 
+        var (str): The variable or quantity for which the user is expected to
         input a value
         units (str): units in which the variable or quantity is expected to be
         inputed
         average_min (float): The minimum variable the user can give
         max_input (float): The maximum input the user can give
-    Returns: 
+    Returns:
         values (float): The validated number as a float
     """
     while True:
@@ -438,7 +444,7 @@ class User:
     def __init__(self, name, year_of_birth, gender, height, weight, age):
         """
         Initialize the properties of the instance
-        
+
         Args:
             self:
             name (str): The name of the user
@@ -477,8 +483,10 @@ def topic_question():
     while True:
         try:
             account_selection = input(
-                Fore.CYAN + "Enter your selection (1, 2 or 3): \n" + 
-                Fore.WHITE + ""
+                Fore.CYAN
+                + "Enter your selection (1, 2 or 3): \n"
+                + Fore.WHITE
+                + ""
             ).strip()
             if account_selection == "1":
                 health()
@@ -490,7 +498,7 @@ def topic_question():
                 program_end()
                 break
             else:
-                print(Fore.RED 
+                print(Fore.RED
                       + "Sorry, invalid input. Please enter 1, 2 or 3!")
         except ValueError as e:
             print(f"Sorry {e}, please try again and click the 'Run Prgramm'"
@@ -499,7 +507,7 @@ def topic_question():
 
 def next_topic(topic):
     """
-    Allows the user to choose whether to proceed to the next topic or end the 
+    Allows the user to choose whether to proceed to the next topic or end the
     program.
 
     Args:
@@ -563,7 +571,7 @@ def health():
 def trivia():
     """
     Stores all the calculations for the topic trivia, like calculating the age,
-    dog years and celestial age 
+    dog years and celestial age
     """
     clear_screen()
     program_logo()
@@ -600,7 +608,7 @@ def calculate_age(birth_year):
     Args::
         birth_year (int): The birth year of the user
 
-    Returns: 
+    Returns:
         age (int): The calculated age of the user
     """
     age = CURRENT_YEAR - birth_year
@@ -610,24 +618,24 @@ def calculate_age(birth_year):
 def calculate_bmi(weight, height, gender, age):
     """
     Calculates the bmi of the user
-    
+
     Args:
         weight (float): The weight of the user
         height (float): The height of the user
         gender (str): The gender of the user
         age (int): The age of the user
 
-    Return: 
+    Return:
         bmi (float): The calculated BMI rounded by 2 decimal points
     """
     bmi = round(weight / (height * 2), 2)  # Round the BMI on 2 decimal points
     print(Fore.YELLOW + "\nBMI\n")
     if age < 20:
-        print(
-r"""To get a result for your BMI, you must be older than 19 years. For your age, 
-this value is given in percentiles. We are currently working on implementing 
-this calculation, so it is worth coming back."""
-        )
+        print("To get a result for your BMI, you must be older than 19 years."
+              " For your age,\nthis value is given in percentiles. We are"
+              " currently working on implementing\nthis calculation, so it is"
+              " worth coming back."
+              )
     else:
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")
         if gender == "m":
@@ -710,8 +718,8 @@ this calculation, so it is worth coming back."""
 
 def calculate_life_expectancy():
     """
-    Calculates the average life expectancy in weeks of a european male or female
-    The current average life expectancy for europe was found at 
+    Calculates the average life expectancy in weeks of a european male/female
+    The current average life expectancy for europe was found at
     https://database.earth/
     """
     user_gender = user.gender
@@ -727,10 +735,10 @@ def calculate_life_expectancy():
     if user_gender == "m":
         print(
             "The average life expectancy of a person with a gender assigned at"
-            " birth of" 
-            + Fore.BLUE 
-            + "male " 
-            + Fore.WHITE 
+            " birth of"
+            + Fore.BLUE
+            + "male "
+            + Fore.WHITE
             + "in Europe is currently 76,8697 years."
         )
         print(
@@ -823,13 +831,13 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
         rmr = rmr_plain + 5
     else:
         rmr = rmr_plain - 161
-    print(
-r"""The Resting Metabolic Rate (RMR) represents the total caloric expenditure when
-the body is in a state of complete rest. RMR facilitates essential physio-
-logical functions such as respiration, circulation, organ maintenance, and 
-fundamental neurological processes. 
-The RMR was calculated with the Mifflin-St Jeor equation."""
-    )
+    print("The Resting Metabolic Rate (RMR) represents the total caloric"
+          " expenditure when\nthe body is in a state of complete rest. RMR"
+          " facilitates essential physio-\nlogical functions such as"
+          " respiration, circulation, organ maintenance, and\nfundamental"
+          " neurological processes.\nThe RMR was calculated with the"
+          " Mifflin-St Jeor equation."
+          )
     print(
         "\nRegarding your weight, height, gender(GAAB/Current sex), and age,"
         " your RMR is:\n"
@@ -845,7 +853,7 @@ def human_to_dog_years(age):
     """
     Calculates the age of the user into dog years
     The calculation was found at American Kennel Club
-    
+
     Args:
         age (int): The age of the user
     """
@@ -865,17 +873,18 @@ def human_to_dog_years(age):
     )
 
 
-def calculate_planet_age(planet, 
+def calculate_planet_age(planet,
                          planet_orbital_period,
-                         planet_characteristic, 
+                         planet_characteristic,
                          age):
     """
     Calculates the age of the user on different planets.
     The Calculation was found on girlstart
 
-    Args: 
+    Args:
         planet (str): The name of the planet
-        planet_orbital_period (float): The orbital period of the planet in Earth days 
+        planet_orbital_period (float): The orbital period of the planet in
+        Earth days
         planet_characteristic (str): The characteristic of the planet
         age (int): The age of the user
     """
@@ -905,11 +914,11 @@ def calculate_planet_age(planet,
 
 def update_user_worksheet(user, new_sheet_name):
     """
-    Update user worksheet, adds new row with the list of data provided by the 
-    user from the class User. I used the instructions of the Code Institute 
+    Update user worksheet, adds new row with the list of data provided by the
+    user from the class User. I used the instructions of the Code Institute
     love sandwiches walkthrough
 
-    Args: 
+    Args:
         user (User): The user object containing user data
         new_sheet_name (str): The name of the new created worksheet
     """
@@ -922,7 +931,7 @@ def update_user_worksheet(user, new_sheet_name):
         user.weight,
         user.age,
     ]
-    # Append a new row to the end of the new created worksheet with the list 
+    # Append a new row to the end of the new created worksheet with the list
     # items
     worksheets[new_sheet_name].append_row(list_to_update)
 
@@ -963,17 +972,20 @@ if __name__ == "__main__":
     # The numbers for the highest/heaviest person was found at wikipedia
     tallest_human = 2.72
     heaviest_human = 650.0
-    height_input = validate_weight_and_height("height", "m", baby_height, tallest_human)
-    weight_input = validate_weight_and_height("weight", "kg", baby_weight, heaviest_human)
+    height_input = validate_weight_and_height("height", "m", baby_height,
+                                              tallest_human)
+    weight_input = validate_weight_and_height("weight", "kg", baby_weight,
+                                              heaviest_human)
     age_input = calculate_age(birth_year_input)
+    # Collect user data and initialize the User object
     user = User(
-        name_input, 
-        birth_year_input, 
-        gender_input, 
-        height_input, 
-        weight_input, 
+        name_input,
+        birth_year_input,
+        gender_input,
+        height_input,
+        weight_input,
         age_input
-    )  # Collect user data and initialize the User object
+    )
     # Update the new created worksheet with the user's data
     update_user_worksheet(user, new_sheet_name)
     get_last_entries()
