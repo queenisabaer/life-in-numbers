@@ -81,10 +81,11 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 
 1. **Validator Testing**
 
-- **[HTML Validator](https://validator.w3.org/)**
+- **[CI Python Linter](https://pep8ci.herokuapp.com/#)**
 
-  - result for index.html<br>
-    ![HTML final result]()<br>
+  - result for run.py<br>
+  In the first run I had some warnings about trailing whitespace and errors about too long lines, but after fixing those  no more errors were found. 
+    ![result for run.py](documentation/readme/python-linter-ci-result.png)<br>
    
 I also checked the page in the validator via text-input, and likewise no errors were detected in this way. All I got was information to avoid trailing slashes in void elements.
 
