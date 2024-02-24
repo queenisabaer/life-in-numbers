@@ -104,9 +104,10 @@ def disclaimer():
     print("The data entered is stored in a Google Worksheet for the duration"
           " of use. Once\nall the data has been completed and a topic has been"
           " selected, you can exit the\nprogram. The data entered will then be"
-          " deleted automatically. Please ensure\nthat when you start the"
-          " program, you go to the end of it and see the farewell\nmessage to"
-          " delete your data correctly."
+          " deleted automatically.\nPlease ensure that when you start the"
+          " program, you go to the end of it, and the\nfarewell message has"
+          " been displayed to guarantee that your data has been \ndeleted"
+          " correctly."
           )
     while True:
         continue_answer = (
