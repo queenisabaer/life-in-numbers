@@ -70,12 +70,13 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [CSS Gradient](https://cssgradient.io/) was used to create the gradient background of the instruction button
-- [Am I Responsive](https://ui.dev/amiresponsive) was used to display the website on different devices.
-- [beautifier](https://beautifier.io/) to beautify the code
-- [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README. 
+- [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
+- [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
 - [Colorama](https://pypi.org/project/colorama/)was used to color the text in the terminal.
+- [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
+- [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image
 
 ## Testing
 
