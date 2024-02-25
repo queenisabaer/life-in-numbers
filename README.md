@@ -187,5 +187,6 @@ After refreshing the settings site for this repository above the **"Build and de
 ### Acknowledgments
 
 - I would like to thank my wonderful mentor Brian Macheria for his numerous tips and great assistance during the creation of this project. 
+- I would also like to thank Gary Dolan for his amazing project [Pokemon Portfolio](https://github.com/GaryDolan/ci-p3-pokemon-portfolio/blob/main/README.md). It helped me a lot to style the background and the terminal. 
 
 **This is for educational use.**

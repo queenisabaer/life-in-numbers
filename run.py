@@ -593,13 +593,7 @@ def trivia():
     human_to_dog_years(user_age)
     time.sleep(1)
     print(Fore.YELLOW + "\nCelestial Age\n")
-    calculate_planet_age("Mercury", 87.9691, "Mercurian", user_age)
-    calculate_planet_age("Venus", 224.7, "Venusian", user_age)
-    calculate_planet_age("Mars", 687, "Martian", user_age)
-    calculate_planet_age("Jupiter", 4331, "Jovian", user_age)
-    calculate_planet_age("Saturn", 10747, "Saturnian", user_age)
-    calculate_planet_age("Uranus", 30589, "Uranian", user_age)
-    calculate_planet_age("Neptune", 59800, "Neptunian", user_age)
+    celestial_age(user_age)
 
 
 def calculate_age(birth_year):
@@ -827,6 +821,7 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
         age (int): The age of the user
     """
     print(Fore.YELLOW + "\nResting Metabolic Rate\n")
+    # The numbers for this calculation are from the nasm blog
     rmr_plain = (10 * weight) + (6.25 * (height * 100)) - (5 * age)
     if gender == "m":
         rmr = rmr_plain + 5
@@ -852,8 +847,8 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
 
 def human_to_dog_years(age):
     """
-    Calculates the age of the user into dog years
-    The calculation was found at American Kennel Club
+    Calculates the age of the user into dog years.
+    The calculation and the numbers were found at American Kennel Club
 
     Args:
         age (int): The age of the user
@@ -879,7 +874,7 @@ def calculate_planet_age(planet,
                          planet_characteristic,
                          age):
     """
-    Calculates the age of the user on different planets.
+    Calculates the age on different planets.
     The Calculation was found on girlstart
 
     Args:
@@ -911,6 +906,58 @@ def calculate_planet_age(planet,
         + Fore.WHITE
         + "days on Earth."
     )
+
+
+def celestial_age(age_of_human):
+    """
+    Calculates the age of a human in terms of the orbital periods of various
+    celestial bodies.
+
+    Args:
+        age_of_human(float) = The age of the human in Earth years.
+    """
+    # The numbers for the orbital time of the planets are from Wikipedia.
+    mercurian_orbital_period = 87.9691
+    venusian_orbital_period = 224.7
+    martian_orbital_period = 687
+    jovian_orbital_period = 4331
+    saturnian_orbital_period = 10747
+    uranian_orbital_period = 30589
+    neptunian_orbital_period = 59800
+    calculate_planet_age("Mercury",
+                         mercurian_orbital_period,
+                         "Mercurian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Venus",
+                         venusian_orbital_period,
+                         "Venusian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Mars",
+                         martian_orbital_period,
+                         "Martian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Jupiter",
+                         jovian_orbital_period,
+                         "Jovian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Saturn",
+                         saturnian_orbital_period,
+                         "Saturnian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Uranus",
+                         uranian_orbital_period,
+                         "Uranian",
+                         age_of_human)
+    time.sleep(0.5)
+    calculate_planet_age("Neptune",
+                         neptunian_orbital_period,
+                         "Neptunian",
+                         age_of_human)
 
 
 def update_user_worksheet(user, new_sheet_name):
