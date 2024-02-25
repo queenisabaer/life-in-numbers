@@ -46,6 +46,7 @@ def clear_screen():
 def delete_worksheet(worksheet):
     """
     Deletes a worksheet from google sheet 'life in numbers'
+
     Args:
         worksheet: The worksheet to be deleted.
     """
@@ -97,8 +98,12 @@ def program_start():
 
 def disclaimer():
     """
-    Prints a disclaimer that informs the user about the storeage of the input
-    and provides the possibility to end application.
+    Prints a disclaimer that informs the user about the storage of the input
+    and provides the possibility to end the application by asking to continue.
+
+    Raises:
+        ValueError, if the answer to continue wasn't given, is a number, or is
+        not y, yes, n or no
     """
     print(Fore.MAGENTA + "DISCLAIMER: ")
     print("The data entered is stored in a Google Worksheet for the duration"
@@ -193,8 +198,12 @@ def get_name():
     """
     Asks user for their name and validates the input.
 
-        Returns:
-            username (str): The username as capitalized string
+    Returns:
+        username (str): The username as capitalized string
+
+    Raises:
+        ValueError, if no name has been entered, name is longer than 15
+        characters long, contains a number, or has a special character
     """
     while True:
         try:
@@ -243,8 +252,13 @@ def get_birth_year():
     """
     Gets users birth year and validate the input.
 
-        Returns:
-            birth_year (int): The birth year as an integer
+    Returns:
+        birth_year (int): The birth year as an integer
+
+    Raises:
+        ValueError, if no birth year has been entered, the year of birth has
+        less than 4 numbers, contains not only numbers, is more than 116 years
+        from the current year away, or is greater than the current year
     """
     while True:
         try:
@@ -374,6 +388,7 @@ def get_weight_and_height(var, units):
         input a value
         units (str): units in which the variable or quantity is expected to be
         inputted
+
     Returns:
         float_input (float): The number input as a float
     """
@@ -412,8 +427,12 @@ def validate_weight_and_height(var, units, average_min, max_input):
         inputed
         average_min (float): The minimum variable the user can give
         max_input (float): The maximum input the user can give
+
     Returns:
         values (float): The validated number as a float
+
+    Raises:
+        ValueError, if the given input is not within a reasonable range
     """
     while True:
         values = get_weight_and_height(var, units)
@@ -513,6 +532,9 @@ def next_topic(topic):
 
     Args:
         topic (str): The other/next topic, that can be displayed
+
+    Raises:
+        ValueError, if the given answer is a number, or not y or n
     """
     while True:
         try:

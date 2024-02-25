@@ -5,7 +5,7 @@ Python Essentials Project Portfolio - Code Institute
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)
 The corresponding worksheet can be seen [here](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
- *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex, height, weight and habits. Upon receiving the user's input, the application presents/calculates the specified information reagrding the chosen topic. Subsequently, the user has the option to either persist with the chosen feature, switch to another feature, or exit the application. 
+ *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height, weight and habits. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either persist with the chosen feature, switch to another feature, or exit the application. 
 
 ![Responsive Mockup](documentation/)
 
