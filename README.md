@@ -149,7 +149,7 @@ After refreshing the settings site for this repository above the **"Build and de
 - The background image is from [pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/)
 - The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancet](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
 - The heaviest and tallest person were found on a list in [wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
-- The classificatioon for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
+- The classification for the bmi was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
 - The numbers for life expactancy in europe was found at the [database earth](https://database.earth/population/europe/life-expectancy)
 - How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
 - How to calculate human years into dog years was found at [American Kennel CLub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/)

@@ -634,6 +634,7 @@ def calculate_bmi(weight, height, gender, age):
     else:
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")
         if gender == "m":
+            # The numbers for the classification were found at sueddeutsche
             if bmi < 18.50:
                 print(
                     "Your weight status is classified as"
@@ -831,9 +832,10 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
           " expenditure when\nthe body is in a state of complete rest. RMR"
           " facilitates essential physio-\nlogical functions such as"
           " respiration, circulation, organ maintenance, and\nfundamental"
-          " neurological processes.\nThe RMR was calculated with the"
-          " Mifflin-St Jeor equation."
+          " neurological processes."
           )
+    typing_print("The RMR was calculated with the Mifflin-St Jeor equation.\n")
+    time.sleep(1) # time delay of 1 second
     print(
         "\nRegarding your weight, height, gender(GAAB/Current sex), and age,"
         " your RMR is:\n"
@@ -854,6 +856,8 @@ def human_to_dog_years(age):
         age (int): The age of the user
     """
     print(Fore.YELLOW + "\nDog Years\n")
+    # The numbers for the steps of each dog year are from a table at
+    # American Kennel Club
     if age == 1:
         dog_years = 15
     elif age == 2:
@@ -914,9 +918,9 @@ def celestial_age(age_of_human):
     celestial bodies.
 
     Args:
-        age_of_human(float) = The age of the human in Earth years.
+        age_of_human (float) = The age of the human in Earth years.
     """
-    # The numbers for the orbital time of the planets are from Wikipedia.
+    # The numbers for the orbital time of the planets are from wikipedia.
     mercurian_orbital_period = 87.9691
     venusian_orbital_period = 224.7
     martian_orbital_period = 687
@@ -928,7 +932,7 @@ def celestial_age(age_of_human):
                          mercurian_orbital_period,
                          "Mercurian",
                          age_of_human)
-    time.sleep(0.5)
+    time.sleep(0.5) # time delay of 0.5 second
     calculate_planet_age("Venus",
                          venusian_orbital_period,
                          "Venusian",
