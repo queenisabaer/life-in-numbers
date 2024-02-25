@@ -835,7 +835,7 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
           " neurological processes."
           )
     typing_print("The RMR was calculated with the Mifflin-St Jeor equation.\n")
-    time.sleep(1) # time delay of 1 second
+    time.sleep(1)  # time delay of 1 second
     print(
         "\nRegarding your weight, height, gender(GAAB/Current sex), and age,"
         " your RMR is:\n"
@@ -932,7 +932,7 @@ def celestial_age(age_of_human):
                          mercurian_orbital_period,
                          "Mercurian",
                          age_of_human)
-    time.sleep(0.5) # time delay of 0.5 second
+    time.sleep(0.5)  # time delay of 0.5 second
     calculate_planet_age("Venus",
                          venusian_orbital_period,
                          "Venusian",
