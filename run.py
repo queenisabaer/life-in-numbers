@@ -753,25 +753,27 @@ def calculate_life_expectancy():
     if user_gender == "m":
         print(
             "The average life expectancy of a person with a gender assigned at"
-            " birth of"
+            " birth of\n"
             + Fore.BLUE
-            + "male "
+            + " male"
             + Fore.WHITE
-            + "in Europe is currently 76,8697 years."
+            + "in Europe is currently"
+            + Fore.BLUE
+            + " 76,8697 years."
         )
         print(
-            "So you only have about "
+            "So you only have about"
             + Fore.BLUE
-            + f"{weeks_male} weeks"
+            + f" {weeks_male} weeks"
             + Fore.WHITE
             + " to live your best life."
         )
         weeks_left_male = weeks_male - (user_age_weeks)
         if weeks_left_male > 0:
             print(
-                "You have already experienced about "
+                "You have already experienced about"
                 + Fore.BLUE
-                + f"{user_age_weeks} weeks"
+                + f" {user_age_weeks} weeks"
                 + Fore.WHITE
                 + " of it. Keep in mind \nthat you have approx."
                 + Fore.BLUE
@@ -791,29 +793,27 @@ def calculate_life_expectancy():
     else:
         print(
             "The average life expectancy of a person with a gender assigned at"
-            " birth of"
-        )
-        print(
-            Fore.BLUE
-            + "female"
+            " birth of\n"
+            + Fore.BLUE
+            + " female"
             + Fore.WHITE
             + " in Europe is currently"
             + Fore.BLUE
             + " 83,0172 years."
         )
         print(
-            f"So you only have about "
+            f"So you only have about"
             + Fore.BLUE
-            + f"{weeks_female} weeks"
+            + f" {weeks_female} weeks"
             + Fore.WHITE
             + " to live your best life."
         )
         weeks_left_female = weeks_female - (user_age_weeks)
         if weeks_left_female > 0:
             print(
-                f"You have already experienced about "
+                f"You have already experienced about"
                 + Fore.BLUE
-                + f"{user_age_weeks} weeks"
+                + f" {user_age_weeks} weeks"
                 + Fore.WHITE
                 + " of it. Keep in mind that you have \napprox."
                 + Fore.BLUE
@@ -824,9 +824,9 @@ def calculate_life_expectancy():
         else:
             print(
                 f"You have lived longer than the average person and you've"
-                " been on this planet \nfor "
+                " been on this planet \nfor"
                 + Fore.BLUE
-                + f"{user_age_weeks}"
+                + f" {user_age_weeks}"
                 + Fore.WHITE
                 + " weeks. Congratulations. Continue to enjoy every day"
             )
