@@ -466,8 +466,9 @@ class User:
         Initialize the properties of the instance
 
         Args:
+            self:
             name (str): The name of the user
-            year_of_birth (int): The birth year of the user
+            year_of_birth (int): The birt year of the user
             gender (str): The gender of the user
             height (float): The height of the user
             weight (float): The weight of the user
