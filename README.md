@@ -5,7 +5,7 @@ Python Essentials Project Portfolio - Code Institute
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)<br>
 The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
- *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height, weight and habits. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either persist with the chosen feature, switch to another feature, or exit the application. 
+ *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to another topic, or exit the application. 
 
 ![Screenshot of the preview of application](documentation/readme/preview_life-in-numbers.png)<br>
 
@@ -28,7 +28,11 @@ The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsh
 ## Design
 
 - **Imagery:**<br>
-  No images can be used in the terminal itself. The only way to display some kind of pictures is by using ASCII Art. 
+  No images can be used in the terminal itself. The only way to display some kind of pictures is by using ASCII Art. I created the logo for _Your Life in Numbers_  by using the font "Small Keyboard" with this [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) that creates ASCII Art from text.<br>
+
+  ![Logo for Your Life in Numbers](documentation/readme_features/logo_life-in-numbers.png)<br>
+
+  The background image was selected as a contrast to the terminal. The arrangement of the numbers in a spiral-like pattern makes it a perfect match for the subject of the application. 
 
 - **Colour Scheme:**<br>
   The colour choices were limited, since this application is terminal-based. My main goal with my colour scheme was therefore to provide feedback to the user and give the application some structure. To add the colours for the project, I used [Python Colorama](https://pypi.org/project/colorama/)
@@ -55,7 +59,7 @@ The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsh
 
   - BLUE
 
-  > **Blue** [...] often symbolizes serenity, **stability**, inspiration, or wisdom. _(Wikipedia)_
+  > **Blue** [...] often symbolizes serenity, **stability**, inspiration, or **wisdom**. _(Wikipedia)_
 
   The blue colour indicates the user's response and the calculated numbers in the topics. 
 
