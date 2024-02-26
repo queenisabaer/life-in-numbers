@@ -23,7 +23,7 @@ The corresponding worksheet can be seen [here](https://docs.google.com/spreadshe
 
 ### User stories
 
--  *Your Life in numbers* is for those who are interested in statistics about life expectancy, health topics and trivial facts around the age of a human. 
+-  *Your Life in numbers* is for those who are interested in statistics about life expectancy, health topics and trivial facts around the age, weight and height of a human. 
 
 ## Design
 
@@ -86,16 +86,18 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 - **[CI Python Linter](https://pep8ci.herokuapp.com/#)**
 
   - result for run.py<br>
-  In the first run I had some warnings about trailing whitespace and errors about too long lines, but after fixing those  no more errors were found. 
+  In the first run I had some warnings about trailing whitespace and errors about too long lines, but after fixing those, no more errors were found. 
     ![result for run.py](documentation/readme/python-linter-ci-result.png)<br>
-   
-I also checked the page in the validator via text-input, and likewise no errors were detected in this way. All I got was information to avoid trailing slashes in void elements.
+
+- 
+Since I added a favicon, some meta description, a title and some style, I did the check. In the first run, it came back with an error because of a    
 
 2. **Lighthouse Test** <br>
    To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
-   - result for index.html<br>
-   First, it gave a warning that the form element did not have the correct associated label. 
-   ![Lighthouse]()
+   - result <br>
+  Although I was told, that we don’t have to do a Lighthouse test, I still created one for the site, as I added a background image, among other things. 
+  The 94% were caused by the background image and the border of the "Run Programm" button. I couldn’t improve accessibility further, but since this project wasn’t HTML/CSS first, I thought 94% was still a good result.
+   ![Lighthouse](documentation/readme/lighthouse_life-in-numbers.png)
 
 3. **Manual testing** <br>
 To ensure the pages are responsive, I used the Google Chrome developer tools.

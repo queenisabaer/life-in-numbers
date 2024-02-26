@@ -752,8 +752,8 @@ def calculate_life_expectancy():
     # calculate how many weeks a male person in europe has to live on average
     if user_gender == "m":
         print(
-            "The average life expectancy of a person with a gender assigned at"
-            " birth of\n'"
+            "The average life expectancy of a person with the gender assigned"
+            " at birth of\n'"
             + Fore.BLUE
             + "male"
             + Fore.WHITE
@@ -792,8 +792,8 @@ def calculate_life_expectancy():
             )
     else:
         print(
-            "The average life expectancy of a person with a gender assigned at"
-            " birth of\n'"
+            "The average life expectancy of a person with the gender assigned"
+            " at birth of\n'"
             + Fore.BLUE
             + "female"
             + Fore.WHITE
