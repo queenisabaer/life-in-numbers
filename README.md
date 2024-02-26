@@ -87,10 +87,13 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 
   - result for run.py<br>
   In the first run I had some warnings about trailing whitespace and errors about too long lines, but after fixing those, no more errors were found. 
-    ![result for run.py](documentation/readme/python-linter-ci-result.png)<br>
+    ![Python linter result for run.py](documentation/readme/python-linter-ci-result.png)<br>
 
-- 
-Since I added a favicon, some meta description, a title and some style, I did the check. In the first run, it came back with an error because of a    
+- **[HTML Validator](https://validator.w3.org/)**
+
+  - result for layout.html<br>
+  Since I added a favicon, a meta description, a title and some style to the layout.html file, I did check the layout.html file with the [Nu Html Checker](https://validator.w3.org/nu/about.html). In the first run, it came back with an error for the CSS height in the style area because I added a space between the number and the unit. After deleting this space, it came back with no errors or warnings. 
+  ![HTML Validator result for layout.html](documentation/readme/html-validator_layout-life-in-numbers.png)<br>
 
 2. **Lighthouse Test** <br>
    To measure the website against performance, accessibility, SEO and best practice, I used [Lighthouse](https://chromewebstore.google.com/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=de).<br>
