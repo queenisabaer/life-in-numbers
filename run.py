@@ -753,11 +753,11 @@ def calculate_life_expectancy():
     if user_gender == "m":
         print(
             "The average life expectancy of a person with a gender assigned at"
-            " birth of\n"
+            " birth of\n'"
             + Fore.BLUE
-            + " male"
+            + "male"
             + Fore.WHITE
-            + "in Europe is currently"
+            + "' in Europe is currently"
             + Fore.BLUE
             + " 76,8697 years."
         )
@@ -793,11 +793,11 @@ def calculate_life_expectancy():
     else:
         print(
             "The average life expectancy of a person with a gender assigned at"
-            " birth of\n"
+            " birth of\n'"
             + Fore.BLUE
-            + " female"
+            + "female"
             + Fore.WHITE
-            + " in Europe is currently"
+            + "' in Europe is currently"
             + Fore.BLUE
             + " 83,0172 years."
         )
