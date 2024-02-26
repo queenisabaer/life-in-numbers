@@ -35,47 +35,51 @@ The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsh
   The background image was selected as a contrast to the terminal. The arrangement of the numbers in a spiral-like pattern makes it a perfect match for the subject of the application. 
 
 - **Colour Scheme:**<br>
-  The colour choices were limited, since this application is terminal-based. My main goal with my colour scheme was therefore to provide feedback to the user and give the application some structure. To add the colours for the project, I used [Python Colorama](https://pypi.org/project/colorama/)
+  The colour choices were limited, since this application is terminal-based. My main goal with my colour scheme was therefore to provide feedback to the user and give the application some structure and consistency. To add the colours for the project, I used [Python Colorama](https://pypi.org/project/colorama/)
  I made the following colour selection from Colorama:
 
-  - GREEN
-  
+  - GREEN <br>
+  ![green validation screenshot](documentation/readme/green_life-in-numbers.png) <br>
   >  **Green** is the color most commonly associated with nature, **life**, **health**, youth, spring, hope, and envy. _(Wikipedia)_
 
   I used green for the logo of the application because it covers the topics of life and health. 
   Furthermore, it was used to show a positive message after a correct input by the user. <br>
   
-  - RED
-  
+  - RED <br>
+  ![red validation screenshot](documentation/readme/red_life-in-numbers.png) <br>
   > Since **red** is the color of blood, it has historically been associated with sacrifice, **danger**, and courage. _(Wikipedia)_
 
   Red was used to display a negative message if the user's input was invalid. <br>
 
-  - CYAN
-
+  - CYAN <br>
+  ![cyan input screenshot](documentation/readme/cyan_life-in-numbers.png) <br>
   > **Cyan** [...] is typically associated with liveliness, youth and **energy**, [...]. _(Designs.ai)_
 
   Cyan was used to query the user input. Since it is the colour between blue and green it was perfect for the user questions, which must be valid(green in the application). The user's response and the calculated numbers can then be seen in blue.
 
-  - BLUE
-
+  - BLUE <br>
+  ![blue input screenshot](documentation/readme/input_life-in-numbers.png) <br>
+  ![blue numbers screenshot](documentation/readme/blue_calculated_nums_life-in-numbers.png) <br>
   > **Blue** [...] often symbolizes serenity, **stability**, inspiration, or **wisdom**. _(Wikipedia)_
 
   The blue colour indicates the user's response and the calculated numbers in the topics. 
 
-  - MAGENTA
-
+  - MAGENTA <br>
+  ![magenta disclaimer screenshot](documentation/readme/magenta_life-in-numbers.png) <br>
+  ![magenta heading screenshot](documentation/readme/heading_life-in-numbers.png) <br>
   > It _[**Magenta**]_ promotes compassion, support and kindness and encourages a sense of self-respect and contentment in those who use it. Physiologically magenta helps us to flow with life and let go of old ideas. It's associated with love, warmth and respect [...]. _(AZDESIGN)_
 
   Since data security is crucial to me, I used Magenta for the Disclaimer. It was also used for the headings of the topics. 
 
-  - YELLOW
+  - YELLOW <br>
+  ![yellow subheadings screenshot](documentation/readme/yellow_life-in-numbers.png) <br>
+  ![lightyellow heading screenshot](documentation/readme/light_yellow_life-in-numbers.png) <br>
 
   > **Yellow** is the colour people most often associate with amusement, **gentleness**, humor, **happiness**, and spontaneity [...]. _(Wikipedia)_
   
   Subheadings were labeled with yellow. The lighter version of yellow was used for the headline "ATTENTION" or the gender question. 
 
-  - BLACK & WHITE
+  - BLACK & WHITE <br>
    The Terminal has a black background with white text(except the statements above). 
 
 <details>
