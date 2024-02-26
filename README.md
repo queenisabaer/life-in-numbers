@@ -2,12 +2,12 @@
 
 Python Essentials Project Portfolio - Code Institute
 
-View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)
-The corresponding worksheet can be seen [here](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
+View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)<br>
+The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
  *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height, weight and habits. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either persist with the chosen feature, switch to another feature, or exit the application. 
 
-![Responsive Mockup](documentation/)
+![Screenshot of the preview of application](documentation/readme/preview_life-in-numbers.png)<br>
 
 ## Table of contents
 
@@ -27,21 +27,71 @@ The corresponding worksheet can be seen [here](https://docs.google.com/spreadshe
 
 ## Design
 
-- **Imagery:**
-  xxx
-- **Colour Scheme:**
-  xxx <br>
+- **Imagery:**<br>
+  No images can be used in the terminal itself. The only way to display some kind of pictures is by using ASCII Art. 
 
-- **Typography:**
-  xxx
+- **Colour Scheme:**<br>
+  The colour choices were limited, since this application is terminal-based. My main goal with my colour scheme was therefore to provide feedback to the user and give the application some structure. To add the colours for the project, I used [Python Colorama](https://pypi.org/project/colorama/)
+ I made the following colour selection from Colorama:
 
-### Flowcharts
+  - GREEN
+  
+  >  **Green** is the color most commonly associated with nature, **life**, **health**, youth, spring, hope, and envy. _(Wikipedia)_
+
+  I used green for the logo of the application because it covers the topics of life and health. 
+  Furthermore, it was used to show a positive message after a correct input by the user. <br>
+  
+  - RED
+  
+  > Since **red** is the color of blood, it has historically been associated with sacrifice, **danger**, and courage. _(Wikipedia)_
+
+  Red was used to display a negative message if the user's input was invalid. <br>
+
+  - CYAN
+
+  > **Cyan** [...] is typically associated with liveliness, youth and **energy**, [...]. _(Designs.ai)_
+
+  Cyan was used to query the user input. Since it is the colour between blue and green it was perfect for the user questions, which must be valid(green in the application). The user's response and the calculated numbers can then be seen in blue.
+
+  - BLUE
+
+  > **Blue** [...] often symbolizes serenity, **stability**, inspiration, or wisdom. _(Wikipedia)_
+
+  The blue colour indicates the user's response and the calculated numbers in the topics. 
+
+  - MAGENTA
+
+  > It _[**Magenta**]_ promotes compassion, support and kindness and encourages a sense of self-respect and contentment in those who use it. Physiologically magenta helps us to flow with life and let go of old ideas. It's associated with love, warmth and respect [...]. _(AZDESIGN)_
+
+  Since data security is crucial to me, I used Magenta for the Disclaimer. It was also used for the headings of the topics. 
+
+  - YELLOW
+
+  > **Yellow** is the colour people most often associate with amusement, **gentleness**, humor, **happiness**, and spontaneity [...]. _(Wikipedia)_
+  
+  Subheadings were labeled with yellow. The lighter version of yellow was used for the headline "ATTENTION" or the gender question. 
+
+  - BLACK & WHITE
+   The Terminal has a black background with white text(except the statements above). 
 
 <details>
-<summary> xxx </summary>
+<summary> Click here to see the Colour palette </summary>
 <br>
 
-![Flowchart](documentation/)
+The colour code for the colours in the terminal was taken by using the pipette function of [ColorZilla](https://www.colorzilla.com/de/chrome/welcome/new/?chrome/121.0.0.0/-/4.0). I created the colour palette with [coloors](https://coolors.co/)<br>
+![Colour palette 1](documentation/readme/coloor_life-in-numbers-1.png)<br>
+![Colour palette 2](documentation/readme/coloors_life-in-numbers-2.png)<br>
+
+</details>
+
+### Flowchart
+
+The flowchart was crafted during the planning phase of the project and was created with [Lucidchart](https://lucid.app/). It still has a third topic(Food/Drinks), that I would love to implement in the future. Furthermore, it has some additional input (smoking/alcohol) that I didn't use in the end. This would also be a feature for the future.
+<details>
+<summary> Click here to see the flowchart </summary>
+<br>
+
+![Flowchart](documentation/readme/flowchart_life-in-numbers.png)
 
 </details>
 
@@ -49,8 +99,14 @@ The corresponding worksheet can be seen [here](https://docs.google.com/spreadshe
 
 ### Existing Features
 
-The ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)
 
+<details>
+<summary> Logo "Your Life in Numbers" </summary>
+<br>
+
+The ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)
+![Screenshot Logo](documentation/readme_features/logo_life-in-numbers.png/)
+</details>
 
 <details>
 <summary> Screenshot x </summary>
