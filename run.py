@@ -742,12 +742,13 @@ def calculate_life_expectancy():
     """
     user_gender = user.gender
     user_age = user.age
-    user_age_weeks = user_age * 52
+    weeks_in_a_year = 52
+    user_age_weeks = user_age * weeks_in_a_year
     # 76.8697(male) and 83.0172(female) was found at https://database.earth/
     average_age_male = 76.8697
     average_age_female = 83.0172
-    weeks_male = round(average_age_male * 52)
-    weeks_female = round(average_age_female * 52)
+    weeks_male = round(average_age_male * weeks_in_a_year)
+    weeks_female = round(average_age_female * weeks_in_a_year)
     print(Fore.YELLOW + "\nYears and Weeks\n")
     # calculate how many weeks a male person in europe has to live on average
     if user_gender == "m":
@@ -844,7 +845,8 @@ def mifflin_st_jeor_equation(weight, height, gender, age):
         age (int): The age of the user
     """
     print(Fore.YELLOW + "\nResting Metabolic Rate\n")
-    # The numbers for this calculation are from the nasm blog
+    # This is the Mifflin-St Jeor Equation. I found the numbers for this
+    # calculation in the NASM blog
     rmr_plain = (10 * weight) + (6.25 * (height * 100)) - (5 * age)
     if gender == "m":
         rmr = rmr_plain + 5

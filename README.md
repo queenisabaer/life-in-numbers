@@ -5,7 +5,7 @@ Python Essentials Project Portfolio - Code Institute
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)<br>
 The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
- *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
+ *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, gender(GAAB/Current physical sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
 
 ![Screenshot of the preview of application](documentation/readme/preview_life-in-numbers.png)<br>
 
@@ -111,7 +111,7 @@ The colour code for the colours in the terminal was taken by using the pipette f
 
 ### Flowchart
 
-The flowchart was crafted during the planning phase of the project and was created with [Lucidchart](https://lucid.app/). It still has a third topic(Food/Drinks), that I would love to implement in the future. Furthermore, it has some additional input (smoking/alcohol) that I didn't use in the end. This would also be a feature for the future.
+The flowchart was crafted during the planning phase of the project and was created with [Lucid](https://lucid.app/). It still displays a third topic(Food/Drinks), that I would love to implement in the future. Furthermore, it has some additional input (smoking/alcohol) that I didn't use in the end. This would also be a feature for the future.
 <details>
 <summary> Click here to see the flowchart </summary>
 <br>
@@ -130,15 +130,49 @@ To learn more about each feature, please click on the respective headline
 <summary> Logo 'Your Life in Numbers' </summary>
 <br>
 
-The ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)
-![Screenshot Logo](documentation/readme_features/logo_life-in-numbers.png/)
+The logo for the application was created with an [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) (Font: Small Keyboard).
+Unfortunately, the ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)<br>
+![Screenshot Logo](documentation/readme_features/logo_life-in-numbers.png)<br>
+The logo was designed for the welcome panel and is displayed again each time the application deletes the terminal from the previous entries. The only exception is the ending of the app. 
+
 </details>
 
 <details>
-<summary> Screenshot x </summary>
+<summary> Disclaimer </summary>
 <br>
 
-![Screenshot](documentation/)
+The disclaimer outlines the data management process of the application. It assures users that their data is stored temporarily during the program's use in a Google spreadsheet but will be deleted automatically once the program is exited correctly. Since the data that the user must provide to run the application properly is sensitive, the program seeks user confirmation to proceed, giving them the option to continue or decline. If the confirmation is negated, the program is immediately terminated.
+
+![Screenshot of the disclaimer](documentation/readme_features/disclaimer_life-in-numbers.png)<br>
+
+If a user does not answer and clicks "enter" right away or type a number respectively a letter other than y or n, an error message appears, indicating that only y or n can be entered. 
+![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
+</details>
+
+<details>
+<summary> Google Spreadsheet </summary>
+<br>
+
+As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
+
+![Google Spreadsheet with worksheet user](documentation/readme_features/user_worksheet_life-in-numbers.png)<br>
+
+In order for the worksheet to be uniquely assigned to the user, the new worksheet is given a non-recurring name by adding a time stamp to it. 
+
+![Google unique worksheet](documentation/readme_features/unique_worksheet_life-in-numbers.png)<br>
+
+All data entered by the user is stored in this new created worksheet. This sheet also contains the age, which was calculated during the input display. The program uses this cell (f2) in later calculations and outputs.
+
+![Google unique worksheet](documentation/readme_features/entries_worksheet_life-in-numbers.png)<br>
+
+If the program is terminated properly, this unique worksheet is automatically deleted. 
+</details>
+
+<details>
+<summary> Input Validation </summary>
+<br>
+
+
 </details>
 
 ### Features, which I would like to implement in the future
