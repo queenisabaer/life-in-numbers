@@ -5,7 +5,7 @@ Python Essentials Project Portfolio - Code Institute
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)<br>
 The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
- *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to another topic, or exit the application. 
+ *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, sex(GAAB/Current sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
 
 ![Screenshot of the preview of application](documentation/readme/preview_life-in-numbers.png)<br>
 
@@ -23,7 +23,24 @@ The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsh
 
 ### User stories
 
--  *Your Life in numbers* is for those who are interested in statistics about life expectancy, health topics and trivial facts around the age, weight and height of a human. 
+*Your Life in numbers* is for those who are interested in statistics about health topics and trivial facts around the age, weight and height of a human. 
+
+As owner of the application:
+
+- I want to build an application that allows users to learn more about their own BMI, their RMR (Resting Metabolic Rate) and some age-related topics. 
+- I want to ensure that the user interface remains consistent across all features to make it easy to use and navigate through.
+- I want the application to provide clear instructions and have an intuitive design to ensure that the user receives all the information necessary for the correct use of the application.
+- I expect the application to offer feedback to users during their interactions, guiding them through the input process.
+- I want to ensure the reliability of the application by implementing input validation mechanisms to avoid user errors and minimize the risk of technical problems or data inaccuracies.<br>
+
+As visitor/user of the application:
+
+- I want to easily understand what the purpose and the benefits of the program are.
+- I want the application to provide clear instructions on how to use its features.
+- I want the application to guide me through the process of entering my personal information, and expect the application to provide instant feedback to ensure that I provide accurate data.
+- I want to know what my data is used for. 
+- I want the interface to be visually appealing with concise explanations.
+- I want to know more about some statistics and calculations around my life. 
 
 ## Design
 
@@ -49,7 +66,7 @@ The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsh
   ![red validation screenshot](documentation/readme/red_life-in-numbers.png) <br>
   > Since **red** is the color of blood, it has historically been associated with sacrifice, **danger**, and courage. _(Wikipedia)_
 
-  Red was used to display a negative message if the user's input was invalid. <br>
+  Red was used to display a negative message respectively a warning if the user's input was invalid. <br>
 
   - CYAN <br>
   ![cyan input screenshot](documentation/readme/cyan_life-in-numbers.png) <br>
@@ -167,7 +184,6 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
    ![Lighthouse](documentation/readme/lighthouse_life-in-numbers.png)
 
 3. **Manual testing** <br>
-To ensure the pages are responsive, I used the Google Chrome developer tools.
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result**|
 |:---|:---|:---|:---|
@@ -198,12 +214,12 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 7. Click the *Save* Button<br>
 After refreshing the settings site for this repository above the **"Build and deployment"** section, you will see the Link to the Heroku Pages area with the link to the [view of the live site](https://queenisabaer.github.io/life-in-numbers/)
 
-- Forking this GitHub repository
+**Forking this GitHub repository**
 1.  Log in to GitHub.
 2.  Navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers)
 3. Click at the top of the repository on the **Fork** button on the right side
 
-- Clone this repository
+**Clone this repository**
 1.  Log in to GitHub.
 2.  Navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers)
 3. In the top right corner, click on the green *Code* button
