@@ -124,9 +124,10 @@ The flowchart was crafted during the planning phase of the project and was creat
 
 ### Existing Features
 
+To learn more about each feature, please click on the respective headline
 
 <details>
-<summary> Logo "Your Life in Numbers" </summary>
+<summary> Logo 'Your Life in Numbers' </summary>
 <br>
 
 The ASCII Art created a warning of "invalid escape sequence". To fix this issue I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/)
@@ -142,11 +143,13 @@ The ASCII Art created a warning of "invalid escape sequence". To fix this issue 
 
 ### Features, which I would like to implement in the future
 
-- 
+- I want to implement a login option so that the user can create an account and return to the application to view and update their data. 
+- I want to create more topics, like food/drinks. In this category, you could find some information about the average consumption of certain foods(e.g. vegetables, meat, etc.) per life or year.
+- I want to add some input requirements for habits such as smoking or alcohol consumption. This data could be used to adjust some of the calculations, such as life expectancy. In addition, the application could show how a change in this habit would be noticeable in the numbers. 
 
 ## Technologies Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS]()
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
