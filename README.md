@@ -216,7 +216,6 @@ The user must provide his weight (with a point for decimal), which must be withi
 ![Screenshot of invalid input for weight](documentation/readme_features/weight_invalid_input.png)<br>
 As soon as the user has made a valid entry, a positive confirmation is displayed and in the background the worksheet is automatically updated.<br>
 ![Video of valid input for weight](documentation/readme_features/weight_input_worksheet.gif)<br>
-</details>
 
 7. **Topic question** <br>
 After all data has been entered correctly and the worksheet has been updated, the user is shown the possible topics. <br>
@@ -225,6 +224,7 @@ An error message appears if a user does not answer and clicks 'enter' immediatel
 ![Screenshot of invalid input for the topic question](documentation/readme_features/topics_invalid_input.png)<br>
 At this point it is possible to exit the application and delete the data from the spreadsheet. <br>
 ![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
+</details>
 
 <details>
 <summary> Display of the entered data </summary>
