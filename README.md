@@ -174,9 +174,13 @@ If the program is terminated properly, this unique worksheet is automatically de
 
 In the course of the application, there is a variety of different inputs that the user must make. Since this involves different types of data, such as year of birth, name or weight, the validations also had to be adapted accordingly. 
 
-1. Disclaimer y/n
+1. Disclaimer (y/n)
 The first input validation can also be seen in the feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)<br>
+As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.
+![Gif of correct input in the dislaimer](documentation/readme_features/disclaimer_yes_new_worksheet.gif)<br>
+
+2. Name 
 
 
 </details>
