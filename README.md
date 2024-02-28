@@ -145,7 +145,7 @@ The disclaimer outlines the data management process of the application. It assur
 
 ![Screenshot of the disclaimer](documentation/readme_features/disclaimer_life-in-numbers.png)<br>
 
-If a user does not answer and clicks "enter" right away or type a number respectively a letter other than y or n, an error message appears, indicating that only y or n can be entered. 
+If a user does not answer and clicks "enter" right away or types a number respectively a letter other than y or n, an error message appears, indicating that only y or n can be entered. 
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
 </details>
 
@@ -163,15 +163,20 @@ In order for the worksheet to be uniquely assigned to the user, the new workshee
 
 All data entered by the user is stored in this new created worksheet. This sheet also contains the age, which was calculated during the input display. The program uses this cell (f2) in later calculations and outputs.
 
-![Google unique worksheet](documentation/readme_features/entries_worksheet_life-in-numbers.png)<br>
+![Google unique worksheet with entries](documentation/readme_features/entries_worksheet_life-in-numbers.png)<br>
 
-If the program is terminated properly, this unique worksheet is automatically deleted. 
+If the program is terminated properly, this unique worksheet is automatically deleted. The user is informed at the very beginning that the application must be terminated properly to delete this data sheet.  
 </details>
 
 <details>
 <summary> Input Validation </summary>
 <br>
 
+In the course of the application, there is a variety of different inputs that the user must make. Since this involves different types of data, such as year of birth, name or weight, the validations also had to be adapted accordingly. 
+
+1. Disclaimer y/n
+The first input validation can also be seen in the feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
+![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
 
 </details>
 
@@ -187,11 +192,12 @@ If the program is terminated properly, this unique worksheet is automatically de
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
+- [Heroku](https://www.heroku.com) was used to deploy the application.
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [CSS Gradient](https://cssgradient.io/) was used to create the gradient background of the instruction button
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
-- [Colorama](https://pypi.org/project/colorama/)was used to color the text in the terminal.
+- [Colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
 - [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
@@ -256,7 +262,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 8. Add a second key _PORT_ and set the value to _8000_
 9. Go to the _Buildpacks_ section and click the _Add Buildpacks_ button
 10. Select _python_ and click the _Save changes_ button
-11. Add a second buildpack _nodejs_
+11. Add a second buildpack: _nodejs_
 12. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connetc to Github_ button
 13. Search for the respository name on github _life-in-numbers_ and click the _Connect_ button 
 14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
@@ -449,7 +455,7 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 
 ### Acknowledgments
 
-- I would like to thank my wonderful mentor Brian Macheria for his numerous tips and great assistance during the creation of this project. 
-- I would also like to thank Gary Dolan for his amazing project [Pokemon Portfolio](https://github.com/GaryDolan/ci-p3-pokemon-portfolio/blob/main/README.md). It helped me a lot to style the background and the terminal. 
+- I would like to thank my amazing mentor Brian Macheria for his numerous tips and wonderful assistance during the creation of this project. 
+- I would also like to thank Gary Dolan for his great project [Pokemon Portfolio](https://github.com/GaryDolan/ci-p3-pokemon-portfolio/blob/main/README.md). It helped me a lot to style the background and the terminal. 
 
 **This is for educational use.**

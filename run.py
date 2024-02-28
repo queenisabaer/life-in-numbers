@@ -127,8 +127,9 @@ def disclaimer():
         )
         try:
             if continue_answer == "y" or continue_answer == "yes":
+                print(Fore.GREEN + "Great")
                 typing_print(
-                    "Great, let's start with your name and your birth year.\n")
+                    "! Let's start with your name and your birth year.\n")
                 break
             elif continue_answer == "n" or continue_answer == "no":
                 print(
