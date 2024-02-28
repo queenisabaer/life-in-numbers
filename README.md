@@ -141,9 +141,10 @@ The logo was designed for the welcome panel and is displayed again each time the
 <summary> Disclaimer </summary>
 <br>
 
-The disclaimer outlines the data management process of the application. It assures users that their data is stored temporarily during the program's use in a Google spreadsheet but will be deleted automatically once the program is exited correctly. Since the data that the user must provide to run the application properly is sensitive, the program seeks user confirmation to proceed, giving them the option to continue or decline. If the confirmation is negated, the program is immediately terminated.
-
+The disclaimer outlines the data management process of the application. It assures users that their data is stored temporarily during the program's use in a Google spreadsheet but will be deleted automatically once the program is exited correctly. Since the data that the user must provide to run the application properly is sensitive, the program seeks user confirmation to proceed, giving them the option to continue or decline. <br>
 ![Screenshot of the disclaimer](documentation/readme_features/disclaimer_life-in-numbers.png)<br>
+If the confirmation is negated, the program is immediately terminated.<br>
+![Screenshot of disclaimer termination](documentation/readme_features/disclaimer_no.png)<br>
 
 If a user does not answer and clicks "enter" right away or types a number respectively a letter other than y or n, an error message appears, indicating that only y or n can be entered. 
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
@@ -175,9 +176,11 @@ If the program is terminated properly, this unique worksheet is automatically de
 In the course of the application, there is a variety of different inputs that the user must make. Since this involves different types of data, such as year of birth, name or weight, the validations also had to be adapted accordingly. 
 
 1. Disclaimer (y/n)
-The first input validation can also be seen in the existing feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
+The first input validation can also be seen in the existing feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.<br>
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)<br>
-As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.
+If a user refuses to consent, the program will be terminated immediately within a few seconds. <br>
+![Screenshot of disclaimer termination](documentation/readme_features/disclaimer_no.png)<br>
+As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.<br>
 ![Gif of correct input in the dislaimer](documentation/readme_features/disclaimer_yes_new_worksheet.gif)<br>
 
 2. Name 
