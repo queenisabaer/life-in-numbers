@@ -195,7 +195,9 @@ If the program is terminated properly, this unique worksheet is automatically de
 - [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
-- [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image
+- [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image.
+- [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the logo.
+- [Google Spreadsheet](https://docs.google.com/spreadsheets/u/0/?pli=1) was used to create the worksheet for the application.
 
 ## Testing
 
@@ -239,24 +241,34 @@ If the program is terminated properly, this unique worksheet is automatically de
 
 - 
 
-## Deployment NEEDS TO BE UPDATED AT THE END!!!
+## Deployment
 
+### Heroku
 This site is deployed using Heroku. To deploy it from its GitHub repository to Heroku, I took the following steps:
-1. Log in (or sign up) to GitHub.
-2. Navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers)
-3. Click the *Settings* tab above the repository 
-4. xxx
-5. In the section **"xxx"** under *xxx* select *xxx* 
-6. In the section **"xxx"** under *xxx* select in the first area *xx* and in the second *xxx*
-7. Click the *Save* Button<br>
-After refreshing the settings site for this repository above the **"Build and deployment"** section, you will see the Link to the Heroku Pages area with the link to the [view of the live site](https://queenisabaer.github.io/life-in-numbers/)
 
-**Forking this GitHub repository**
+1. Create a list of requirements in the requirements.txt file by using the command _pip3 freeze > requirements.txt_
+2. Log in (or sign up) to Heroku
+3. Click on the _New_ button and select _Create new app_
+4. Give it a unique name and choose the region _Europe_
+5. Click the *Settings* tab, go to the _Config Vars_ section and click on the _Reveal Config Vars_ button
+6. Copy the content of the creds.json file() and paste it into the value field, then name the _Key_ CREDS, like the variable that holds the json file in the run.py file
+7. Click the _Add_ button
+8. Add a second key _PORT_ and set the value to _8000_
+9. Go to the _Buildpacks_ section and click the _Add Buildpacks_ button
+10. Select _python_ and click the _Save changes_ button
+11. Add a second buildpack _nodejs_
+12. Click the *Deploy* tab, go to the _Deployment method_ section, select _GitHub_ and confirm this selection by clicking on the _Connetc to Github_ button
+13. Search for the respository name on github _life-in-numbers_ and click the _Connect_ button 
+14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
+
+To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuapp.com/) click on the _Open app_ button on the top right corner
+
+### Forking this GitHub repository
 1.  Log in to GitHub.
 2.  Navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers)
 3. Click at the top of the repository on the **Fork** button on the right side
 
-**Clone this repository**
+### Clone this repository
 1.  Log in to GitHub.
 2.  Navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers)
 3. In the top right corner, click on the green *Code* button
@@ -264,6 +276,134 @@ After refreshing the settings site for this repository above the **"Build and de
 5. Go to the code editor of your choice and open the terminal
 5. Type `git clone` and paste the URL you copied into your terminal
 6. Press the enter key
+
+### Create a Google Spreadsheet(data model) and integrate it using API
+
+*__Create the Google Spreadsheet__*
+1. Log in (or sign up) to Google Account
+2. Access [Google spreadsheet](https://docs.google.com/spreadsheets/u/0/?pli=1)
+3. Create a new spreadsheet and give it a descriptive name, e.g. _'life-in-numers'_ like the name of the application
+4. Rename the worksheet (e.g. _'user'_) and add, if neccessary, additional worksheets 
+5. Add headings (_Name, Birth year, GAAB/CPS (m/f), Height in m, Weight in kg, Age_)<br>
+
+*__Set up the APIs__*
+
+1.  Navigate to the [Google Cloud Platform ](https://console.cloud.google.com/)
+2. Create a new project by clicking the button _Select a project_ and then select _new project_<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![New Project Google Cloud](documentation/deployment/google_cloud_new_project.png)
+    </details>
+3. Give the project a descriptive and meaningful name, e.g. life-in-numbers and click on the _CREATE_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Project Name Google Cloud](documentation/deployment/google_cloud_project_name.png)
+    </details>
+4. In the Notifcations pop-up click on "SELECT PROJECT"<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Notification Google Cloud](documentation/deployment/google_cloud_notification.png)
+    </details>
+5. On the project page go to the menu(click the burger icon in the top left corner of the page), click on _APIs and services_ and then select _Library_<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Library selection Google Cloud](documentation/deployment/google_cloud_library.png)
+    </details>
+6. In the search bar search for _Google Drive_ and enalbe it<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google cloud search bar for Google Drive API](documentation/deployment/google_cloud_google_drive_API.png)<br>
+    ![Google Drive API enable button](documentation/deployment/google_cloud_enable.png)
+    </details>
+7. To conntect to this API, you need to generate CREDENTIALS(proof to the google drive, that you have permission to access) by clicking on _Credentials_ in the sidebar and then select _+ CREATE CREDENTIALS_ -> _Help me choose_
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API Credentials](documentation/deployment/google_cloud_credentials.png)<br>
+    ![Google Drive API create Credentials](documentation/deployment/google_cloud_create_credentials_service.png)
+    </details>
+8. In the _Credential Type_ section select _Google Drive API_ and Application Data and click on the _NEXT_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API credential type](documentation/deployment/google_cloud_credentials_type.png)
+    </details>
+9. Enter a costum service name and click the _CREATE AND CONTINUE_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API account name](documentation/deployment/google_cloud_service_account.png)
+    </details>
+10. As role select _Editor_ in the Quick access section _Basic_ and press the _CONTINUE_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API Role](documentation/deployment/google_cloud_role.png)<br>
+    ![Google Drive API Role2](documentation/deployment/google_cloud_role2.png)
+    </details>
+11. The form fields in the next question: _Grant users access to this service account_ can be left blank, just click on the _DONE_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API acess user blank](documentation/deployment/google_cloud_acess_blank.png)
+    </details>
+12. Click on the mail from the new created Service Account<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API service acoount mail](documentation/deployment/google_cloud_service_mail.png)<br>
+    </details>
+13. Click on the Tab _KEYS_ and then select _Create new key_ from the dropdown menu of the _ADD KEY_ button<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API service acoount mail](documentation/deployment/google_cloud_keys.png)
+    </details>
+14. The key type can stay as JSON, just click the _CREATE_ button. Then a json file will be downloaded in to your local maschine.<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API service acoount mail](documentation/deployment/google_cloud_key_type.png)
+    </details>
+15. Make sure that the json file is never committed to github, since it contains sensitive information. For this purpose, create a _.gitignore_ file in the workspace and add the name of the json file to it.
+16. Go back to the library again (Step 5) and search for _google sheets api_ and enable it<br>
+    <details>
+    <summary> View this step as screenshot</summary>
+    <br>
+
+    ![Google Drive API service acoount mail](documentation/deployment/google_cloud_google_sheet.png)<br>
+    ![Google Drive API service acoount mail](documentation/deployment/google_cloud_google_sheet_enable.png)
+    </details>
+17. Drag and drop the credential-json file, that was downloaded after step 14, into the workspace and rename it as _creds.json_(for simplicity reasons)
+18. Open the json file in the workspace and copy the _client mail_ without the quotes
+19. Go to the created Google Spreadsheet and click the _Share_ button
+20. Paste in the mail adress(step 17), select _Editor_ and then click _Share_
+
+*__Connecting the APIs to Python__*
+1. In the workspace terminal command 'pip3 install gspread google-auth'.  
+2. Import the gspread library on top of the python file in the workspace. 
+3. Then import the _Credentials_ from the Google Auth Account (google.oauth2.service_account)
+4. Set the _SCOPE_, that lists the APIs, the program needs to access in order to run.
+5. Create _CREDS_, use the gspread authorize method and access the created worksheet data
+
 
 ## Credits
 

@@ -551,11 +551,11 @@ def next_topic(topic):
             )
             if next_topic_input == "y" and topic == "trivia":
                 trivia()
-                input(Fore.CYAN + "\nPress Enter to end the application...")
+                input(Fore.CYAN + "\nPress Enter to end the application...\n")
                 program_end()
             elif next_topic_input == "y" and topic == "health":
                 health()
-                input(Fore.CYAN + "\nPress Enter to end the application...")
+                input(Fore.CYAN + "\nPress Enter to end the application...\n")
                 program_end()
                 sys.exit()
             elif next_topic_input == "n":
