@@ -154,7 +154,7 @@ If a user does not answer and clicks "enter" right away or types a number respec
 <summary> Google Spreadsheet </summary>
 <br>
 
-As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. (To get an idea of this, you can also watch a video in the existing feature _Input Validation_ > _1. Disclaimer_) Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
+As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. (See also: _Existing feature_ > _Input Validation_ > _1. Disclaimer_) Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
 
 ![Google Spreadsheet with worksheet user](documentation/readme_features/user_worksheet_life-in-numbers.png)<br>
 
@@ -162,7 +162,7 @@ In order for the worksheet to be uniquely assigned to the user, the new workshee
 
 ![Google unique worksheet](documentation/readme_features/unique_worksheet_life-in-numbers.png)<br>
 
-All data entered by the user is stored in this new created worksheet. This sheet also contains the age, which was calculated during the input display. The program uses this cell (f2) in later calculations and outputs.
+All data entered by the user is stored in this new created worksheet.(See also: _Existing Features_ > _Input Validation_ > _6. Weight_) This sheet also contains the age, which was calculated during the input display. The program uses this cell (f2) in later calculations and outputs.
 
 ![Google unique worksheet with entries](documentation/readme_features/entries_worksheet_life-in-numbers.png)<br>
 
@@ -203,6 +203,17 @@ An error message appears if a user does not answer and clicks 'enter' immediatel
 As soon as the user has typed f or m, he receives a confirmation that this input can be used and the next question (height) is displayed. <br>
 ![Screenshot of valid input for gender](documentation/readme_features/gender_correct_input.png)<br>
 
+5. **Height**<br>
+The user must provide a height specification (with a point for decimal), which must be within a reasonable range. Otherwise, an error message is displayed.
+![Screenshot of valid input for height](documentation/readme_features/height_incorrect_input.png)<br>
+The next question(weight) is displayed after a valid entry is confirmed.
+![Screenshot of valid input for height](documentation/readme_features/height_valid_input.png)<br>
+
+6. **Weight** <br>
+The user must provide his weight (with a point for decimal), which must be within a reasonable range. Otherwise, an error message is displayed.
+![Screenshot of invalid input for weight](documentation/readme_features/weight_invalid_input.png)<br>
+As soon as the user has made a valid entry, a positive confirmation is displayeda and in the background the worksheet is automatically updated.
+![Video of valid input for weight](documentation/readme_features/weight_input_worksheet.gif)<br>
 </details>
 
 ### Features, which I would like to implement in the future
@@ -260,17 +271,22 @@ As soon as the user has typed f or m, he receives a confirmation that this input
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
 |:---|:---|:---|:---|
 | Programm start | Open the link for the live website or click on the _Run Program_ button | As soon as the page is loaded or the _Run Program- button was clicked, the logo for the application and the Disclaimer should be displayed | Pass |
-| Disclaimer - wrong input | Press _Enter_ key, type a number or a letter other than y or n | A warning/message that the user needs to make a correct input | Pass |
+| Disclaimer - wrong input | Press _Enter_ key, type a number or a letter other than y or n and then press _Enter_ key | A warning/message that the user needs to make a correct input | Pass |
 | Disclaimer - n input | Type n and press _Enter_ key | A farewell message is displayed and the program exits by clearing the screen. | Pass |
 | Disclaimer - y input | Type y and press _Enter_ key | A positive confirmation is displayed and the program starts in the query of the data | Pass |
 | Google Spreadsheet - new worksheet | Type y and press _Enter_ | In the Google spreadsheet, the existing user worksheet should be copied and given a unique name. | Pass |
 | Google Spreadsheet - delete worksheet | Go to the end of the application and confirm the exit. | The created worksheet should be deleted automatically. | Pass |
-| Name question - invalid input | Press _Enter_ key, type a number, a space, a special character or a name longer than 15 characters and press _Enter_ key | A warning/message that the user needs to make a correct input should be displayed | Pass |
+| Name question - invalid input | Press _Enter_ key, type a number, a space, a special character or a name longer than 15 characters and then press _Enter_ key | A warning/message that the user needs to make a correct input should be displayed | Pass |
 | Name question - valid input | Type a name and press _Enter_ key | A positive confirmation should be shown and the next question (year of birth) should be displayed. | Pass |
-| Birth year - invalid input | Press _Enter_ key, type a letter, a space, a special character, enter more or less than four numbers or an age outside a reasonable range.(-116 years-current year) and press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Birth year - invalid input | Press _Enter_ key, type a letter, a space, a special character, enter more or less than four numbers or an age outside a reasonable range.(-116 years-current year) and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
 | Birth year - valid input | Type four numbers in the reasonable range and press _Enter_ key | A positive confirmation should be shown, the terminal should be cleared and the note about gender should be displayed. | Pass |
-| Gender - invalid input | Press _Enter_ key, type a letter other than f or m, a space, a special character and press _Enter_ key| A warning/message that the user needs to make a correct input is shown | Pass |
+| Gender - invalid input | Press _Enter_ key, type a letter other than f or m, a space, a special character and then press _Enter_ key| A warning/message that the user needs to make a correct input is shown | Pass |
 | Gender - valid input | Type f or m and press _Enter_ key| A positive confirmation should be shown and the next question(height) should be displayed | Pass |
+| Height - invalid input | Press _Enter_ key, type a letter, a space, enter the height with a comma for decimal or a height outside a reasonable range.(0.49m-2.72m) and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Height - valid input | Type the height inside the reasonable range with a point for decimal and press _Enter_ key| A positive confirmation should be shown and the next question(weight) should be displayed | Pass |
+| Weight - invalid input | Press _Enter_ key, type a letter, a space, enter the weight with a comma for decimal or a weight outside a reasonable range.(3.3kg-650.0kg) and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Weight - valid input | Type the weight inside the reasonable range with a point for decimal and press _Enter_ key| A positive confirmation should be shown and the worksheet should be updated | Pass |
+
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
