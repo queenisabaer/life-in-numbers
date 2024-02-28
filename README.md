@@ -203,17 +203,40 @@ An error message appears if a user does not answer and clicks 'enter' immediatel
 As soon as the user has typed f or m, he receives a confirmation that this input can be used and the next question (height) is displayed. <br>
 ![Screenshot of valid input for gender](documentation/readme_features/gender_correct_input.png)<br>
 
-5. **Height**<br>
-The user must provide a height specification (with a point for decimal), which must be within a reasonable range. Otherwise, an error message is displayed.
+5. **Height** <br>
+The user must provide a height specification (with a point for decimal), which must be within a reasonable range (minimun is the average height of a newborn and maximum is guinness world record). Otherwise, an error message is displayed.
 ![Screenshot of valid input for height](documentation/readme_features/height_incorrect_input.png)<br>
 The next question(weight) is displayed after a valid entry is confirmed.
 ![Screenshot of valid input for height](documentation/readme_features/height_valid_input.png)<br>
 
 6. **Weight** <br>
-The user must provide his weight (with a point for decimal), which must be within a reasonable range. Otherwise, an error message is displayed.
+The user must provide his weight (with a point for decimal), which must be within a reasonable range (minimun is the average height of a newborn and maximum is guinness world record). Otherwise, an error message is displayed.
 ![Screenshot of invalid input for weight](documentation/readme_features/weight_invalid_input.png)<br>
-As soon as the user has made a valid entry, a positive confirmation is displayeda and in the background the worksheet is automatically updated.
+As soon as the user has made a valid entry, a positive confirmation is displayed and in the background the worksheet is automatically updated.<br>
 ![Video of valid input for weight](documentation/readme_features/weight_input_worksheet.gif)<br>
+</details>
+
+7. **Topic question** <br>
+
+
+<details>
+<summary> Display of the entered data </summary>
+<br>
+
+After the user has entered all data correctly and the worksheet has been updated, the user will be shown his entries again. The data from the worksheet is used for this purpose. 
+At this point, I would like to include in the future the possibility that the user can change his data again. <br>
+![Video of displaying data to user](documentation/readme_features/worksheet_update.gif)<br>
+
+</details>
+
+<details>
+<summary> Topic HEALTH </summary>
+<br>
+
+After the user has entered all data correctly and the worksheet has been updated, the user will be shown his entries again. The data from the worksheet is used for this purpose. 
+At this point, I would like to include in the future the possibility that the user can change his data again. <br>
+![Video of displaying data to user](documentation/readme_features/worksheet_update.gif)<br>
+
 </details>
 
 ### Features, which I would like to implement in the future
@@ -286,6 +309,7 @@ As soon as the user has made a valid entry, a positive confirmation is displayed
 | Height - valid input | Type the height inside the reasonable range with a point for decimal and press _Enter_ key| A positive confirmation should be shown and the next question(weight) should be displayed | Pass |
 | Weight - invalid input | Press _Enter_ key, type a letter, a space, enter the weight with a comma for decimal or a weight outside a reasonable range.(3.3kg-650.0kg) and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
 | Weight - valid input | Type the weight inside the reasonable range with a point for decimal and press _Enter_ key| A positive confirmation should be shown and the worksheet should be updated | Pass |
+| Display of entered data | Enter a valid weight and press the _Enter_ key | The data entered should be displayed to the user. | Pass |
 
 
 4. **Browser Compatibility**<br>
