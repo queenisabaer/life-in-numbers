@@ -183,7 +183,19 @@ If a user refuses to consent, the program will be terminated immediately within 
 As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.<br>
 ![Gif of correct input in the dislaimer](documentation/readme_features/disclaimer_yes_new_worksheet.gif)<br>
 
-2. Name 
+2. Name<br> 
+The user must make an entry, but this entry should not exceed 15 characters and must not contain special characters, numbers, or spaces.
+![Screenshot incorrect input for name](documentation/readme_features/name_incorrect_input.png)<br>
+If the name does not start with a capital letter, it is automatically capitalized by the program(see blue name in the greeting)<br>
+![Screenshot of correct name input](documentation/readme_features/name_input_correct.png)<br>
+
+3. Birth year<br>
+The user must make an entry. The year of birth should not contain spaces or letters and must be exactly 4 numbers long. In addition, the year of birth must be within a reasonable range. As a guideline, the current year and the oldest person according to Guinness World Record was used here as limitation.<br>
+![Screenshot of valid input birth year](documentation/readme_features/birth_year_incorrect_input.png)<br>
+As soon as the user enters a year of birth within the permitted range, it is confirmed and the screen is cleared.
+![Screenshot of valid input birth year](documentation/readme_features/birth_year_valid_input.png)<br>
+
+4. Gender(GAAB/CPS)
 
 
 </details>
