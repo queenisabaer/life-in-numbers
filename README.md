@@ -176,7 +176,8 @@ In the course of the application, there is a variety of different inputs that th
 
 1. Disclaimer y/n
 The first input validation can also be seen in the feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
-![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
+![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)<br>
+
 
 </details>
 
@@ -267,7 +268,7 @@ This site is deployed using Heroku. To deploy it from its GitHub repository to H
 13. Search for the respository name on github _life-in-numbers_ and click the _Connect_ button 
 14. Enable the automatic deploy or manually deploy the code from the main branch.<br>
 
-To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuapp.com/) click on the _Open app_ button on the top right corner
+To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuapp.com/) click on the _Open app_ button on the top right corner or, if you enabled automatic deploy(step 14), log in to GitHub, navigate to the repository for this project by selecting [*queenisabaer/life-in-numbers*](https://github.com/queenisabaer/life-in-numbers), click on _Deployment_ and choose in the _Environments_ section _life-in-numbers_. On top of the latest deployment is the link to the [live site](https://life-in-numbers-8fabeba9f5dd.herokuapp.com/).
 
 ### Forking this GitHub repository
 1.  Log in to GitHub.
