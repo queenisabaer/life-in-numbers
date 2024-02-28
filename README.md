@@ -252,10 +252,17 @@ As soon as the user enters a year of birth within the permitted range, it is con
 
 3. **Manual testing** <br>
 
-| **Test** | **Test Description** | **Expected Outcome** | **Result**|
-|:---|:---|:---|:---|
-
-
+| **Test** | **Test Description** | **Expected Outcome** | **Result** |
+| Programm start | Open the link for the live website or click on the _Run Program_ button | As soon as the page is loaded or the _Run Program- button was clicked, the logo for the application and the Disclaimer should be displayed | Pass |
+| Disclaimer - wrong input | Press _Enter_ key, type a number or a letter other than y or n | A warning/message that the user needs to make a correct input | Pass |
+| Disclaimer - n input | Type n and press _Enter_ key | A farewell message is displayed and the program exits by clearing the screen. | Pass |
+| Disclaimer - y input | Type y and press _Enter_ key | A positive confirmation is displayed and the program starts in the query of the data | Pass |
+| Google Spreadsheet - new worksheet | Type y and press _Enter_ | In the Google spreadsheet, the existing user worksheet should be copied and given a unique name. | Pass |
+| Google Spreadsheet - delete worksheet | Go to the end of the application and confirm the exit. | The created worksheet should be deleted automatically. | Pass |
+| Name question - invalid input | Press _Enter_ key, type a number, a space, a special character or a name longer than 15 characters | A warning/message that the user needs to make a correct input should be displayed | Pass |
+| Name question - valid input | Type a name | A positive confirmation should be shown and the next question (year of birth) should be displayed. | Pass |
+| Birth year- invalid input | Press _Enter_ key, type a letter, a space, a special character, enter more or less than four numbers or an age outside a reasonable range.(-116 years-current year)| A warning/message that the user needs to make a correct input is shown | Pass |
+| Birth year - valid input | Type four numbers in the reasonable range | A positive confirmation should be shown, the terminal should be cleared and the note about gender should be displayed. | Pass |
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
