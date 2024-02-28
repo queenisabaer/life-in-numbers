@@ -166,7 +166,9 @@ All data entered by the user is stored in this new created worksheet.(See also: 
 
 ![Google unique worksheet with entries](documentation/readme_features/entries_worksheet_life-in-numbers.png)<br>
 
-If the program is terminated properly, this unique worksheet is automatically deleted. The user is informed at the very beginning that the application must be terminated properly to delete this data sheet.  
+If the program is terminated properly, this unique worksheet is automatically deleted.(See also: _Existing Feature_ > _Input Validation_ > _7. Topic question_) <br>
+![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
+The user is informed at the very beginning that the application must be terminated properly to delete this data sheet.  
 </details>
 
 <details>
@@ -217,7 +219,12 @@ As soon as the user has made a valid entry, a positive confirmation is displayed
 </details>
 
 7. **Topic question** <br>
-
+After all data has been entered correctly and the worksheet has been updated, the user is shown the possible topics. <br>
+![Screenshot of of the topic question](documentation/readme_features/topics.png)<br>
+An error message appears if a user does not answer and clicks 'enter' immediately, types a letter or a number other than 1, 2 or 3.<br>
+![Screenshot of invalid input for the topic question](documentation/readme_features/topics_invalid_input.png)<br>
+At this point it is possible to exit the application and delete the data from the spreadsheet. <br>
+![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
 
 <details>
 <summary> Display of the entered data </summary>
@@ -233,9 +240,23 @@ At this point, I would like to include in the future the possibility that the us
 <summary> Topic HEALTH </summary>
 <br>
 
-After the user has entered all data correctly and the worksheet has been updated, the user will be shown his entries again. The data from the worksheet is used for this purpose. 
-At this point, I would like to include in the future the possibility that the user can change his data again. <br>
-![Video of displaying data to user](documentation/readme_features/worksheet_update.gif)<br>
+xxx<br>
+
+</details>
+
+<details>
+<summary> Topic TRIVIA </summary>
+<br>
+
+xxx<br>
+
+</details>
+
+<details>
+<summary> Program ending </summary>
+<br>
+
+xxx<br>
 
 </details>
 
@@ -511,7 +532,7 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 - To learn more about the if__name__ == "__main__" idiom, I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
 - To learn more about the usage of gspread I read [some articels by Anton Burnashev](https://docs.gspread.org/en/latest/user-guide.html)
 - How to use the zip method to combine two lists was found on [Stack Overflow](https://stackoverflow.com/questions/71086453/how-to-combine-the-elements-of-two-lists-using-zip-function-in-python)
-- How do I wait for a pressed key was found at [Stack Overflow](https://stackoverflow.com/questions/983354/how-do-i-wait-for-a-pressed-key)
+- How to wait for a pressed key was found at [Stack Overflow](https://stackoverflow.com/questions/983354/how-do-i-wait-for-a-pressed-key)
 - To understand more about the concepts of Python, I used the Udemy course: [The complete 2023 Web Development Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/the-complete-web-development-bootcamp/)
 - The following websites were used as a source of knowledge: <br>
   - [Google](www.google.com)
