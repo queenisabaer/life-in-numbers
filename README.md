@@ -153,7 +153,7 @@ If a user does not answer and clicks "enter" right away or types a number respec
 <summary> Google Spreadsheet </summary>
 <br>
 
-As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
+As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. (To get an idea of this, you can also watch a video in the existing feature _Input Validation_ > _1. Disclaimer_) Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
 
 ![Google Spreadsheet with worksheet user](documentation/readme_features/user_worksheet_life-in-numbers.png)<br>
 
@@ -175,7 +175,7 @@ If the program is terminated properly, this unique worksheet is automatically de
 In the course of the application, there is a variety of different inputs that the user must make. Since this involves different types of data, such as year of birth, name or weight, the validations also had to be adapted accordingly. 
 
 1. Disclaimer (y/n)
-The first input validation can also be seen in the feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
+The first input validation can also be seen in the existing feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)<br>
 As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.
 ![Gif of correct input in the dislaimer](documentation/readme_features/disclaimer_yes_new_worksheet.gif)<br>
@@ -209,6 +209,8 @@ As soon as the user agrees to the conditions by entering y, a new unique workshe
 - [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image.
 - [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the logo.
 - [Google Spreadsheet](https://docs.google.com/spreadsheets/u/0/?pli=1) was used to create the worksheet for the application.
+- [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
+- [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
 
 ## Testing
 

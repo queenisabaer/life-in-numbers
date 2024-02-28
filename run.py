@@ -282,8 +282,8 @@ def get_birth_year():
             elif not birth_year.isdigit() or len(birth_year) != 4:
                 raise ValueError(
                     Fore.RED
-                    + "Sorry, wrong format. Your birthdate needs four numbers"
-                    " (e.g., 1999)."
+                    + "Sorry, wrong format. Your birth year needs four numbers"
+                    " (e.g. 1999)."
                 )
             birth_year_num = int(birth_year)
             if birth_year_num <= min_year:
