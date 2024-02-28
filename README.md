@@ -175,7 +175,7 @@ If the program is terminated properly, this unique worksheet is automatically de
 
 In the course of the application, there is a variety of different inputs that the user must make. Since this involves different types of data, such as year of birth, name or weight, the validations also had to be adapted accordingly. 
 
-1. Disclaimer (y/n)
+1. **Disclaimer** (y/n) <br>
 The first input validation can also be seen in the existing feature _Disclaimer_. The program requires user confirmation at the beginning before proceeding, giving them the option of continuing by typing _y_ or declining by entering _n_. An error message appears if a user does not answer and clicks 'enter' immediately or types a number or a letter other than y or n.<br>
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)<br>
 If a user refuses to consent, the program will be terminated immediately within a few seconds. <br>
@@ -183,20 +183,25 @@ If a user refuses to consent, the program will be terminated immediately within 
 As soon as the user agrees to the conditions by entering y, a new unique worksheet is created and the query of the data begins.<br>
 ![Gif of correct input in the dislaimer](documentation/readme_features/disclaimer_yes_new_worksheet.gif)<br>
 
-2. Name<br> 
+2. **Name**<br> 
 The user must make an entry, but this entry should not exceed 15 characters and must not contain special characters, numbers, or spaces.
 ![Screenshot incorrect input for name](documentation/readme_features/name_incorrect_input.png)<br>
 If the name does not start with a capital letter, it is automatically capitalized by the program(see blue name in the greeting)<br>
 ![Screenshot of correct name input](documentation/readme_features/name_input_correct.png)<br>
 
-3. Birth year<br>
+3. **Birth year**<br>
 The user must make an entry. The year of birth should not contain spaces or letters and must be exactly 4 numbers long. In addition, the year of birth must be within a reasonable range. As a guideline, the current year and the oldest person according to Guinness World Record was used here as limitation.<br>
 ![Screenshot of valid input birth year](documentation/readme_features/birth_year_incorrect_input.png)<br>
 As soon as the user enters a year of birth within the permitted range, it is confirmed and the screen is cleared.
 ![Screenshot of valid input birth year](documentation/readme_features/birth_year_valid_input.png)<br>
 
-4. Gender(GAAB/CPS)
-
+4. **Gender(GAAB/CPS)**<br>
+The question of gender is a particularly sensitive one. I have therefore included a note explaining that this statement must be made because some calculations are based on gender. I tried to explain that the limited options here are just due to the nature of the application but that they are not meant to exclude or discriminate. <br>
+![Screenshot of gender attention](documentation/readme_features/gender_attention.png)<br>
+An error message appears if a user does not answer and clicks 'enter' immediately, types a number or a letter other than f or m <br>
+![Screenshot of invalid input for gender](documentation/readme_features/gender_invalid_input.png)<br>
+As soon as the user has typed f or m, he receives a confirmation that this input can be used and the next question (height) is displayed. <br>
+![Screenshot of valid input for gender](documentation/readme_features/gender_correct_input.png)<br>
 
 </details>
 
@@ -253,16 +258,19 @@ As soon as the user enters a year of birth within the permitted range, it is con
 3. **Manual testing** <br>
 
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
+|:---|:---|:---|:---|
 | Programm start | Open the link for the live website or click on the _Run Program_ button | As soon as the page is loaded or the _Run Program- button was clicked, the logo for the application and the Disclaimer should be displayed | Pass |
 | Disclaimer - wrong input | Press _Enter_ key, type a number or a letter other than y or n | A warning/message that the user needs to make a correct input | Pass |
 | Disclaimer - n input | Type n and press _Enter_ key | A farewell message is displayed and the program exits by clearing the screen. | Pass |
 | Disclaimer - y input | Type y and press _Enter_ key | A positive confirmation is displayed and the program starts in the query of the data | Pass |
 | Google Spreadsheet - new worksheet | Type y and press _Enter_ | In the Google spreadsheet, the existing user worksheet should be copied and given a unique name. | Pass |
 | Google Spreadsheet - delete worksheet | Go to the end of the application and confirm the exit. | The created worksheet should be deleted automatically. | Pass |
-| Name question - invalid input | Press _Enter_ key, type a number, a space, a special character or a name longer than 15 characters | A warning/message that the user needs to make a correct input should be displayed | Pass |
-| Name question - valid input | Type a name | A positive confirmation should be shown and the next question (year of birth) should be displayed. | Pass |
-| Birth year- invalid input | Press _Enter_ key, type a letter, a space, a special character, enter more or less than four numbers or an age outside a reasonable range.(-116 years-current year)| A warning/message that the user needs to make a correct input is shown | Pass |
-| Birth year - valid input | Type four numbers in the reasonable range | A positive confirmation should be shown, the terminal should be cleared and the note about gender should be displayed. | Pass |
+| Name question - invalid input | Press _Enter_ key, type a number, a space, a special character or a name longer than 15 characters and press _Enter_ key | A warning/message that the user needs to make a correct input should be displayed | Pass |
+| Name question - valid input | Type a name and press _Enter_ key | A positive confirmation should be shown and the next question (year of birth) should be displayed. | Pass |
+| Birth year - invalid input | Press _Enter_ key, type a letter, a space, a special character, enter more or less than four numbers or an age outside a reasonable range.(-116 years-current year) and press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Birth year - valid input | Type four numbers in the reasonable range and press _Enter_ key | A positive confirmation should be shown, the terminal should be cleared and the note about gender should be displayed. | Pass |
+| Gender - invalid input | Press _Enter_ key, type a letter other than f or m, a space, a special character and press _Enter_ key| A warning/message that the user needs to make a correct input is shown | Pass |
+| Gender - valid input | Type f or m and press _Enter_ key| A positive confirmation should be shown and the next question(height) should be displayed | Pass |
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
