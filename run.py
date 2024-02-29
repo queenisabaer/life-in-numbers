@@ -40,8 +40,6 @@ def clear_screen():
     Clears the screen from text,
     Code was found at altacademy
     """
-    os.system("cls" if os.name == "nt" else "clear")
-    # backup because on mac os.systems clears only viewport not whole terminal
     print("\033c", end="")
 
 
