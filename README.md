@@ -315,7 +315,7 @@ xxx<br>
 | **Test** | **Test Description** | **Expected Outcome** | **Result** |
 |:---|:---|:---|:---|
 | Programm start | Open the link for the live website or click on the _Run Program_ button | As soon as the page is loaded or the _Run Program- button was clicked, the logo for the application and the Disclaimer should be displayed | Pass |
-| Disclaimer - wrong input | Press _Enter_ key, type a number or a letter other than y or n and then press _Enter_ key | A warning/message that the user needs to make a correct input | Pass |
+| Disclaimer - invalid input | Press _Enter_ key, type a number or a letter other than y or n and then press _Enter_ key | A warning/message that the user needs to make a correct input | Pass |
 | Disclaimer - n input | Type n and press _Enter_ key | A farewell message is displayed and the program exits by clearing the screen. | Pass |
 | Disclaimer - y input | Type y and press _Enter_ key | A positive confirmation is displayed and the program starts in the query of the data | Pass |
 | Google Spreadsheet - new worksheet | Type y and press _Enter_ | In the Google spreadsheet, the existing user worksheet should be copied and given a unique name. | Pass |
@@ -331,6 +331,11 @@ xxx<br>
 | Weight - invalid input | Press _Enter_ key, type a letter, a space, enter the weight with a comma for decimal or a weight outside a reasonable range.(3.3kg-650.0kg) and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
 | Weight - valid input | Type the weight inside the reasonable range with a point for decimal and press _Enter_ key| A positive confirmation should be shown and the worksheet should be updated | Pass |
 | Display of entered data | Enter a valid weight and press the _Enter_ key | The data entered should be displayed to the user. | Pass |
+| Topics question | Enter a valid weight and press the _Enter_ key | The data entered should be displayed to the user, then the screen is cleared, the logo is displayed again and the topics question is loaded | Pass |
+| Topics question - invalid input | Press _Enter_ key, type a letter, a space or a number other than 1, 2 or 3 and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Topics question - valid input: 1 | Type 1 and press _Enter_ key| The screen should clear and then the logo and topic _health_ should be displayed with BMI, life expectancy and RMR | Pass |
+| Topics question - valid input: 2 | Type 2 and press _Enter_ key| The screen should clear and then the logo and topic _trivia_ should be displayed with Happy Birthday, dog years and celestial age | Pass |
+| Topics question - valid input: 3 | Type 3 and press _Enter_ key| A farewell message should be displayed and the message that the program will quit in the next 5 seconds. At the same time, the worksheet should automatically delete itself. | Pass |
 
 
 4. **Browser Compatibility**<br>
