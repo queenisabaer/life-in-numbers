@@ -603,19 +603,20 @@ def trivia():
     time.sleep(1.5)  # time delay of 1.5 seconds
     # get the calculated age of the user from the worksheet
     user_age = worksheets[new_sheet_name].acell("F2").value
+    user_age_num = int(user_age)
     print(Fore.YELLOW + "Happy Birthday\n")
     print(
         "Wow, it seems like you are (turning) "
         + Fore.BLUE
-        + f"{user_age}"
+        + f"{user_age_num}"
         + Fore.WHITE
         + " this year. What a marvelous age!"
     )
     time.sleep(1)  # time delay of 1 second
-    human_to_dog_years(user_age)
+    human_to_dog_years(user_age_num)
     time.sleep(1)
     print(Fore.YELLOW + "\nCelestial Age\n")
-    celestial_age(user_age)
+    celestial_age(user_age_num)
 
 
 def calculate_age(birth_year):
@@ -887,7 +888,7 @@ def human_to_dog_years(age):
     elif age == 2:
         dog_years = 15 + 9
     else:
-        dog_years = 24 + (5 * int(age))
+        dog_years = 24 + (5 * age)
     print(
         "As a dog, you would already be "
         + Fore.BLUE
@@ -913,7 +914,7 @@ def calculate_planet_age(planet,
         age (int): The age of the user
     """
     days_in_a_year = 365
-    age_in_days = int(age) * days_in_a_year
+    age_in_days = age * days_in_a_year
     planet_age = round(age_in_days / planet_orbital_period, 2)
     planet_age_days = round(planet_age * days_in_a_year)
     print(
