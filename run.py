@@ -27,18 +27,19 @@ CREDS = Credentials.from_service_account_file("creds.json")
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # Open the google spreadsheet and access the worksheets
-SHEET = GSPREAD_CLIENT.open("life-in-numbers")
+SHEET = GSPREAD_CLIENT.open("life-in-numbers-secure")
 WORKSHEET_USER = SHEET.get_worksheet(0)
 
 CURRENT_YEAR = datetime.now().year
 
-# Empty dictionary to store the duplicated worksheets 
+# Empty dictionary to store the duplicated worksheets
 worksheets = {}
+
 
 def clear_screen():
     """
     Clears the screen from text,
-    Code was found at altacademy
+    Code fpr print statement was given me by my mentor brian macheria
     """
     print("\033c", end="")
 

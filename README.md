@@ -3,7 +3,6 @@
 Python Essentials Project Portfolio - Code Institute
 
 View deployed site [here.](https://queenisabaer.github.io/life-in-letters/)<br>
-The corresponding worksheet can be seen [here.](https://docs.google.com/spreadsheets/d/1V-q5Z4Opv1oF5hzCndy-F-9fJQzqIql90ByZnaYp1uQ/edit?usp=sharing)
 
  *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, gender(GAAB/Current physical sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
 
@@ -169,6 +168,9 @@ All data entered by the user is stored in this new created worksheet.(See also: 
 If the program is terminated properly, this unique worksheet is automatically deleted.(See also: _Existing Feature_ > _Input Validation_ > _7. Topic question_) <br>
 ![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
 The user is informed at the very beginning that the application must be terminated properly to delete this data sheet.  
+
+**Notice:**  A presvious version of this README contained a link to the worksheet, but I deleted this link and switched in the code to a new hidden worksheet, because I realised that this link was on a public repository and the worksheet may contain sensitive information. And the original link is still in my commit history. 
+
 </details>
 
 <details>
@@ -543,7 +545,7 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 ### Code
 
 - To import the gspread library, setting the APIs, update the worksheet and getting the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
-- How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/)
+- How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/), in the end I only used another print statement, that was given me by my mentor Brian Macheria. 
 - To create a typewriting effect I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
 - Although I didn't use this function in the end(but can still be seen on the easrly versions on github), I want to mention that I used a thread on github by [Anton Burnashev](https://github.com/burnash/gspread/issues/387) to create a function that clears parts of the google worksheet. 
 - To learn more about the if__name__ == "__main__" idiom, I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
