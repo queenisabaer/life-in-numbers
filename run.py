@@ -30,8 +30,10 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("life-in-numbers")
 WORKSHEET_USER = SHEET.get_worksheet(0)
 
-CURRENT_YEAR = int(str(datetime.now().year))
+CURRENT_YEAR = datetime.now().year
 
+# Empty dictionary to store the duplicated worksheets 
+worksheets = {}
 
 def clear_screen():
     """
@@ -51,9 +53,6 @@ def delete_worksheet(worksheet):
         worksheet: The worksheet to be deleted.
     """
     SHEET.del_worksheet(worksheet)
-
-
-worksheets = {}
 
 
 def duplicate_worksheet(sheet_name, new_sheet_name):
@@ -657,7 +656,7 @@ def calculate_bmi(weight, height, gender, age):
     else:
         print("Your BMI is" + Fore.BLUE + f" {bmi}. ")
         if gender == "m":
-            # The numbers for the classification were found at sueddeutsche
+            # The numbers for the classification were found at sueddeutsche.de
             if bmi < 18.50:
                 print(
                     "Your weight status is classified as"
@@ -1044,15 +1043,15 @@ if __name__ == "__main__":
     gender_input = get_gender()
     # The average baby is born with a height of 0.49m and a weight of 3.3kg
     # Those numbers were in an article at sueddeutsche.de
-    baby_height = 0.49
-    baby_weight = 3.3
+    BABY_HEIGHT = 0.49
+    BABY_WEIGHT = 3.3
     # The numbers for the highest/heaviest person was found at wikipedia
-    tallest_human = 2.72
-    heaviest_human = 650.0
-    height_input = validate_weight_and_height("height", "m", baby_height,
-                                              tallest_human)
-    weight_input = validate_weight_and_height("weight", "kg", baby_weight,
-                                              heaviest_human)
+    TALLEST_HUMAN = 2.72
+    HEAVIEST_HUMAN = 650.0
+    height_input = validate_weight_and_height("height", "m", BABY_HEIGHT,
+                                              TALLEST_HUMAN)
+    weight_input = validate_weight_and_height("weight", "kg", BABY_WEIGHT,
+                                              HEAVIEST_HUMAN)
     age_input = calculate_age(birth_year_input)
     # Collect user data and initialize the User object
     user = User(
