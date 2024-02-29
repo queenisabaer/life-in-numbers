@@ -226,6 +226,12 @@ At this point it is possible to exit the application and delete the data from th
 ![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
 </details>
 
+8. **Other topic question (y/n)** <br>
+After the user has decided on a topic, he is asked if he also wants to learn something about the other topic. Again, he has the opportunity to end the program. <br>
+An error message appears if a user does not answer and clicks 'enter' immediately, types a letter or a number other than y or n.<br>
+
+When the user enters n, a short farewell message is displayed in which the user’s name is used. In addition, the screen is cleared after 5 seconds and the worksheet is deleted.<br>
+
 <details>
 <summary> Display of the entered data </summary>
 <br>
@@ -240,7 +246,11 @@ At this point, I would like to include in the future the possibility that the us
 <summary> Topic HEALTH </summary>
 <br>
 
-xxx<br>
+If the user has selected the topic _Health_ by pressing 1 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. Then the BMI, the life expectancy in weeks and finally the RMR is shown. The calculated numbers are displayed in blue. After the calculations the user has the option to either quit the program or learn about the other topic _Trivia_<br>
+![Video of displaying the topic health to user](documentation/readme_features)<br>
+
+1. **BMI** <br>
+
 
 </details>
 
@@ -248,8 +258,8 @@ xxx<br>
 <summary> Topic TRIVIA </summary>
 <br>
 
-xxx<br>
-
+If the user has selected the topic _Trivia_ by pressing 2 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. After that, a birthday greeting, age in dog years and age on different planets will be displayed. The calculated numbers are displayed in blue. The user now has the option to either quit the program or learn about the other topic _Health_.<br>
+![Video of displaying the topic trivia to user](documentation/readme_features)<br>
 </details>
 
 <details>
@@ -336,7 +346,9 @@ xxx<br>
 | Topics question - valid input: 1 | Type 1 and press _Enter_ key| The screen should clear and then the logo and topic _health_ should be displayed with BMI, life expectancy and RMR | Pass |
 | Topics question - valid input: 2 | Type 2 and press _Enter_ key| The screen should clear and then the logo and topic _trivia_ should be displayed with Happy Birthday, dog years and celestial age | Pass |
 | Topics question - valid input: 3 | Type 3 and press _Enter_ key| A farewell message should be displayed and the message that the program will quit in the next 5 seconds. At the same time, the worksheet should automatically delete itself. | Pass |
-
+| Next topic question - invalid input | Press _Enter_ key, type a letter, a space or a number other than y or n and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
+| Next topic question - valid input: y | Type y and press _Enter_ key| The screen should clear and then the logo and the other topic should be displayed | Pass |
+| Next topic question - valid input: n | Type n and press _Enter_ key| A farewell message should be displayed and the message that the program will quit in the next 5 seconds. At the same time, the worksheet should automatically delete itself. | Pass |
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
