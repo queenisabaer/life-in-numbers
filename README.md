@@ -144,7 +144,6 @@ The disclaimer outlines the data management process of the application. It assur
 ![Screenshot of the disclaimer](documentation/readme_features/disclaimer_life-in-numbers.png)<br>
 If the confirmation is negated, the program is immediately terminated.<br>
 ![Screenshot of disclaimer termination](documentation/readme_features/disclaimer_no.png)<br>
-
 If a user does not answer and clicks "enter" right away or types a number respectively a letter other than y or n, an error message appears, indicating that only y or n can be entered. 
 ![Screenshot of input errors in the dislaimer](documentation/readme_features/disclaimer_errors_life-in-numbers.png)
 </details>
@@ -153,7 +152,7 @@ If a user does not answer and clicks "enter" right away or types a number respec
 <summary> Google Spreadsheet </summary>
 <br>
 
-As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers'. (See also: _Existing feature_ > _Input Validation_ > _1. Disclaimer_) Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
+As soon as a user confirms the disclaimer, the existing worksheet 'user' is copied into the Google spreadsheet 'life-in-numbers-secure'. (See also: _Existing feature_ > _Input Validation_ > _1. Disclaimer_) Sensitive data should not normally be stored in a worksheet. Currently, however, the use of external databases is still beyond my capabilities. I therefore decided to use this somewhat unusual method of copying and automatic deletion. 
 
 ![Google Spreadsheet with worksheet user](documentation/readme_features/user_worksheet_life-in-numbers.png)<br>
 
@@ -167,9 +166,9 @@ All data entered by the user is stored in this new created worksheet.(See also: 
 
 If the program is terminated properly, this unique worksheet is automatically deleted.(See also: _Existing Feature_ > _Input Validation_ > _7. Topic question_) <br>
 ![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
-The user is informed at the very beginning that the application must be terminated properly to delete this data sheet.  
+The user is informed at the very beginning that the application must be terminated properly to delete this data sheet. In a future feature I would like to create a batch cleanup for abandoned worksheets, if an error occurs or the user doesn't end the program properly.
 
-**Notice:**  A presvious version of this README contained a link to the worksheet, but I deleted this link and switched in the code to a new hidden worksheet, because I realised that this link was on a public repository and the worksheet may contain sensitive information. And the original link is still in my commit history. 
+**Notice:**  A presvious version of this README contained a link to the google spreadsheet. I realised that this link was on a public repository and the spreadsheet may contain sensitive information. I deleted this link and switched in the code to a new hidden spreadsheet, because the original link is still in my commit history. Many of the screenshots in the readme are still with the old version of the spreadsheet, but the functionality is the same with the new version as well. 
 
 </details>
 
@@ -226,13 +225,14 @@ An error message appears if a user does not answer and clicks 'enter' immediatel
 ![Screenshot of invalid input for the topic question](documentation/readme_features/topics_invalid_input.png)<br>
 At this point it is possible to exit the application and delete the data from the spreadsheet. <br>
 ![Video of exit in topics](documentation/readme_features/worksheet_delete_topic_exit.gif)
-</details>
 
 8. **Other topic question (y/n)** <br>
 After the user has decided on a topic, he is asked if he also wants to learn something about the other topic. Again, he has the opportunity to end the program. <br>
 An error message appears if a user does not answer and clicks 'enter' immediately, types a letter or a number other than y or n.<br>
 
 When the user enters n, a short farewell message is displayed in which the user’s name is used. In addition, the screen is cleared after 5 seconds and the worksheet is deleted.<br>
+
+</details>
 
 <details>
 <summary> Display of the entered data </summary>
@@ -252,8 +252,9 @@ If the user has selected the topic _Health_ by pressing 1 in the topic question(
 ![Video of displaying the topic health to user](documentation/readme_features)<br>
 
 1. **BMI** <br>
+Body Mass Index (BMI) is a person's weight in kilograms divided by the square of height in meters. I used the class User to get the data for this calculation.<br>
 
-
+2. **
 </details>
 
 <details>
@@ -277,6 +278,7 @@ xxx<br>
 - I want to implement a login option so that the user can create an account and return to the application to view and update their data. 
 - I want to create more topics, like food/drinks. In this category, you could find some information about the average consumption of certain foods(e.g. vegetables, meat, etc.) per life or year.
 - I want to add some input requirements for habits such as smoking or alcohol consumption. This data could be used to adjust some of the calculations, such as life expectancy. In addition, the application could show how a change in this habit would be noticeable in the numbers. 
+- I want to add a batch cleanup of abandoned worksheets (e.g. every night at 1pm or once a week at 12am). Because right now I have to regularly check if a user didn't end the application properly or an error has occured and the spreadsheet still contains abandoned worksheets. 
 
 ## Technologies Used
 
