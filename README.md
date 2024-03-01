@@ -253,7 +253,7 @@ If the user has selected the topic _Health_ by pressing 1 in the topic question(
 While I was writing the README, I noticed that in the second function for the topic _Health_, I did not use parameters, but only variables. So I created a test python file to see if the code will still work correct if I insert the parameters. After doing this successfully, I copied the entire code from the test file and replaced the existing code so as not to forget a value. I know that this is clearly not best practice, because of course the commits for this step can no longer be traced well. I have therefore decided to mention this here at least in the README. Nevertheless, now the class User is used uniformly for all parameters in the function health. 
 
 1. **BMI** <br>
-Body Mass Index (BMI) is a person's weight in kilograms divided by the square of height in meters. The grading within the individual classes according to gender was taken from a German blog: [Rezeptrechner](https://www.rezeptrechner-online.de/blog/bmi-tabelle-rechner/) The calculator can only be used for adults, 20 years old and older. The BMI for children and teens is slightly different and is given in percentiles. I would like to add this feature in the future.<br>
+Body Mass Index (BMI) is a person's weight in kilograms divided by the square of height in meters. The grading within the individual classes(e.g. underweight, normal weight etc.) according to gender was taken from a German blog: [Rezeptrechner](https://www.rezeptrechner-online.de/blog/bmi-tabelle-rechner/) The calculator can only be used for adults, 20 years old and older. The BMI for children and teens is slightly different and is given in percentiles. I would like to add this feature in the future.<br>
 
 2. **Years and Weeks** <br>
 The average life expectancy of men and women was found on the [database earth](https://database.earth/population/europe/life-expectancy). These numbers and the age of the user are the basis for the calculations carried out at this point. <br>
@@ -278,8 +278,11 @@ In order to perform the calculations for the topic _Trivia_, a variable was crea
 1. **Happy Birthday** <br>
 This is a simple birthday greeting. <br>
 
-2. **Dog Years**
-
+2. **Dog Years**<br>
+How to calculate a humands age intodog years was found at the website of tehe [American KennellClub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/). As a general guideline it can be broke down like this:<br>
+> - 15 human years equals the first year of a medium-sized dog’s life. <br>
+> - Year two for a dog equals about nine years for a human. <br>
+> - And after that, each human year would be approximately five years for a dog. _(American Kennell Club)_ <br>
 
 </details>
 
