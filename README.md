@@ -330,6 +330,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [Google Spreadsheet](https://docs.google.com/spreadsheets/u/0/?pli=1) was used to create the worksheet for the application.
 - [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
 - [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
+- [Browserling](https://www.browserling.com/) was used to test the application on different browsers.
 
 ## Testing
 
@@ -388,10 +389,13 @@ The first time, the program can be terminated after the disclaimer was displayed
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
 
-- Google Chrome Version 120.0.6099.129
-- Safari on Mac Version 17.0 (17616.1.27.111.22, 17616) 
-- Safari on iOS 17.2.1
-- Edge Version 120.0.2210.61
+- Google Chrome Version 121.0.6167.160
+The following tests were conducted by using [browserling](https://www.browserling.com/)
+- Edge Version 118
+- Firefox 119
+- Opera 104
+
+I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it just opens the website and starts the program, but I can’t enter any input.
 
 5. **Bugs**
 
