@@ -231,7 +231,7 @@ After the user has decided on a topic, he is asked if he also wants to learn som
 An error message appears if a user does not answer and clicks 'enter' immediately, types a letter or a number other than y or n.<br>
 ![Screenshot of invalid input for the topic question](documentation/readme_features/invalid_input_next-topic.png)<br>
 When the user enters n, a short farewell message is displayed in which the user’s name is used. In addition, the screen is cleared after 5 seconds and the worksheet is deleted.<br>
-
+![Video of exit in next topics](documentation/readme_features/next_topic_no.gif)
 </details>
 
 <details>
@@ -271,7 +271,7 @@ It was found at the [NASM Blog](https://blog.nasm.org/nutrition/resting-metaboli
 <br>
 
 If the user has selected the topic _Trivia_ by pressing 2 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. After that, a birthday greeting, age in dog years and age on different planets will be displayed. The calculated numbers are displayed in blue. After the calculations the user  has the option to either quit the program or learn about the other topic _Health_.<br>
-![Video of displaying the topic trivia to user](documentation/readme_features)<br>
+![Video of displaying the topic trivia to user](documentation/readme_features/topic_trivia.gif)<br>
 
 In order to perform the calculations for the topic _Trivia_, a variable was created, which refers to the value 'Age' from the worksheet. This should show that I can also use concrete data from the spreadsheet.<br>
 
@@ -297,7 +297,7 @@ The exact calcluation was found at [girlstart](https://girlstart.org/wp-content/
 <br>
 
 The end of the program can be initiated at various points. Every time a user end the application the corresponding worksheet will be deleted permanently.(see also: _Exisiting Features_ > _Google Spreadsheet_) <br>
-The first time the program can be terminated after the disclaimer was displayed (see also: _Existing Features_ > _Disclaimer_). The next exit point is after the correct entry of all data when the topics are displayed (see also: _Existing Features_ > _Input validation_ > _7. Topic question_). After selecting one of the topics(either _Health_ or _Trivia_), you can also exit the application. The final end is the display of the second topic. Here you only have to press Enter to quit the application.  <br>
+The first time the program can be terminated after the disclaimer was displayed (see also: _Existing Features_ > _Disclaimer_). The next exit point is after the correct entry of all data when the topics are displayed (see also: _Existing Features_ > _Input validation_ > _7. Topic question_). After selecting one of the topics(either _Health_ or _Trivia_), you can also exit the application (see also: _Existing Features_ > _Input validation_ > _8. Other topic question_). The final end is the display of the second topic. Here you only have to press Enter to quit the application.  <br>
 ![Video of the end of the application](documentation/readme_features/end_of_application.gif)
 
 </details>
