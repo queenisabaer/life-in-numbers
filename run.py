@@ -391,10 +391,6 @@ def get_weight_and_height(var, units):
     Returns:
         float_input (float): The number input as a float
     """
-    typing_print(
-        f"Your {var} should be given in {units} and contain a point for the "
-        "decimal place.\n"
-    )
     while True:
         value = input(
             Fore.CYAN
@@ -433,6 +429,10 @@ def validate_weight_and_height(var, units, average_min, max_input):
     Raises:
         ValueError, if the given input is not within a reasonable range
     """
+    typing_print(
+        f"Your {var} should be given in {units} and contain a point for the "
+        "decimal place.\n"
+    )
     while True:
         values = get_weight_and_height(var, units)
         try:
