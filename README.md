@@ -229,7 +229,7 @@ At this point it is possible to exit the application and delete the data from th
 8. **Other topic question (y/n)** <br>
 After the user has decided on a topic, he is asked if he also wants to learn something about the other topic. Again, he has the opportunity to end the program. <br>
 An error message appears if a user does not answer and clicks 'enter' immediately, types a letter or a number other than y or n.<br>
-
+![Screenshot of invalid input for the topic question](documentation/readme_features/invalid_input_next-topic.png)<br>
 When the user enters n, a short farewell message is displayed in which the user’s name is used. In addition, the screen is cleared after 5 seconds and the worksheet is deleted.<br>
 
 </details>
@@ -296,7 +296,9 @@ The exact calcluation was found at [girlstart](https://girlstart.org/wp-content/
 <summary> Program ending </summary>
 <br>
 
-xxx<br>
+The end of the program can be initiated at various points. Every time a user end the application the corresponding worksheet will be deleted permanently.(see also: _Exisiting Features_ > _Google Spreadsheet_) <br>
+The first time the program can be terminated after the disclaimer was displayed (see also: _Existing Features_ > _Disclaimer_). The next exit point is after the correct entry of all data when the topics are displayed (see also: _Existing Features_ > _Input validation_ > _7. Topic question_). After selecting one of the topics(either _Health_ or _Trivia_), you can also exit the application. The final end is the display of the second topic. Here you only have to press Enter to quit the application.  <br>
+![Video of the end of the application](documentation/readme_features/end_of_application.gif)
 
 </details>
 
