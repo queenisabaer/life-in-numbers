@@ -250,19 +250,37 @@ At this point, I would like to include in the future the possibility that the us
 
 If the user has selected the topic _Health_ by pressing 1 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. Then the BMI, the life expectancy in weeks and finally the RMR is shown. The calculated numbers are displayed in blue. After the calculations the user has the option to either quit the program or learn about the other topic _Trivia_<br>
 ![Video of displaying the topic health to user](documentation/readme_features)<br>
+While I was writing the README, I noticed that in the second function for the topic _Health_, I did not use parameters, but only variables. So I created a test python file to see if the code will still work correct if I insert the parameters. After doing this successfully, I copied the entire code from the test file and replaced the existing code so as not to forget a value. I know that this is clearly not best practice, because of course the commits for this step can no longer be traced well. I have therefore decided to mention this here at least in the README. Nevertheless, now the class User is used uniformly for all parameters in the function health. 
 
 1. **BMI** <br>
-Body Mass Index (BMI) is a person's weight in kilograms divided by the square of height in meters. I used the class User to get the data for this calculation.<br>
+Body Mass Index (BMI) is a person's weight in kilograms divided by the square of height in meters. The grading within the individual classes according to gender was taken from a German blog: [Rezeptrechner](https://www.rezeptrechner-online.de/blog/bmi-tabelle-rechner/) The calculator can only be used for adults, 20 years old and older. The BMI for children and teens is slightly different and is given in percentiles. I would like to add this feature in the future.<br>
 
-2. **
+2. **Years and Weeks** <br>
+The average life expectancy of men and women was found on the [database earth](https://database.earth/population/europe/life-expectancy). These numbers and the age of the user are the basis for the calculations carried out at this point. <br>
+
+3. **RMR** <br>
+The Resting Metabolic Rate(RMR) was calculated with the Mifflin-St Jeor Equation: <br>
+Men: (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) + 5. <br>
+Women: (10 × weight in kg) + (6.25 × height in cm) - (5 × age in years) - 161. <br>
+It was found at the [NASM Blog](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours). I could not assign a variable to the given numbers(e.g. 10, 6.25) because I did not find the exact assignment. 
+
 </details>
 
 <details>
 <summary> Topic TRIVIA </summary>
 <br>
 
-If the user has selected the topic _Trivia_ by pressing 2 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. After that, a birthday greeting, age in dog years and age on different planets will be displayed. The calculated numbers are displayed in blue. The user now has the option to either quit the program or learn about the other topic _Health_.<br>
+If the user has selected the topic _Trivia_ by pressing 2 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. After that, a birthday greeting, age in dog years and age on different planets will be displayed. The calculated numbers are displayed in blue. After the calculations the user  has the option to either quit the program or learn about the other topic _Health_.<br>
 ![Video of displaying the topic trivia to user](documentation/readme_features)<br>
+
+In order to perform the calculations for the topic _Trivia_, a variable was created, which refers to the value 'Age' from the worksheet. This should show that I can also use concrete data from the spreadsheet.<br>
+
+1. **Happy Birthday** <br>
+This is a simple birthday greeting. <br>
+
+2. **Dog Years**
+
+
 </details>
 
 <details>
@@ -279,6 +297,7 @@ xxx<br>
 - I want to create more topics, like food/drinks. In this category, you could find some information about the average consumption of certain foods(e.g. vegetables, meat, etc.) per life or year.
 - I want to add some input requirements for habits such as smoking or alcohol consumption. This data could be used to adjust some of the calculations, such as life expectancy. In addition, the application could show how a change in this habit would be noticeable in the numbers. 
 - I want to add a batch cleanup of abandoned worksheets (e.g. every night at 1pm or once a week at 12am). Because right now I have to regularly check if a user didn't end the application properly or an error has occured and the spreadsheet still contains abandoned worksheets. 
+- I would like to add the BMI equivalent for people under 19. 
 
 ## Technologies Used
 
