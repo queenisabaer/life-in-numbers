@@ -383,6 +383,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 | Next topic question - invalid input | Press _Enter_ key, type a letter, a space or a number other than y or n and then press _Enter_ key | A warning/message that the user needs to make a correct input is shown | Pass |
 | Next topic question - valid input: _y_ | Type _y_ and press _Enter_ key| The screen should clear and then the logo and the other topic should be displayed | Pass |
 | Next topic question - valid input: _n_ | Type _n_ and press _Enter_ key| A farewell message should be displayed and the message that the program will quit in the next 5 seconds. At the same time, the worksheet should automatically delete itself. | Pass |
+| Program ending | Press _Enter_ key after the second topic was displayed | Once the second topic has been displayed, a single sentence should be displayed, prompting the user to press enter. After pressing the _Enter_ key, the farewell message should be displayed and the message that the program will quit in the next 5 seconds. At the same time, the worksheet should automatically delete itself. | Pass |
 
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
