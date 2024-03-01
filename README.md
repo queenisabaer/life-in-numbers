@@ -249,7 +249,7 @@ At this point, I would like to include in the future the possibility that the us
 <br>
 
 If the user has selected the topic _Health_ by pressing 1 in the topic question(see also: _Existing Feature_ > _Input validation_ > _7. Topic question_), the screen is deleted and the logo is displayed again. Then the BMI, the life expectancy in weeks and finally the RMR is shown. The calculated numbers are displayed in blue. After the calculations the user has the option to either quit the program or learn about the other topic _Trivia_<br>
-![Video of displaying the topic health to user](documentation/readme_features)<br>
+![Video of displaying the topic health to user](documentation/readme_features/health_topic.gif)<br>
 While I was writing the README, I noticed that in the second function for the topic _Health_, I did not use parameters, but only variables. So I created a test python file to see if the code will still work correct if I insert the parameters. After doing this successfully, I copied the entire code from the test file and replaced the existing code so as not to forget a value. I know that this is clearly not best practice, because of course the commits for this step can no longer be traced well. I have therefore decided to mention this here at least in the README. Nevertheless, now the class User is used uniformly for all parameters in the function health. 
 
 1. **BMI** <br>
@@ -279,10 +279,16 @@ In order to perform the calculations for the topic _Trivia_, a variable was crea
 This is a simple birthday greeting. <br>
 
 2. **Dog Years**<br>
-How to calculate a humands age intodog years was found at the website of tehe [American KennellClub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/). As a general guideline it can be broke down like this:<br>
+How to calculate a humans age into dog years was found at the website of tehe [American KennellClub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/). As a general guideline it can be broke down like this:<br>
 > - 15 human years equals the first year of a medium-sized dog’s life. <br>
 > - Year two for a dog equals about nine years for a human. <br>
 > - And after that, each human year would be approximately five years for a dog. _(American Kennell Club)_ <br>
+
+3. **Celestial Age**<br>
+This section calculates the age that the user would have on another planet of our solar system depending on the amount of time it takes this planet to make one trip around the sun.<br>
+The exact calcluation was found at [girlstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf) and can be broke down like this:
+- Multiply the age of the user by 365 (How long it takes for the Earth to orbit the Sun)
+- Divide the age in Earth days by the number of days in a planet’s year (orbital period).
 
 </details>
 
@@ -564,7 +570,7 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 - How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
 - How to calculate human years into dog years was found at [American Kennel CLub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/)
 - Examples of sidereal periods for the planets were found at [wikipedia](https://en.wikipedia.org/wiki/Orbital_period)
-- How to calculate the personal age on another planet was from a pdf chart at [girlsstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf)
+- How to calculate the personal age on another planet was from a pdf chart at [girlstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf)
 
 ### Code
 
