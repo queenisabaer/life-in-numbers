@@ -884,15 +884,15 @@ def human_to_dog_years(age):
     print(Fore.YELLOW + "\nDog Years\n")
     # The numbers for the steps of each dog year are from a table at
     # American Kennel Club
-    year_one_dog_life = 15
-    year_two_dog_life = 9
-    rest_dog_life_years = 5
+    year_one_dog = 15
+    year_two_dog = 9
+    rest_dog_years = 5
     if age == 1:
-        dog_years = year_one_dog_life
+        dog_years = year_one_dog
     elif age == 2:
-        dog_years = year_one_dog_life + year_two_dog_life
+        dog_years = year_one_dog + year_two_dog
     else:
-        dog_years = (year_one_dog_life + year_two_dog_life) + (rest_dog_life_years * age)
+        dog_years = (year_one_dog + year_two_dog) + (rest_dog_years * age)
     print(
         "As a dog, you would already be "
         + Fore.BLUE
