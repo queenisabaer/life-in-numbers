@@ -207,10 +207,10 @@ As soon as the user has typed _f_ or _m_, he receives a confirmation that this i
 ![Screenshot of valid input for gender](documentation/readme_features/gender_correct_input.png)<br>
 
 5. **Height** <br>
-The user must provide a height specification (with a point for decimal), which must be within a reasonable range (minimum is the average height of a newborn and maximum is the Guinness world record). Otherwise, an error message is displayed.
-![Screenshot of valid input for height](documentation/readme_features/height_incorrect_input.png)<br>
+The user must provide a height specification (with a point for decimal), which must be within a reasonable range (minimum is the average height of a newborn and maximum is the Guinness world record). Otherwise, an error message is displayed.<br>
+![Screenshot of invalid input for height](documentation/readme_features/height_invalid_input.png)<br>
 The next question (weight) is displayed after a valid entry is confirmed.
-![Screenshot of valid input for height](documentation/readme_features/height_valid_input.png)<br>
+![Screenshot of valid input for height](documentation/readme_features/height_correct_input.png)<br>
 
 6. **Weight** <br>
 The user must provide their weight (with a point for decimal), which must be within a reasonable range (minimum is the average height of a newborn and maximum is the Guinness world record). Otherwise, an error message is displayed.
