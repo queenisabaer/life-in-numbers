@@ -399,7 +399,22 @@ I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it 
 
 5. **Bugs**
 
-- No bugs were found. 
+- Clearing the screen:<br>
+First I had implemented the following function to clear the screen:
+```
+    def clear_screen ():
+        '''
+        Clears the screen from text
+        '''
+        os.system('cls' if os.name == 'nt' else 'clear')
+```
+
+Unfortunately, this version did not delete the entire screen in the deployed version of the application(it did work properly in my IDE), but only the visible area. Parts of the logo were displayed twice when the screen emptied, as soon as the text was longer than the viewport. My mentor Brian Macheria then gave me a version with which the function worked smoothly:
+```
+    print("\033c", end="")
+```
+Initially, I had this version as a backup, but after another conversation with my mentor, I deleted the original version. 
+
 
 ## Deployment
 
