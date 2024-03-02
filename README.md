@@ -337,9 +337,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) was used to get access to Google authentication. 
 - [gspread](https://docs.gspread.org/en/v5.10.0/) was used for the Google sheets functionality 
 - [datetime](https://docs.python.org/3/library/time.html) was used to get the current year and give the copied worksheets a time stamp in the name to make it unique. 
-- [Colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
-
-
+- [colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
 
 ## Testing
 
