@@ -569,7 +569,7 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 
 ### Content
 
-- The background image is from [Pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/)
+- The background image is from [Pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/).
 - The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancet](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract).
 - The [heaviest](https://en.wikipedia.org/wiki/List_of_heaviest_people) and [tallest](https://en.wikipedia.org/wiki/List_of_tallest_people) person were found on a list on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
 - The classification for the BMI was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/).
