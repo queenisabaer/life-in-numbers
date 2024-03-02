@@ -582,11 +582,12 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 ### Code
 
 - To import the gspread library, set the APIs, update the worksheet and get the data from this worksheet, I used the walkthrough project *love-sandwich* from Code Institute. 
+- Although I didn't use this function in the end (but can still be seen on the early versions on GitHub commits), I want to mention that I used a thread on GitHub by [Anton Burnashev](https://github.com/burnash/gspread/issues/387) to create a function that clears parts of the Google worksheet. 
+- To learn more about the usage of gspread I read articels by [Anton Burnashev](https://docs.gspread.org/en/latest/user-guide.html), by [Sogo Sogo Ogundowole](https://medium.com/hacktive-devs/gspread-automate-google-sheet-with-python-dc1fa7c65c21) and blogposts at [Codeforests](https://www.codeforests.com/2020/11/22/gspread-read-write-google-sheet/)
+- To duplicate an existing worksheet, I found [this thread on GitHub](https://github.com/burnash/gspread/issues/452) helpful. 
 - How to clear the screen was found in an article by [altcademy](https://www.altcademy.com/blog/how-to-clear-screen-in-python/), in the end I only used another print statement, that was given me by my mentor Brian Macheria. 
 - To create a typewriting effect, I used the tutorial by [101computing](https://www.101computing.net/python-typing-text-effect/)
-- Although I didn't use this function in the end (but can still be seen on the early versions on GitHub commits), I want to mention that I used a thread on GitHub by [Anton Burnashev](https://github.com/burnash/gspread/issues/387) to create a function that clears parts of the Google worksheet. 
 - To learn more about the idiom: if__name__ == "__main__", I read this [article by Martin Breuss](https://realpython.com/if-name-main-python/).
-- To learn more about the usage of gspread I read [some articels by Anton Burnashev](https://docs.gspread.org/en/latest/user-guide.html)
 - How to use the zip method to combine two lists was found on [Stack Overflow](https://stackoverflow.com/questions/71086453/how-to-combine-the-elements-of-two-lists-using-zip-function-in-python)
 - How to wait for a pressed key was found at [Stack Overflow](https://stackoverflow.com/questions/983354/how-do-i-wait-for-a-pressed-key)
 - To understand more about the concepts of Python, I used the Udemy course: [100 Days of Code: The Complete Python Pro Bootcamp by Dr. Angela Yu](https://www.udemy.com/course/100-days-of-code/)
