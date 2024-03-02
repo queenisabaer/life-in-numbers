@@ -312,13 +312,12 @@ The first time, the program can be terminated after the disclaimer was displayed
 
 ## Technologies Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS]()
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)/ [CSS](https://en.wikipedia.org/wiki/CSS)
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [Heroku](https://www.heroku.com) was used to deploy the application.
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
-- [CSS Gradient](https://cssgradient.io/) was used to create the gradient background of the instruction button
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
 - [Colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
