@@ -321,7 +321,6 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
-- [Colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
 - [Coloors](https://coolors.co/image-picker) was used to create the color scheme.
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
@@ -331,6 +330,16 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
 - [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
 - [Browserling](https://www.browserling.com/) was used to test the application on different browsers.
+
+**Libraries and modules used:** <br>
+- [sys](https://docs.python.org/3/library/sys.html) was used to get system-specific functions like exit(). It was also necessary for the typing-print effect. 
+- [time](https://docs.python.org/3/library/time.html) was used to access the sleep() function for the time delay.
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/reference/google.oauth2.service_account.html) was used to get access to Google authentication. 
+- [gspread](https://docs.gspread.org/en/v5.10.0/) was used for the Google sheets functionality 
+- [datetime](https://docs.python.org/3/library/time.html) was used to get the current year and give the copied worksheets a time stamp in the name to make it unique. 
+- [Colorama](https://pypi.org/project/colorama/) was used to color the text in the terminal.
+
+
 
 ## Testing
 

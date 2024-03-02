@@ -4,7 +4,6 @@ import time
 from google.oauth2.service_account import Credentials
 import gspread
 from datetime import datetime
-import os
 import colorama
 from colorama import Fore, Back
 
