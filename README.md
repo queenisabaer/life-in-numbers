@@ -399,7 +399,7 @@ I have tested the website on Safari on macOS Sonoma 14.3, but unfortunately, it 
 
 5. **Bugs**
 
-- Clearing the screen:<br>
+**Clearing the screen:**<br>
 First I had implemented the following function to clear the screen:
 ```
     def clear_screen ():
@@ -415,6 +415,8 @@ Unfortunately, this version did not delete the entire screen in the deployed ver
 ```
 Initially, I had this version as a backup, but after another conversation with my mentor, I deleted the original version. 
 
+**Typing-print statement in the weight/height validation:** <br>
+When validating the input of size and weight, the typing-print statement: _"Your height/weight should be given in m/kg and contain a point for the decimal place."_ always appeared again if the user has given a value outside the reasonable range, but it should only appear once at the beginning. I could fix this by changing the position of this typing-print statement. 
 
 ## Deployment
 
