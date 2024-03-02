@@ -32,7 +32,7 @@ WORKSHEET_USER = SHEET.get_worksheet(0)
 
 CURRENT_YEAR = datetime.now().year
 
-# Empty dictionary to store the duplicated worksheets
+# Empty dictionary to store the duplicated worksheet
 worksheets = {}
 
 
