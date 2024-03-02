@@ -4,13 +4,13 @@ Python Essentials Project Portfolio - Code Institute
 
 View the deployed site [here.](https://life-in-numbers-8fabeba9f5dd.herokuapp.com/)<br>
 
- *Your Life in numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, gender(GAAB/Current physical sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
+ *Your Life in Numbers* is a command-line interface program whose main goal is to provide the user with some facts based on the user's age, gender(GAAB/Current physical sex), height and weight. Upon receiving the user's input, the application presents/calculates the specified information regarding the chosen topic. Subsequently, the user has the option to either switch to the other topic, or exit the application. 
 
 ![Screenshot of the preview of application](documentation/readme/preview_life-in-numbers.png)<br>
 
 ## Table of contents
 
-- [User Experience (UX)](#user-experience)
+- [User Experience (UX)](#user-experience-(ux))
 - [Design](#design)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
@@ -22,7 +22,7 @@ View the deployed site [here.](https://life-in-numbers-8fabeba9f5dd.herokuapp.co
 
 ### User stories
 
-*Your Life in numbers* is for those who are interested in statistics about health topics and trivial facts around the age, weight and height of a human. 
+*Your Life in Numbers* is for those who are interested in statistics about health topics and trivial facts around the age, weight and height of a human. 
 
 As owner of the application:
 
@@ -279,7 +279,7 @@ To perform the calculations for the topic _Trivia_, a variable was created, whic
 This is a simple birthday greeting. <br>
 
 2. **Dog Years**<br>
-How to calculate a human's age into dog years was found at the website of the [American KennellClub](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/). As a general guideline, it can be broken down like this:<br>
+How to calculate a human's age into dog years was found at the website of the [American Kennell Club](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/). As a general guideline, it can be broken down like this:<br>
 > - 15 human years equals the first year of a medium-sized dog’s life. <br>
 > - Year two for a dog equals about nine years for a human. <br>
 > - And after that, each human year would be approximately five years for a dog. _(American Kennell Club)_ <br>
