@@ -317,6 +317,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 - [GitHub](https://github.com/) was used to save and store the files for the website.
 - [Heroku](https://www.heroku.com) was used to deploy the application.
+- [VS Code](https://code.visualstudio.com/) was used as IDE. 
 - [Lucid](https://lucid.app/) was used to create the Flowchart.
 - [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) to beautify the code
 - [LanguageTool](https://languagetool.org/) was used to check the grammar and spelling in the README and the Code. 
@@ -569,14 +570,14 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 ### Content
 
 - The background image is from [Pixabay by Gerd Altmann](https://pixabay.com/de/illustrations/zahlen-nummern-unendlichkeit-937884/)
-- The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancet](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract)
-- The heaviest and tallest person were found on a list on [Wikipedia](https://en.wikipedia.org/wiki/List_of_heaviest_people)
-- The classification for the BMI was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/)
-- The numbers for life expectancy in Europe was found on the [database earth](https://database.earth/population/europe/life-expectancy)
-- How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours)
-- How to calculate human years into dog years was found at [American Kennel Club](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/)
-- Examples of sidereal periods for the planets were found at [Wikipedia](https://en.wikipedia.org/wiki/Orbital_period)
-- How to calculate the personal age on another planet was from a PDF chart at [girlstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf)
+- The average weight and height of a human baby was found [here](https://www.sueddeutsche.de/gesundheit/geburtsgroesse-das-neue-standardbaby-1.2124509), which includes this study from [the lancet](https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(14)61490-2/abstract).
+- The [heaviest](https://en.wikipedia.org/wiki/List_of_heaviest_people) and [tallest](https://en.wikipedia.org/wiki/List_of_tallest_people) person were found on a list on [Wikipedia](https://en.wikipedia.org/wiki/Main_Page).
+- The classification for the BMI was taken from [this site](https://www.rezeptrechner-online.de/blog/tag/bmi-tabelle-teenager/).
+- The numbers for life expectancy in Europe was found on the [database earth](https://database.earth/population/europe/life-expectancy).
+- How to calculate the Resting Metabolic Rate was found [here](https://blog.nasm.org/nutrition/resting-metabolic-rate-how-to-calculate-and-improve-yours).
+- How to calculate human years into dog years was found at [American Kennel Club](https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/).
+- Examples of sidereal periods for the planets were found at [Wikipedia](https://en.wikipedia.org/wiki/Orbital_period).
+- How to calculate the personal age on another planet was from a PDF chart at [girlstart](https://girlstart.org/wp-content/uploads/2017/07/13.Age-on-Planets.pdf).
 
 ### Code
 
