@@ -27,7 +27,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 # Open the google spreadsheet and access the worksheets
 SHEET = GSPREAD_CLIENT.open("life-in-numbers-secure")
-WORKSHEET_USER = SHEET.get_worksheet(0)
+WORKSHEET_USER = SHEET.worksheet('User')
 
 CURRENT_YEAR = datetime.now().year
 
