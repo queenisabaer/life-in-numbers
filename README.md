@@ -44,7 +44,7 @@ As visitor/user of the application:
 ## Design
 
 - **Imagery:**<br>
-  No images can be used in the terminal itself. The only way to display some kinds of pictures is by using ASCII Art. I created the logo for _Your Life in Numbers_  by using the font "Small Keyboard" with this [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) that creates ASCII Art from text.<br>
+  No images can be used in the terminal itself. The only way to display some kinds of pictures is by using ASCII Art. I created the logo for _Your Life in Numbers_  by using the font "Small Keyboard" with this [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Small%20Keyboard&t=Type%20Something%20) that creates ASCII Art from text.<br>
 
   ![Logo for Your Life in Numbers](documentation/readme_features/logo_life-in-numbers.png)<br>
 
@@ -129,7 +129,7 @@ To learn more about each feature, please click on the respective headline
 <summary> Logo 'Your Life in Numbers' </summary>
 <br>
 
-The logo for the application was created with an [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) (Font: Small Keyboard).
+The logo for the application was created with an [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Small%20Keyboard&t=Type%20Something%20) (Font: Small Keyboard).
 Unfortunately, the ASCII Art created a warning of "invalid escape sequence". To resolve this issue, I used a blog post by [Adam Johnson](https://adamj.eu/tech/2022/11/04/why-does-python-deprecationwarning-invalid-escape-sequence/).<br>
 ![Screenshot Logo](documentation/readme_features/logo_life-in-numbers.png)<br>
 The logo was designed for the welcome panel and is displayed again each time the application deletes the terminal from the previous entries. Only the ending of the app is an exception. 
@@ -326,7 +326,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 - [Pixelied](https://pixelied.com/convert/jpg-converter/jpg-to-webp) was used to convert jpg images into wepb images.
 - [Tinypng](https://tinypng.com/) was used to compress the webp background-image.
 - [Pixabay](https://www.pixabay.com/de-de/) was used to search and load the background image.
-- [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the logo.
+- [ASCII Art Generator](https://patorjk.com/software/taag/#p=display&f=Small%20Keyboard&t=Type%20Something%20) was used to create the logo.
 - [Google Spreadsheet](https://docs.google.com/spreadsheets/u/0/?pli=1) was used to create the worksheet for the application.
 - [QuickTime Player](https://support.apple.com/en_GB/downloads/quicktime) was used to create for recording the screen.
 - [xconvert](https://www.xconvert.com/) was used to convert the screen recording from mov into gif.
