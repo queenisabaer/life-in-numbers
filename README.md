@@ -401,8 +401,8 @@ The first time, the program can be terminated after the disclaimer was displayed
 4. **Browser Compatibility**<br>
   The tests were conducted using the following browsers:
 
-- Google Chrome Version 121.0.6167.160
-The following tests were conducted by using [browserling](https://www.browserling.com/)
+- Google Chrome Version 121.0.6167.160 <br>
+The following tests were conducted by using [browserling](https://www.browserling.com/) <br>
 - Edge Version 118
 - Firefox 119
 - Opera 104
