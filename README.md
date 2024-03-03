@@ -212,11 +212,15 @@ The user must provide a height specification (with a point for decimal), which m
 The next question (weight) is displayed after a valid entry is confirmed.
 ![Screenshot of valid input for height](documentation/readme_features/height_correct_input.png)<br>
 
+**Notice:** Currently, height and weight are not validated against each other. This means that you can theoretically enter a valid height of 1.98 m and a valid weight of 3 kg. To integrate a function that performs this kind of validation sensibly, a detailed search is needed to find out which values are in a reasonable range. I would like to this for a future feature.
+
 6. **Weight** <br>
 The user must provide their weight (with a point for decimal), which must be within a reasonable range (minimum is the average height of a newborn and maximum is the Guinness world record). Otherwise, an error message is displayed.
 ![Screenshot of invalid input for weight](documentation/readme_features/weight_invalid_input.png)<br>
 As soon as the user has made a valid entry, a positive confirmation is displayed and in the background, the worksheet is automatically updated.<br>
 ![Video of valid input for weight](documentation/readme_features/weight_input_worksheet.gif)<br>
+
+**Notice:** Currently, height and weight are not validated against each other. This means that you can theoretically enter a valid height of 1.98 m and a valid weight of 3 kg. To integrate a function that performs this kind of validation sensibly, a detailed search is needed to find out which values are in a reasonable range. I would like to this for a future feature.
 
 7. **Topic question** <br>
 After all data has been entered correctly and the worksheet has been updated, the user is shown the possible topics. <br>
@@ -309,6 +313,7 @@ The first time, the program can be terminated after the disclaimer was displayed
 - I want to add some input requirements for habits such as smoking or alcohol consumption. This data could be used to adjust some of the calculations, such as life expectancy. In addition, the application could show how a change in this habit would be noticeable in the numbers. 
 - I intend to add a batch clean-up of abandoned worksheets (e.g. every night at 1pm or once a week at 12am). Because right now, I have to regularly check if a user didn't end the application properly or an error has occurred, and the spreadsheet still contains abandoned worksheets. 
 - I would like to add the BMI equivalent for people under 19. 
+- I would like to include an additional validation that considers the ratio of height and weight. 
 
 ## Technologies Used
 
