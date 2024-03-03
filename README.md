@@ -430,6 +430,16 @@ Initially, I had this version as a backup, but after another conversation with m
 **Typing-print statement in the weight/height validation:** <br>
 When validating the input of size and weight, the typing-print statement: _"Your height/weight should be given in m/kg and contain a point for the decimal place."_ always appeared again if the user has given a value outside the reasonable range, but it should only appear once at the beginning. I could fix this by changing the position of this typing-print statement. 
 
+**Duplicate the worksheet _user_** <br>
+After I made the project available for code review in the Slack community, I was told that the age calculation for the "Happy Birthday" message of a 104-year-old was apparently incorrect. After checking the corresponding function that worked as expected, I looked into the spreadsheet and found that someone clearly did not exit the application correctly. The still existing worksheet with the old data in it was then copied and not the _user_ worksheet. Since the functions of the trivia theme rely on a special cell(_F2_), only the value of this copied sheet (in this case with an age of 45) was used. I was able to fix this by referring to the worksheet’s name:
+```
+    WORKSHEET_USER = SHEET.worksheet('User')
+```
+ instead of the worksheet’s index:
+ ```
+    WORKSHEET_USER = SHEET.get_worksheet(0)
+```
+
 ## Deployment
 
 ### Heroku
