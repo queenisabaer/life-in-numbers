@@ -431,7 +431,7 @@ Initially, I had this version as a backup, but after another conversation with m
 When validating the input of size and weight, the typing-print statement: _"Your height/weight should be given in m/kg and contain a point for the decimal place."_ always appeared again if the user has given a value outside the reasonable range, but it should only appear once at the beginning. I could fix this by changing the position of this typing-print statement. 
 
 **Duplicate the worksheet _user_** <br>
-After I made the project available for code review in the Slack community, I was told that the age calculation for the "Happy Birthday" message of a 104-year-old was apparently incorrect. After checking the corresponding function that worked as expected, I looked into the spreadsheet and found that someone clearly did not exit the application correctly. The still existing worksheet with the old data in it was then copied and not the _user_ worksheet. Since the functions of the trivia theme rely on a special cell(_F2_), only the value of this copied sheet (in this case with an age of 45) was used. I was able to fix this by referring to the worksheet’s name:
+After I made the project available for code review in the Slack community of the Code Institute, I was told that the age calculation for the "Happy Birthday" message of a 104-year-old was apparently incorrect. After checking the corresponding function that worked as expected, I looked into the spreadsheet and found that someone clearly did not exit the application correctly. The still existing worksheet with the old data in it was then copied and not the _user_ worksheet. Since the functions of the trivia theme rely on a special cell(_F2_), only the value of this copied sheet (in this case with an age of 45) was used. I was able to fix this by referring to the worksheet’s name:
 ```
     WORKSHEET_USER = SHEET.worksheet('User')
 ```
@@ -651,5 +651,6 @@ To see the [view of the live site](https://life-in-numbers-8fabeba9f5dd.herokuap
 
 - I would like to thank my amazing mentor Brian Macheria for his numerous tips and wonderful assistance during the creation of this project. 
 - I would also like to thank Gary Dolan for his great project [Pokémon Portfolio](https://github.com/GaryDolan/ci-p3-pokemon-portfolio/blob/main/README.md). It helped me a lot to style the background and the terminal. 
+- Furthermore, I would like to thank Niclas Hugdahl, who tested my code extensively and drew my attention to the error with the worksheet.
 
 **This is for educational use.**
